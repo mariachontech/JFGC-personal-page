@@ -42,7 +42,11 @@ export const Navbar = (props: Props) => {
     <header className="w-full px-32 py-8 font-medium flex items-center justify-between">
       <nav>
         <CustomLink href={'/'} title="Inicio" className="mr-4" />
-        <CustomLink href={'/cv'} title={'CV'} className="mx-4" />
+        <CustomLink
+          href={'/acerca-de-mi'}
+          title={'Acerca de mí'}
+          className="mx-4"
+        />
         <CustomLink href={'/proyectos'} title="Proyectos" className="mx-4" />
         <CustomLink href={'/articulos'} title="Articulos" className="ml-4" />
       </nav>
