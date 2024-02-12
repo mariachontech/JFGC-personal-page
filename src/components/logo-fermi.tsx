@@ -18,7 +18,7 @@ export const LogoFermiFull = (props: Props) => {
         whileHover={{ scale: 1.1 }}
       >
         <Image
-          src={'logos/logo-completo.svg'}
+          src={'logos/logo-dark.svg'}
           alt="Fermi's logo "
           fill
           className="object-contain "
