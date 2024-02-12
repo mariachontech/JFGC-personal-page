@@ -27,7 +27,7 @@ const CustomLink = ({
       {title}
       <span
         className={cn(
-          'h-[1px] inline-block bg-dark dark:bg-light absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300',
+          'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300',
           pathName === href ? 'w-full' : 'w-0'
         )}
       >
