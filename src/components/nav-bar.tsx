@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import React from 'react'
-import { LogoFermiFull } from './logo-fermi'
+import { LogoFermiFull, LogoFermiIcon, LogoFermiMedium } from './logo-fermi'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
@@ -51,8 +51,8 @@ export const Navbar = (props: Props) => {
         <CustomLink href={'/proyectos'} title="Proyectos" className="mx-4" />
         <CustomLink href={'/articulos'} title="Articulos" className="ml-4" />
       </nav>
-      <div className="absolute left-[50%] translate-x-[-50%] ">
-        <LogoFermiFull />
+      <div className="absolute left-[50%] translate-x-[-50%] mt-2 ">
+        <LogoFermiIcon />
       </div>
       <nav className="flex items-center justify-center flex-wrap">
         <motion.a

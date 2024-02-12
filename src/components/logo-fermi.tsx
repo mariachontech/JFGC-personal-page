@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { motion } from 'framer-motion'
+import { cn } from '@/lib/utils'
+import { roboto } from '@/lib/fonts'
 
 type Props = {}
 
@@ -47,20 +49,32 @@ export const LogoFermiMedium = (props: Props) => {
   )
 }
 
-export const LogoFermiIcono = (props: Props) => {
+export const LogoFermiIcon = (props: Props) => {
   return (
-    <div className="flex items-center justify-center mt-2">
-      <MotionLink
-        href={'/'}
-        className="relative w-[300px] h-[150px] rounded-full"
-      >
+    <MotionLink
+      href={'/'}
+      className={cn(
+        'relative flex items-center justify-center mt-2',
+        roboto.className
+      )}
+      whileHover={{ scale: 1.1 }}
+    >
+      <div className="relative w-[300px] h-[150px] ">
         <Image
           src={'logos/logo-icono.svg'}
           alt="Fermi's logo "
           fill
           className="object-contain "
         />
-      </MotionLink>
-    </div>
+      </div>
+      <div
+        className={
+          'absolute left-16 flex flex-col justify-end items-end w-full'
+        }
+      >
+        <h5 className="font-light text-4xl text-primary">José Fermi</h5>
+        <h6 className="font-thin ">Consultor</h6>
+      </div>
+    </MotionLink>
   )
 }
