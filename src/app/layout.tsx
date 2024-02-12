@@ -1,9 +1,13 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/providers/theme-provider'
+import { Navbar } from '@/components/nav-bar'
 
-const inter = Inter({ subsets: ['latin'] })
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+})
 
 export const metadata: Metadata = {
   title: 'José Fermi Guerrero Castellanos',
@@ -17,14 +21,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="es">
+      <body className={montserrat.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>

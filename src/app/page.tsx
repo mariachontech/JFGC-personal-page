@@ -1,10 +1,11 @@
-import { ModeToggle } from '@/components/mode-toggle'
+import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-center items-center w-screen h-screen">
-      <h1>Fermi&apos;s Page</h1>
-      <ModeToggle />
+    <main className="flex  items-center w-full min-h-screen">
+      <MaxWidthWrapper>
+        <div className="flex items-center justify-center w-full">Home</div>
+      </MaxWidthWrapper>
     </main>
   )
 }
