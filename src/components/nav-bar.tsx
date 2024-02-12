@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 
 import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
+import { ModeToggle } from './mode-toggle'
 
 type Props = {}
 
@@ -72,6 +73,7 @@ export const Navbar = (props: Props) => {
         >
           <FaLinkedinIn size={30} />
         </motion.a>
+        <ModeToggle />
       </nav>
     </header>
   )
