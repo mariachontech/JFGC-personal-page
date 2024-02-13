@@ -1,5 +1,5 @@
 import { AnimatedText } from '@/components/AnimatedText'
-import MaxWidthWrapper from '@/components/MaxWidthWrapper'
+import MaxWidthWrapper from '@/components/max-width-wrapper'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
@@ -7,7 +7,7 @@ import { buttonVariants } from '@/components/ui/button'
 export default function Home() {
   return (
     <main className="flex justify-center items-center">
-      <MaxWidthWrapper>
+      <MaxWidthWrapper className="max-w-screen-xl h-screen">
         <div className="flex items-start justify-between w-full h-full gap-10 ">
           <div className="relative w-1/2 h-full z-10 -mt-20">
             <Image
