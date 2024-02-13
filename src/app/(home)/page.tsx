@@ -6,9 +6,9 @@ import { buttonVariants } from '@/components/ui/button'
 
 export default function Home() {
   return (
-    <main className="flex  items-center w-screen min-h-screen">
+    <main className="flex justify-center items-center">
       <MaxWidthWrapper>
-        <div className="flex items-center justify-between w-full h-full">
+        <div className="flex items-start justify-between w-full h-full gap-10 ">
           <div className="relative w-1/2 h-full z-10 -mt-20">
             <Image
               src={'/images/profile/fermiguerrero.png'}
