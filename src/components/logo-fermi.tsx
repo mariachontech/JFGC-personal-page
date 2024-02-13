@@ -69,7 +69,7 @@ export const LogoFermiIcon = (props: Props) => {
       </div>
       <div
         className={
-          'absolute left-16 flex flex-col justify-end items-end w-full'
+          ' hidden md:flex absolute md:left-16  md:flex-col md:justify-end md:items-end md:w-full'
         }
       >
         <h5 className="font-light text-4xl text-primary">José Fermi</h5>
