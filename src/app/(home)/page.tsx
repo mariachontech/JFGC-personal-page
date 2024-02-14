@@ -3,6 +3,8 @@ import MaxWidthWrapper from '@/components/max-width-wrapper'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
+import { ArrowUpRightFromSquare } from 'lucide-react'
+import { AskMe } from '@/components/ask-me'
 
 export default function Home() {
   return (
@@ -37,7 +39,7 @@ export default function Home() {
                   className: 'gap-1.5 text-dark dark:text-light',
                 })}
               >
-                Resume
+                Resume <ArrowUpRightFromSquare />
               </Link>
               <Link
                 href="mailto:fermi@gmail.com"
@@ -53,6 +55,15 @@ export default function Home() {
           </div>
         </div>
       </MaxWidthWrapper>
+      <AskMe />
+      <div className="absolute right-0 bottom-0 inline-block w-24 h-48 ">
+        <Image
+          src={'/images/svgs/light-bulb.svg'}
+          alt="think about"
+          fill
+          className="object contain"
+        />
+      </div>
     </main>
   )
 }
