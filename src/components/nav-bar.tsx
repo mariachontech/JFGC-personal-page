@@ -24,7 +24,7 @@ const CustomLink = ({
   const pathName = usePathname()
 
   return (
-    <Link href={href} className={`${className} relative group`}>
+    <Link href={href} className={`${className} relative group cursor-pointer`}>
       {title}
       <span
         className={cn(
@@ -40,8 +40,8 @@ const CustomLink = ({
 
 export const Navbar = (props: Props) => {
   return (
-    <header className="w-full px-32 py-8 font-medium flex items-center justify-between">
-      <nav>
+    <header className="w-full px-32 py-8 font-medium flex items-center justify-between ">
+      <nav className="z-50">
         <CustomLink href={'/'} title="Inicio" className="mr-4" />
         <CustomLink
           href={'/acerca-de-mi'}

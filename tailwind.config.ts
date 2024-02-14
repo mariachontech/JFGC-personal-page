@@ -77,6 +77,10 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'spin-slow': 'spin 5s linear infinite',
       },
+      backgroundImage: {
+        circularLight:
+          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 5px, #f5f5f5 100px)',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
