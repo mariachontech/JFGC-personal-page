@@ -6,6 +6,7 @@ import React from 'react'
 import { AnimatedNumbers } from './_components/animated-numbers'
 import { Skills } from './_components/skills'
 import { Experience } from './_components/experience'
+import { Education } from './_components/education'
 
 export const metadata: Metadata = {
   title: 'José Fermi Guerrero Castellanos | Acerca de mi',
@@ -89,6 +90,7 @@ const AboutPage = (props: Props) => {
         </div>
         <Skills />
         <Experience />
+        <Education />
       </MaxWidthWrapper>
     </main>
   )
