@@ -1,4 +1,7 @@
+'use client'
+
 import { buttonVariants } from '@/components/ui/button'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -12,6 +15,8 @@ type Props = {
   github: string
 }
 
+const FramerImage = motion(Image)
+
 export const Project = ({ title, type, img, link, github }: Props) => {
   return (
     <article className=" realtive w-full flex flex-col items-center justify-center rounded-2xl border border-solid border-dark bg-light p-6 relative rounded-br-2xl">
@@ -21,7 +26,14 @@ export const Project = ({ title, type, img, link, github }: Props) => {
         target="_blank"
         className="w-full h-[280px] relative cursor-pointer overflow-hidden rounded-lg "
       >
-        <Image src={img} alt={title} fill className="object-cover" />
+        <FramerImage
+          src={img}
+          alt={title}
+          fill
+          className="object-cover"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 1.02 }}
+        />
       </Link>
       <div className="w-full flex flex-col items-start justify-between pl-6">
         <span className="text-primary font-medium text-xl">{type}</span>

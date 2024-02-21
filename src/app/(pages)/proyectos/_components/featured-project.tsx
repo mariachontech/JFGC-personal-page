@@ -1,7 +1,9 @@
+'use client'
+import React from 'react'
 import { buttonVariants } from '@/components/ui/button'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
-import React from 'react'
 import { FaGithub } from 'react-icons/fa'
 
 type Props = {
@@ -12,6 +14,8 @@ type Props = {
   link: string
   github: string
 }
+
+const FramerImage = motion(Image)
 
 export const FeaturedProject = ({
   type,
@@ -30,7 +34,14 @@ export const FeaturedProject = ({
         target="_blank"
         className="w-1/2 h-[360px] relative cursor-pointer overflow-hidden rounded-lg"
       >
-        <Image src={img} alt={title} fill className="object-cover" />
+        <FramerImage
+          src={img}
+          alt={title}
+          fill
+          className="object-cover"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+        />
       </Link>
       <div className="w-1/2 flex flex-col items-start justify-between pl-6">
         <span className="text-primary font-medium text-xl">{type}</span>
