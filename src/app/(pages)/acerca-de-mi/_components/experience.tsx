@@ -66,7 +66,7 @@ export const Experience = (props: Props) => {
         <motion.div
           style={{ scaleY: scrollYProgress }}
           ref={ref}
-          className="absolute left-[54px] top-0 w-[4px] h-full bg-dark origin-top"
+          className="absolute left-[54px] top-0 w-[4px] h-full bg-primary origin-top"
         />
         <ul className="w-full flex flex-col items-start justify-between ml-4">
           {experienceData.map((exp, index) => (

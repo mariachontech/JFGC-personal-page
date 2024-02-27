@@ -26,8 +26,8 @@ export const FeaturedProject = ({
   github,
 }: Props) => {
   return (
-    <article className="relative w-full flex items-center justify-between rounded-3xl border border-solid border-dark bg-foreground bg-light shadow-2xl p-12 rounded-br-2xl">
-      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-dark rounded-br-3xl" />
+    <article className="relative w-full flex items-center justify-between rounded-3xl border border-solid border-primary bg-background shadow-2xl p-12 rounded-br-2xl">
+      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-primary rounded-br-3xl" />
 
       <Link
         href={link}
@@ -52,7 +52,7 @@ export const FeaturedProject = ({
         >
           <h2 className="my-2 w-full text-left text-4xl font-bold">{title}</h2>
         </Link>
-        <p className="my-2 font-medium text-dark">{summary}</p>
+        <p className="my-2 font-medium text-foreground">{summary}</p>
         <div className="mt-2 flex items-center gap-8">
           <Link href={github} target="_blank">
             <FaGithub size={34} />

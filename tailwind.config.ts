@@ -79,7 +79,9 @@ const config = {
       },
       backgroundImage: {
         circularLight:
-          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 5px, #f5f5f5 100px)',
+          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px, #f5f5f5 5px, #f5f5f5 100px)',
+        cirularDark:
+          'repeating-radial-gradient(rgba(255,255,255,0.4) 2px,hsl(var(--background)) 5px, hsl(var(--background)) 100px)',
       },
     },
   },
