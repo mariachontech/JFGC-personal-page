@@ -7,7 +7,11 @@ type Props = {}
 export const Footer = (props: Props) => {
   return (
     <footer className="w-full border-t-2 border-solid border-primary  font-medium text-lg">
-      <MaxWidthWrapper className={'py-8 flex items-center justify-between'}>
+      <MaxWidthWrapper
+        className={
+          'py-8 flex flex-col md:flex-row items-end md:items-center justify-between gap-5'
+        }
+      >
         <span>{new Date().getFullYear()} &copy; All Rights Reserved</span>
         <div>
           Build With <span className="text-primary text-2xl px-1">&#9825;</span>{' '}

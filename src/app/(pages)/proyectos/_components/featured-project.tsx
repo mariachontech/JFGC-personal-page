@@ -39,6 +39,11 @@ export const FeaturedProject = ({
           alt={title}
           fill
           className="object-cover"
+          priority
+          sizes="(max-width:760px) 100vw,
+          (max-width:1200px) 50vw,
+          50vW
+          "
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         />

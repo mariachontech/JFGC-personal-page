@@ -54,6 +54,11 @@ const AboutPage = (props: Props) => {
                   src={'/images/profile/fermi-lac.jpg'}
                   alt="Fermi Gerrero"
                   fill
+                  priority
+                  sizes="(max-width:760px) 100vw,
+                  (max-width:1200px) 50vw,
+                  50vW
+                  "
                 />
               </div>
             </div>

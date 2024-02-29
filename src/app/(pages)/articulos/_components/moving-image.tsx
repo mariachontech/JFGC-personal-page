@@ -53,6 +53,11 @@ export const MovingImage = ({ title, img, link }: Props) => {
           className={cn(' hidden  ', visible === true && 'inline-block z-80')}
           width={384}
           height={384}
+          priority
+          sizes="(max-width:760px) 100vw,
+          (max-width:1200px) 50vw,
+          50vW
+          "
         />
       </div>
     </Link>
