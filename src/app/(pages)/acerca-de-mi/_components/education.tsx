@@ -38,13 +38,13 @@ export const Education = (props: Props) => {
       <h2 className="font-bold text-4xl lg:text-8xl mb-32 w-full text-center">
         Education
       </h2>
-      <div className="w-[75%] mx-auto relative">
+      <div className="w-full md:w-[90%] lg:w-[75%] mx-auto relative">
         <motion.div
           style={{ scaleY: scrollYProgress }}
           ref={ref}
-          className="absolute left-[54px] top-0 w-[4px] h-full bg-primary origin-top"
+          className="absolute left-[54px]  top-0 w-[4px] h-full bg-primary origin-top"
         />
-        <ul className="w-full flex flex-col items-start justify-between ml-4">
+        <ul className="w-fit flex flex-col items-start justify-between ml-14 md:ml-4">
           {educationData.map((exp, index) => (
             <DetailsEducation key={index} {...exp} />
           ))}

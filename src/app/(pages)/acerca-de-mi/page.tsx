@@ -19,12 +19,12 @@ type Props = {}
 const AboutPage = (props: Props) => {
   return (
     <main className="flex w-screen  flex-col items-center justify-center">
-      <MaxWidthWrapper className="pt-16 h-full ">
+      <MaxWidthWrapper className="pt-16 px-4 h-full ">
         <AnimatedText
           text={
             'La humanidad por naturaleza teme y no quisiera escuchar la palabra error'
           }
-          className="mb-8 sm:mb-16 text-4xl  sm:text-6xl lg:text-7xl "
+          className="mb-8 sm:mb-16 text-3xl  sm:text-6xl lg:text-7xl "
         />
         <div className="grid w-full h-[60%] grid-cols-8 gap-8 sm:gap-16 px-2 md:px-0">
           <div className="col-span-8 md:col-span-3 xl:col-span-4 flex flex-col items-start justify-start order-2 md:order-1">
