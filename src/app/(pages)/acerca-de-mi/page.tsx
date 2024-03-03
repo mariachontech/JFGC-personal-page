@@ -24,10 +24,10 @@ const AboutPage = (props: Props) => {
           text={
             'La humanidad por naturaleza teme y no quisiera escuchar la palabra error'
           }
-          className="mb-16"
+          className="mb-8 sm:mb-16 text-4xl  sm:text-6xl lg:text-7xl "
         />
-        <div className="grid w-full h-[60%] grid-cols-8 gap-16">
-          <div className="col-span-3 flex flex-col items-start justify-start">
+        <div className="grid w-full h-[60%] grid-cols-8 gap-8 sm:gap-16 px-2 md:px-0">
+          <div className="col-span-8 md:col-span-3 xl:col-span-4 flex flex-col items-start justify-start order-2 md:order-1">
             <h2 className="mb-4 text-lg font-bold uppercase text-primary/75">
               Biography
             </h2>
@@ -46,8 +46,8 @@ const AboutPage = (props: Props) => {
               vitae nemo.
             </p>
           </div>
-          <div className=" relative col-span-3  w-[90%] h-[110%]   rounded-[2rem] border-2 border-solid border-primary bg-primary p-8">
-            <div className="absolute -top-1 right-3  z-10 w-[103%] h-[98%] rounded-[2rem] bg-light border-primary border p-4 ">
+          <div className=" relative  w-[90%] h-[70vh]  md:h-[75vh]   rounded-[2rem] border-2 border-solid border-primary bg-primary m-auto md:p-8 xl:col-span-4 order-1 md:order-2 col-span-8 md:col-span-3 px-2 md:px-0 ">
+            <div className="absolute -top-1 right-3  z-10 w-[103%]  h-[98%] rounded-[2rem] bg-light border-primary border p-4 ">
               <div className="relative w-full h-full ">
                 <Image
                   className="object-cover rounded-[2rem] "
@@ -64,30 +64,28 @@ const AboutPage = (props: Props) => {
             </div>
           </div>
 
-          <div className="col-span-2 flex flex-col items-end justify-between">
-            <div className="flex flex-col items-end justify-center">
-              <span className="inline-block text-7xl font-bold">
-                <AnimatedNumbers value={50} /> +
+          <div className="col-span-8 w-screen flex md:flex-col items-center   md:items-end justify-around md:gap-5 xl:col-span-8 xl:flex-row xl:items-center order-3 px-2 md:px-0">
+            <div className="flex flex-col items-center justify-center  md:items-end md:justify-between ">
+              <span className="inline-block text-4xl md:text-7xl    font-bold">
+                <AnimatedNumbers value={50} />+
               </span>
-              <h2 className="text-xl font-medium capitalize text-primary/75">
+              <h2 className="w-full text-center  text-base md:text-xl font-medium capitalize text-primary/75">
                 Satisfied clients
               </h2>
             </div>
-            <div className="flex flex-col items-end justify-center">
-              <span className="inline-block text-7xl font-bold">
-                {' '}
-                <AnimatedNumbers value={40} /> +
+            <div className="flex flex-col items-center justify-center  md:items-end md:justify-between ">
+              <span className="inline-block text-4xl md:text-7xl     font-bold">
+                <AnimatedNumbers value={40} />+
               </span>
-              <h2 className="text-xl font-medium capitalize text-primary/75">
+              <h2 className="w-full text-center  text-base md:text-xl  font-medium capitalize text-primary/75">
                 Satisfied clients
               </h2>
             </div>
-            <div className="flex flex-col items-end justify-center">
-              <span className="inline-block text-7xl font-bold">
-                {' '}
-                <AnimatedNumbers value={15} /> +
+            <div className="flex flex-col items-center justify-center  md:items-end md:justify-between ">
+              <span className="inline-block text-4xl md:text-7xl     font-bold">
+                <AnimatedNumbers value={15} />+
               </span>
-              <h2 className="text-xl font-medium capitalize text-primary/75">
+              <h2 className="w-full text-center  text-base md:text-xl  font-medium capitalize text-primary/75">
                 Satisfied clients
               </h2>
             </div>

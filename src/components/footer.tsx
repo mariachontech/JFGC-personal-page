@@ -6,7 +6,7 @@ type Props = {}
 
 export const Footer = (props: Props) => {
   return (
-    <footer className="w-full border-t-2 border-solid border-primary  font-medium text-lg">
+    <footer className="w-full border-t-2 border-solid border-primary  font-medium text-sm md:text-lg">
       <MaxWidthWrapper
         className={
           'py-8 flex flex-col md:flex-row items-end md:items-center justify-between gap-5'

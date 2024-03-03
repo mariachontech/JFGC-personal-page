@@ -89,7 +89,7 @@ export const Navbar = (props: Props) => {
     setisOpen(!isOpen)
   }
   return (
-    <header className="relative w-full px-10 md:px-32 py-8 font-medium flex items-center justify-between ">
+    <header className="relative w-full  px-10 md:px-32 py-8 font-medium flex items-center justify-between ">
       <button
         className="  flex  lg:hidden flex-col justify-start items-center cursor-pointer z-40"
         onClick={handleClick}
@@ -114,7 +114,7 @@ export const Navbar = (props: Props) => {
         ></span>
       </button>
 
-      <div className="absolute left-[50%] translate-x-[-20%] md:translate-x-[-50%] mt-10 lg:mt-2 ">
+      <div className="absolute left-[50%] translate-x-[-50%] mt-5 lg:mt-2 ">
         <LogoFermiIcon />
       </div>
       <div className=" w-full lg:flex justify-between items-center hidden z-50">

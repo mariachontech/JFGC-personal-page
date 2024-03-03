@@ -11,11 +11,11 @@ export const AskMe = ({ className }: Props) => {
   return (
     <div
       className={cn(
-        'fixed left-4 bottom-4 flex items-center justify-center overflow-hidden',
+        'fixed top-0 right-0 lg:right-auto lg:top-auto lg:left-4 lg:bottom-4 flex items-center justify-center overflow-hidden',
         className
       )}
     >
-      <div className="w-40 h-auto flex items-center justify-center relative ">
+      <div className="w-28 lg:w-40 h-auto flex items-center justify-center relative ">
         <svg
           className="animate-spin-slow"
           viewBox="0 0 100 100"

@@ -8,10 +8,12 @@ type Props = {}
 export const Skills = (props: Props) => {
   return (
     <>
-      <h2 className="font-bold text-8xl mt-64 w-full text-center">Skills</h2>
-      <div className="w-full h-screen relative flex items-center justify-center rounded-full bg-circularLight dark:bg-cirularDark">
+      <h2 className="font-bold text-6xl mt-32 md:text-8xl md:mt-64 w-full text-center">
+        Skills
+      </h2>
+      <div className="w-full h-[50vh] sm:[60vh] lg:h-screen relative flex items-center justify-center rounded-full lg:bg-circularLight lg:dark:bg-cirularDark  bg-circularLightSm dark:bg-circularDarkSm  md:bg-circularLightMd md:dark:bg-circularLightMd ">
         <motion.div
-          className="flex items-center justify-center rounded-full font-semibold bg-primary text-light p-8 shadow-dark cursor-pointer"
+          className="flex items-center justify-center rounded-full font-semibold bg-primary text-light md:p-8 shadow-dark cursor-pointer text-sm p-2"
           whileHover={{ scale: 1.05 }}
         >
           Control

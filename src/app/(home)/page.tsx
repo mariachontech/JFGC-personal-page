@@ -11,7 +11,7 @@ export default function Home() {
     <main className="flex  justify-center items-center">
       <MaxWidthWrapper className="max-w-screen-xl h-fit md:h-screen pb-10 md:pb-0 pt-0 md:pt-16 sm:pt-8">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between  w-full h-fit md:h-full gap-10 ">
-          <div className="relative flex justify-center items-center  w-[100%] md:w-1/2 h-[70vh] md:h-full z-10 md:-mt-20  md:inline-block ">
+          <div className="relative flex justify-center items-center  w-[100%] md:w-1/2 h-[70vh] md:h-full z-10 -mt-5 -mb-5 md:-mt-20  md:inline-block ">
             <Image
               src={'/images/profile/fermiguerrero.png'}
               alt="Profile"
@@ -22,9 +22,9 @@ export default function Home() {
           <div className="md:w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center">
             <AnimatedText
               text={'Modeling and control of Cyber-Physical Systems'}
-              className="text-6xl text-left xl:text-5xl lg:text-center lg:text-6xl md:text-5xl sm:text-3xl"
+              className="text-3xl text-left xl:text-5xl lg:text-center lg:text-6xl md:text-5xl sm:text-3xl"
             />
-            <p className="my-4 text-base font-medium">
+            <p className="my-4 text-sm lg:text-base  font-medium">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum
               odit autem mollitia accusamus doloremque quo voluptatem dolorem
               iure possimus, ipsa porro commodi nesciunt? Facilis sed unde

@@ -97,6 +97,24 @@ const config = {
           'repeating-radial-gradient(rgba(0,0,0,0.4) 2px, #f5f5f5 5px, #f5f5f5 100px)',
         cirularDark:
           'repeating-radial-gradient(rgba(255,255,255,0.4) 2px,hsl(var(--background)) 5px, hsl(var(--background)) 100px)',
+
+        circularLightLg:
+          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 5px,#f5f5f5 80px)',
+
+        circularDarkLg:
+          'repeating-radial-gradient(rgba(255,255,255,0.5) 2px,hsl(var(--background)) 8px,hsl(var(--background)) 80px)',
+
+        circularLightMd:
+          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 6px,#f5f5f5 60px)',
+
+        circularDarkMd:
+          'repeating-radial-gradient(rgba(255,255,255,0.5) 2px,hsl(var(--background)) 6px,hsl(var(--background)) 60px)',
+
+        circularLightSm:
+          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 4px,#f5f5f5 40px)',
+
+        circularDarkSm:
+          'repeating-radial-gradient(rgba(255,255,255,0.5) 2px,hsl(var(--background)) 4px,hsl(var(--background)) 40px)',
       },
     },
   },

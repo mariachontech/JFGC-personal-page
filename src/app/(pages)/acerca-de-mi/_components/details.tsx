@@ -24,7 +24,7 @@ export const Details = ({
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between"
+      className="my-8 first:mt-0 last:mb-0 w-[80%] md:w-[60%] mx-auto flex flex-col items-center justify-between"
     >
       <LiIcon reference={ref} />
       <motion.div
@@ -32,7 +32,7 @@ export const Details = ({
         whileInView={{ y: 0 }}
         transition={{ duration: 0.5, type: 'spring' }}
       >
-        <h3 className="capitalize font-bold text-2xl">
+        <h3 className="capitalize font-bold text-lg sm:text-xl lg:text-2xl">
           {position};{' '}
           <a
             className="text-primary capitalize"
@@ -42,10 +42,10 @@ export const Details = ({
             @{company}{' '}
           </a>
         </h3>
-        <span className="capitalize font-medium text-dark/75">
+        <span className="capitalize font-medium text-dark/75 text-sm lg:text-base">
           {time} - {address}
         </span>
-        <p className="font-medium w-full">{work}</p>
+        <p className="font-medium w-full text-sm lg:text-base">{work}</p>
       </motion.div>
     </li>
   )

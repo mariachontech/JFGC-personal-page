@@ -59,16 +59,16 @@ export const Experience = (props: Props) => {
   })
   return (
     <div className="my-64">
-      <h2 className="font-bold text-8xl mb-32 w-full text-center">
+      <h2 className="font-bold text-4xl lg:text-8xl mb-16 lg:mb-32 w-full text-center">
         Experience
       </h2>
-      <div className="w-[75%] mx-auto relative">
+      <div className="w-full md:w-[90%] lg:w-[75%] mx-auto relative">
         <motion.div
           style={{ scaleY: scrollYProgress }}
           ref={ref}
-          className="absolute left-[54px] top-0 w-[4px] h-full bg-primary origin-top"
+          className="absolute left-[54px]  top-0 w-[4px] h-full bg-primary origin-top"
         />
-        <ul className="w-full flex flex-col items-start justify-between ml-4">
+        <ul className="w-fit flex flex-col items-start justify-between ml-14 md:ml-4">
           {experienceData.map((exp, index) => (
             <Details key={index} {...exp} />
           ))}
