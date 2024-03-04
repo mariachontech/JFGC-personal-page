@@ -4,6 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { Navbar } from '@/components/nav-bar'
 import { Footer } from '@/components/footer'
+import { AnimatedProvider } from '@/providers/animated-provider'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -26,7 +27,7 @@ export default function RootLayout({
       <body className={montserrat.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

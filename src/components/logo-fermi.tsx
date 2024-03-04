@@ -40,7 +40,7 @@ export const LogoFermiMedium = (props: Props) => {
         className="relative w-[300px] h-[150px]"
         whileHover={{ scale: 1.1 }}
       >
-        {theme === 'light' ? (
+        {theme == 'light' ? (
           <Image
             src={'logos/logo-medio.svg'}
             alt="Fermi's logo "
@@ -73,7 +73,7 @@ export const LogoFermiIcon = (props: Props) => {
       whileHover={{ scale: 1.1 }}
     >
       <div className="relative w-[160px] h-[80px] md:w-[200px] md:h-[100px]  ">
-        {theme === 'light' ? (
+        {theme == 'light' ? (
           <Image
             src={'logos/logo-icono.svg'}
             alt="Fermi's logo "
