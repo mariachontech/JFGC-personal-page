@@ -38,9 +38,9 @@ export const MovingImage = ({ title, img, link }: Props) => {
       <div
         onMouseMove={handleMouse}
         onMouseLeave={handleMouseLeave}
-        className="absolute"
+        className="relative md:absolute"
       >
-        <h2 className="capitalize text-xl font-semibold hover:underline hover:bg-light">
+        <h2 className="capitalize text-base md:text-xl font-semibold hover:underline ">
           {title}
         </h2>
 
@@ -50,7 +50,10 @@ export const MovingImage = ({ title, img, link }: Props) => {
           whileInView={{ opacity: 1, transition: { duration: 0.2 } }}
           src={img}
           alt={title}
-          className={cn(' hidden  ', visible === true && 'inline-block z-80')}
+          className={cn(
+            ' hidden  ',
+            visible === true && 'md:inline-block z-80 hidden '
+          )}
           width={384}
           height={384}
           priority

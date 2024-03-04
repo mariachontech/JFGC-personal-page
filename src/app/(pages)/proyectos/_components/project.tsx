@@ -36,13 +36,17 @@ export const Project = ({ title, type, img, link, github }: Props) => {
         />
       </Link>
       <div className="w-full flex flex-col items-start justify-between pl-6">
-        <span className="text-primary font-medium text-xl">{type}</span>
+        <span className="text-primary font-medium text-lg md:text-xl">
+          {type}
+        </span>
         <Link
           className="hover:underline underline-offset-2"
           href={link}
           target="_blank"
         >
-          <h2 className=" w-full text-left text-2xl font-bold">{title}</h2>
+          <h2 className=" w-full text-left text-xl md:text-2xl font-bold">
+            {title}
+          </h2>
         </Link>
         {/* <p className="my-2 font-medium text-dark">{summary}</p> */}
         <div className="w-full mt-2 flex items-center justify-between gap-8">
@@ -51,7 +55,8 @@ export const Project = ({ title, type, img, link, github }: Props) => {
             target="_blank"
             className={buttonVariants({
               variant: 'secondary',
-              className: 'gap-1.5 text-dark dark:text-light underline',
+              className:
+                'gap-1.5 text-dark text-sm md:text-base dark:text-light underline',
             })}
           >
             Visit

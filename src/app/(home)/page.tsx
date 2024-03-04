@@ -5,10 +5,13 @@ import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
 import { ArrowUpRightFromSquare } from 'lucide-react'
 import { AskMe } from '@/components/ask-me'
+import { TransitionEffect } from '@/components/transition-effect'
 
 export default function Home() {
   return (
     <main className="flex  justify-center items-center">
+      <TransitionEffect />
+
       <MaxWidthWrapper className="max-w-screen-xl h-fit md:h-screen pb-10 md:pb-0 pt-0 md:pt-16 sm:pt-8">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between  w-full h-fit md:h-full gap-10 ">
           <div className="relative flex justify-center items-center  w-[100%] md:w-1/2 h-[70vh] md:h-full z-10 -mt-5 -mb-5 md:-mt-20  md:inline-block ">

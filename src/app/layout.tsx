@@ -4,7 +4,6 @@ import './globals.css'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { Navbar } from '@/components/nav-bar'
 import { Footer } from '@/components/footer'
-import { AskMe } from '@/components/ask-me'
 
 const montserrat = Montserrat({
   subsets: ['latin'],

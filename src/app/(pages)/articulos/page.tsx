@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import React from 'react'
 import { FeaturedArticles } from './_components/featured-articles'
 import { Article } from './_components/article'
+import { TransitionEffect } from '@/components/transition-effect'
 
 export const metadata: Metadata = {
   title: 'José Fermi Guerrero Castellanos | Articulos',
@@ -18,12 +19,14 @@ const ArticlesPage = (props: Props) => {
       className="w-full
      mb-16 flex flex-col items-center justify-center overflow-hidden"
     >
+      <TransitionEffect />
+
       <MaxWidthWrapper className="pt-16  ">
         <AnimatedText
           text="Words Can Change The World"
-          className="mb-16 mx-auto text-center"
+          className="mb-16 mx-auto text-center text-3xl md:text-6xl"
         />
-        <ul className="grid grid-cols-2 gap-16">
+        <ul className="grid md:grid-cols-2 grid-cols-1 gap-16">
           <FeaturedArticles
             title="Build A Custom Pagination Component In Reactjs From Scratch"
             summary="Learn how to build a custom pagination component in ReactJS from scratch. 
@@ -52,27 +55,27 @@ Follow this step-by-step guide to integrate Pagination component in your ReactJS
         <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
           All Articles
         </h2>
-        <ul className="py-28">
+        <ul className="lg:py-28">
           <Article
-            title="Creating An Efficient Modal Component In React Using Hooks And Portals"
+            title="Los números complejos desempeñan un papel muy importante en las matemáticas. "
             date="March 2, 2024"
             link="/"
             img="/images/articles/create modal component in react using react portals.png"
           />
           <Article
-            title="Creating An Efficient Modal Component In React Using Hooks And Portals"
+            title="Creating An Efficient Modal Component"
             date="March 2, 2024"
             link="/"
             img="/images/articles/create modal component in react using react portals.png"
           />
           <Article
-            title="Creating An Efficient Modal Component In React Using Hooks And Portals"
+            title="Creating An Efficient Modal Component "
             date="March 2, 2024"
             link="/"
             img="/images/articles/create modal component in react using react portals.png"
           />
           <Article
-            title="Creating An Efficient Modal Component In React Using Hooks And Portals"
+            title="Creating An Efficient Modal Component "
             date="March 2, 2024"
             link="/"
             img="/images/articles/create modal component in react using react portals.png"

@@ -7,6 +7,7 @@ import { AnimatedNumbers } from './_components/animated-numbers'
 import { Skills } from './_components/skills'
 import { Experience } from './_components/experience'
 import { Education } from './_components/education'
+import { TransitionEffect } from '@/components/transition-effect'
 
 export const metadata: Metadata = {
   title: 'José Fermi Guerrero Castellanos | Acerca de mi',
@@ -19,6 +20,8 @@ type Props = {}
 const AboutPage = (props: Props) => {
   return (
     <main className="flex w-screen  flex-col items-center justify-center">
+      <TransitionEffect />
+
       <MaxWidthWrapper className="pt-16 px-4 h-full ">
         <AnimatedText
           text={

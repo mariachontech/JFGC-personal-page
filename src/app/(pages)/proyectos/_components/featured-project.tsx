@@ -26,13 +26,13 @@ export const FeaturedProject = ({
   github,
 }: Props) => {
   return (
-    <article className="relative w-full flex items-center justify-between rounded-3xl border border-solid border-primary bg-background shadow-2xl p-12 rounded-br-2xl">
+    <article className="relative w-full flex flex-col md:flex-row items-center justify-between lg:rounded-3xl border border-solid border-primary bg-background shadow-2xl lg:p-12 lg:rounded-br-2xl rounded-2xl rounded-br-3xl p-4  ">
       <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-primary rounded-br-3xl" />
 
       <Link
         href={link}
         target="_blank"
-        className="w-1/2 h-[360px] relative cursor-pointer overflow-hidden rounded-lg"
+        className="w-[90vw] md:w-1/2 h-[50vh] md:h-[360px] relative cursor-pointer overflow-hidden rounded-lg"
       >
         <FramerImage
           src={img}
@@ -48,16 +48,20 @@ export const FeaturedProject = ({
           transition={{ duration: 0.2 }}
         />
       </Link>
-      <div className="w-1/2 flex flex-col items-start justify-between pl-6">
+      <div className="w-full md:w-1/2 flex flex-col items-start justify-between pl-6">
         <span className="text-primary font-medium text-xl">{type}</span>
         <Link
           className="hover:underline underline-offset-2"
           href={link}
           target="_blank"
         >
-          <h2 className="my-2 w-full text-left text-4xl font-bold">{title}</h2>
+          <h2 className="my-2 w-full text-left text-xl md:text-4xl font-bold">
+            {title}
+          </h2>
         </Link>
-        <p className="my-2 font-medium text-foreground">{summary}</p>
+        <p className="my-2 text-sm md:text-base font-medium text-foreground">
+          {summary}
+        </p>
         <div className="mt-2 flex items-center gap-8">
           <Link href={github} target="_blank">
             <FaGithub size={34} />
