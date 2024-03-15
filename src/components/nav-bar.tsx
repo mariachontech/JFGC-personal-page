@@ -10,6 +10,8 @@ import { motion } from 'framer-motion'
 import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 import { ModeToggle } from './mode-toggle'
 import { Button, buttonVariants } from './ui/button'
+import { MenuBar } from './menu-bar'
+import { MenuSheet } from './menu-sheet'
 
 type Props = {}
 
@@ -84,13 +86,11 @@ const CustomMovileLink = ({
 }
 
 export const Navbar = (props: Props) => {
-  const [isOpen, setisOpen] = useState(false)
-  const handleClick = () => {
-    setisOpen(!isOpen)
-  }
+  const pathName = usePathname()
+
   return (
-    <header className="relative w-full  px-10 md:px-32 py-8 font-medium flex items-center justify-between ">
-      <button
+    <header className="relative w-full  px-1 md:px-32 py-8 font-medium flex items-center md:justify-around justify-center m-auto">
+      {/* <button
         className="  flex  lg:hidden flex-col justify-start items-center cursor-pointer z-40"
         onClick={handleClick}
       >
@@ -112,23 +112,32 @@ export const Navbar = (props: Props) => {
             isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'
           )}
         ></span>
-      </button>
-
-      <div className="absolute left-[50%] translate-x-[-50%] mt-5 lg:mt-2 ">
-        <LogoFermiIcon />
+      </button> */}
+      <div className="absolute top-10 left-10 lg:hidden">
+        <MenuSheet />
       </div>
-      <div className=" w-full lg:flex justify-between items-center hidden z-50">
-        <nav className="">
-          <CustomLink href={'/'} title="Inicio" className="mr-4" />
+
+      <div className=" lg:w-full inline-block lg:flex  lg:justify-between items-center  z-50 ">
+        {/* <nav className="">
+          <CustomLink href={'/'} title="Home" className="mr-4" />
           <CustomLink
-            href={'/acerca-de-mi'}
-            title={'Acerca de mí'}
+            href={'/biography'}
+            title={'Biography'}
             className="mx-4"
           />
-          <CustomLink href={'/proyectos'} title="Proyectos" className="mx-4" />
-          <CustomLink href={'/articulos'} title="Articulos" className="ml-4" />
-        </nav>
-        <nav className="flex items-center justify-center flex-wrap">
+          <CustomLink href={'/research'} title="Research" className="mx-4" />
+          <CustomLink href={'/students'} title="Students" className="ml-4" />
+          <CustomLink href={'/teaching'} title="Teaching" className="ml-4" />
+          <CustomLink href={'/lab'} title="Lab" className="ml-4" />
+        </nav> */}
+
+        <MenuBar className="hidden lg:inline-block" />
+
+        <div className="m-0 lg:mr-96 ">
+          <LogoFermiIcon />
+        </div>
+
+        <nav className="hidden  lg:flex lg:flex-row lg:items-center lg:justify-center ">
           <motion.a
             href={'/'}
             target={'_blank'}
@@ -150,7 +159,7 @@ export const Navbar = (props: Props) => {
           <ModeToggle />
         </nav>
       </div>
-
+      {/* 
       {isOpen && (
         <motion.div
           initial={{ scale: 0, opacity: 0, x: '-50%', y: '-50%' }}
@@ -205,7 +214,7 @@ export const Navbar = (props: Props) => {
             <ModeToggle />
           </nav>
         </motion.div>
-      )}
+      )} */}
     </header>
   )
 }

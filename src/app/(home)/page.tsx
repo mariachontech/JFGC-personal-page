@@ -28,10 +28,8 @@ export default function Home() {
               className="text-3xl text-left xl:text-5xl lg:text-center lg:text-6xl md:text-5xl sm:text-3xl"
             />
             <p className="my-4 text-sm lg:text-base  font-medium">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum
-              odit autem mollitia accusamus doloremque quo voluptatem dolorem
-              iure possimus, ipsa porro commodi nesciunt? Facilis sed unde
-              adipisci id cumque consequuntur?
+              Designing, modeling, and controlling future collaborative and
+              environmentally responsible autonomous and robotic systems.
             </p>
             <div className="flex items-center self-start mt-2 lg:self-center">
               <Link

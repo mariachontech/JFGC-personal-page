@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 type Props = {}
 
-const ArticlesPage = (props: Props) => {
+const StudentsPage = (props: Props) => {
   return (
     <main
       className="w-full
@@ -86,4 +86,4 @@ Follow this step-by-step guide to integrate Pagination component in your ReactJS
   )
 }
 
-export default ArticlesPage
+export default StudentsPage

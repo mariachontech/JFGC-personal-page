@@ -31,13 +31,13 @@ export const LogoFermiFull = (props: Props) => {
   )
 }
 
-export const LogoFermiMedium = (props: Props) => {
+export const LogoFermiMedium = ({ className }: { className?: string }) => {
   const { theme } = useTheme()
   return (
     <div className="flex items-center justify-center mt-2">
       <MotionLink
         href={'/'}
-        className="relative w-[300px] h-[150px]"
+        className={cn('relative ', className)}
         whileHover={{ scale: 1.1 }}
       >
         {theme == 'light' ? (

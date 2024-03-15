@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 type Props = {}
 
-const ProyectsPage = (props: Props) => {
+const ResearchPage = (props: Props) => {
   return (
     <main className="w-full mb-16 flex  flex-col items-center justify-center">
       <TransitionEffect />
@@ -90,4 +90,4 @@ const ProyectsPage = (props: Props) => {
   )
 }
 
-export default ProyectsPage
+export default ResearchPage

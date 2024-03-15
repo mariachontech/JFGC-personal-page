@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 type Props = {}
 
-const AboutPage = (props: Props) => {
+const BiographyPage = (props: Props) => {
   return (
     <main className="flex w-screen  flex-col items-center justify-center">
       <TransitionEffect />
@@ -102,4 +102,4 @@ const AboutPage = (props: Props) => {
   )
 }
 
-export default AboutPage
+export default BiographyPage
