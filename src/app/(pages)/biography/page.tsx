@@ -19,7 +19,7 @@ type Props = {}
 
 const BiographyPage = (props: Props) => {
   return (
-    <main className="flex w-screen  flex-col items-center justify-center">
+    <main className="flex w-full  flex-col items-center justify-center">
       <TransitionEffect />
 
       <MaxWidthWrapper className="pt-16 px-4 h-full ">
@@ -27,7 +27,7 @@ const BiographyPage = (props: Props) => {
           text={
             'La humanidad por naturaleza teme y no quisiera escuchar la palabra error'
           }
-          className="mb-8 sm:mb-16 text-3xl  sm:text-6xl lg:text-7xl "
+          className="w-fit mb-8 sm:mb-16 text-3xl  sm:text-6xl lg:text-7xl "
         />
         <div className="grid w-full h-[60%] grid-cols-8 gap-8 sm:gap-16 px-2 md:px-0">
           <div className="col-span-8 md:col-span-3 xl:col-span-4 flex flex-col items-start justify-start order-2 md:order-1">
@@ -67,7 +67,7 @@ const BiographyPage = (props: Props) => {
             </div>
           </div>
 
-          <div className="col-span-8 w-screen flex md:flex-col items-center   md:items-end justify-around md:gap-5 xl:col-span-8 xl:flex-row xl:items-center order-3 px-2 md:px-0">
+          <div className="col-span-8 w-full flex md:flex-col items-center   md:items-end justify-around md:gap-5 xl:col-span-8 xl:flex-row xl:items-center order-3 px-2 md:px-0">
             <div className="flex flex-col items-center justify-center  md:items-end md:justify-between ">
               <span className="inline-block text-4xl md:text-7xl    font-bold">
                 <AnimatedNumbers value={50} />+

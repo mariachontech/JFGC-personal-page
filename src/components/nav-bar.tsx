@@ -113,7 +113,7 @@ export const Navbar = (props: Props) => {
           )}
         ></span>
       </button> */}
-      <div className="absolute top-10 left-10 lg:hidden">
+      <div className="absolute top-10 left-10 lg:hidden z-50">
         <MenuSheet />
       </div>
 
@@ -131,32 +131,36 @@ export const Navbar = (props: Props) => {
           <CustomLink href={'/lab'} title="Lab" className="ml-4" />
         </nav> */}
 
-        <MenuBar className="hidden lg:inline-block" />
+        <MenuBar className="hidden lg:inline-block w-[50%]" />
 
-        <div className="m-0 lg:mr-96 ">
-          <LogoFermiIcon />
-        </div>
+        {/* <div className="m-0 lg:mr-0 ">
+        </div> */}
 
-        <nav className="hidden  lg:flex lg:flex-row lg:items-center lg:justify-center ">
-          <motion.a
-            href={'/'}
-            target={'_blank'}
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.9 }}
-            className="w-8 mr-3"
-          >
-            <FaWhatsapp size={30} />
-          </motion.a>
-          <motion.a
-            href={'https://twiter.com'}
-            target={'_blank'}
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.9 }}
-            className="w-8 mr-3"
-          >
-            <FaLinkedinIn size={30} />
-          </motion.a>
-          <ModeToggle />
+        <nav className=" inline-block lg:w-[50%]  lg:flex lg:flex-row lg:items-center lg:justify-between ">
+          <div className="-mt-5 lg:mt-0">
+            <LogoFermiIcon />
+          </div>
+          <div className="hidden lg:flex lg:flex-row lg:gap-2">
+            <motion.a
+              href={'/'}
+              target={'_blank'}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-8 mr-3"
+            >
+              <FaWhatsapp size={30} />
+            </motion.a>
+            <motion.a
+              href={'https://twiter.com'}
+              target={'_blank'}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-8 mr-3"
+            >
+              <FaLinkedinIn size={30} />
+            </motion.a>
+            <ModeToggle />
+          </div>
         </nav>
       </div>
       {/* 
