@@ -1,0 +1,4 @@
+name = "fermi-page-app"
+
+compatibility_flags = ["nodejs_compat"]
+

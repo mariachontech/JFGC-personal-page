@@ -38,7 +38,7 @@ export const AskMe = ({ className }: Props) => {
               )}
               href="#circlePath"
             >
-              Control Automatico, Modelado, Robotica -
+              Designing, modeling, and controlling
             </textPath>
           </text>
         </svg>
@@ -49,7 +49,7 @@ export const AskMe = ({ className }: Props) => {
             roboto.className
           )}
         >
-          Hire me
+          Afiliate
         </Link>
       </div>
     </div>
