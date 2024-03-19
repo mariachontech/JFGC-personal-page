@@ -8,7 +8,7 @@ export const ContactForm = (props: Props) => {
     <section className="py-6 ">
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
         <div className="py-6 md:py-0 md:px-6">
-          <h1 className="text-4xl font-bold">Let's talk!</h1>
+          <h1 className="text-4xl font-bold">Let&apos;s talk!</h1>
           <p className="pt-2 pb-4">Fill in the form to start a conversation</p>
           <div className="space-y-4">
             <p className="flex items-center">

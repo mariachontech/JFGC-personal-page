@@ -264,7 +264,7 @@ export const GalleryPics = (props: Props) => {
                 Share
               </button>
               <div className="relative z-10 mt-auto break-words text-lg font-semibold text-white">
-                Women's gray coat.
+                Women&apos;s gray coat.
               </div>
             </div>
           </div>
@@ -475,8 +475,8 @@ export const GalleryPics = (props: Props) => {
                 Share
               </button>
               <div className="relative z-10 mt-auto break-words text-lg font-semibold text-white">
-                Man and woman facing backward while woman's head on man's
-                shoulder on tip of hill.
+                Man and woman facing backward while woman&apos;s head on
+                man&apos;s shoulder on tip of hill.
               </div>
             </div>
           </div>
@@ -575,7 +575,7 @@ export const GalleryPics = (props: Props) => {
                 Share
               </button>
               <div className="relative z-10 mt-auto break-words text-lg font-semibold text-white">
-                Women's black long-sleeved crop top.
+                Women&apos;s black long-sleeved crop top.
               </div>
             </div>
           </div>
@@ -617,7 +617,7 @@ export const GalleryPics = (props: Props) => {
                 Share
               </button>
               <div className="relative z-10 mt-auto break-words text-lg font-semibold text-white">
-                Women's red floral top.
+                Women&apos;s red floral top.
               </div>
             </div>
           </div>
