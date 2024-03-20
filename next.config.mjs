@@ -8,6 +8,17 @@ if (process.env.NODE_ENV === 'development') {
     persist: true
   })
 }
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+
+    remotePatterns: [
+      {
+        hostname: 'source.unsplash.com',
+   
+      },
+    ],
+  },
+};
 
 export default nextConfig;

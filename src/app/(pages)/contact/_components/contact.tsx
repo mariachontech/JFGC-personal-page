@@ -62,15 +62,15 @@ export const ContactForm = (props: Props) => {
               placeholder="José Fermi Guerrero Castellanos"
               className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri p-2"
             />
-            {/* <div
+            <div
               data-lastpass-icon-root=""
               style={{
-                "position":'relative !important;' ,
-                  "height": '0px !important;' 
-                  "width": '0px !important;' 
-                  "float": 'left !important;',
+                position: 'relative',
+                height: '0px',
+                width: '0px',
+                float: 'left',
               }}
-            ></div> */}
+            ></div>
           </label>
           <label className="block">
             <span className="mb-2">Email address</span>

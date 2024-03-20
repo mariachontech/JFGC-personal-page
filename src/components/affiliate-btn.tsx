@@ -7,7 +7,7 @@ type Props = {
   className?: string
 }
 
-export const AskMe = ({ className }: Props) => {
+export const AffiliateBtn = ({ className }: Props) => {
   return (
     <div
       className={cn(
@@ -42,15 +42,14 @@ export const AskMe = ({ className }: Props) => {
             </textPath>
           </text>
         </svg>
-        <Link
-          href="mailto:fermi@gmail.com"
+        <button
           className={cn(
             'flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-foreground text-light dark:text-primary shadow-md border border-solid border-foreground  w-16 h-16 rounded-full text-sm font-semibold',
             roboto.className
           )}
         >
           Afiliate
-        </Link>
+        </button>
       </div>
     </div>
   )
