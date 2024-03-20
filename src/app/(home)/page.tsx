@@ -3,7 +3,7 @@ import MaxWidthWrapper from '@/components/max-width-wrapper'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
-import { ArrowUpRightFromSquare } from 'lucide-react'
+import { ArrowUpRightFromSquare, ImagePlusIcon } from 'lucide-react'
 import { TransitionEffect } from '@/components/transition-effect'
 
 import { Icons } from '@/components/icons'
@@ -55,6 +55,15 @@ export default function Home() {
                 })}
               >
                 Contact
+              </Link>
+              <Link
+                href="/gallery"
+                className={buttonVariants({
+                  variant: 'secondary',
+                  className: 'gap-1.5 text-dark  dark:text-light md:hidden',
+                })}
+              >
+                Gallery
               </Link>
             </div>
           </div>
