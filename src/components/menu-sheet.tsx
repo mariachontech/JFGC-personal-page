@@ -10,11 +10,9 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
-import { useState } from 'react'
-import { Button } from './ui/button'
-import { LogoFermiMedium } from './logo-fermi'
-import Link from 'next/link'
-import Image from 'next/image'
+
+import { LogoFermiIconText } from './logo-fermi'
+
 import { useTheme } from 'next-themes'
 import { usePathname, useRouter } from 'next/navigation'
 import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
@@ -31,8 +29,6 @@ export function MenuSheet() {
       console.log('entro', url)
     }, 100)
   }
-
-  console.log('path url', pathname)
 
   return (
     <Sheet>
@@ -63,24 +59,10 @@ export function MenuSheet() {
         <SheetHeader className="flex flex-col gap-5 items-start justify-start px-10">
           <SheetClose>
             <div
-              className="relative w-[200px] h-[100px]"
+              className=" w-[200px] h-[100px] mt-7 relative z-50 text-primary-foreground"
               onClick={() => handlePushUrl('/')}
             >
-              {theme == 'light' ? (
-                <Image
-                  src={'logos/logo-medio.svg'}
-                  alt="Fermi's logo "
-                  fill
-                  className="object-contain "
-                />
-              ) : (
-                <Image
-                  src={'logos/Escaladegrisesmedio.svg'}
-                  alt="Fermi's logo "
-                  fill
-                  className="object-contain "
-                />
-              )}
+              <LogoFermiIconText />
             </div>
           </SheetClose>
           <SheetClose>
@@ -108,7 +90,9 @@ export function MenuSheet() {
           <SheetClose>
             <button
               className={`${
-                pathname === '/students' ? 'border-b-2 border-foreground pb-2' : ''
+                pathname === '/students'
+                  ? 'border-b-2 border-foreground pb-2'
+                  : ''
               }`}
               onClick={() => handlePushUrl('/students')}
             >
@@ -118,7 +102,9 @@ export function MenuSheet() {
           <SheetClose>
             <button
               className={`${
-                pathname === '/teaching' ? 'border-b-2 border-foreground pb-2' : ''
+                pathname === '/teaching'
+                  ? 'border-b-2 border-foreground pb-2'
+                  : ''
               }`}
               onClick={() => handlePushUrl('/teaching')}
             >

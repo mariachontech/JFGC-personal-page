@@ -10,14 +10,16 @@ import { Icons } from '@/components/icons'
 import { TooltipCom } from '@/components/tooltip-com'
 import { Separator } from '@/components/ui/separator'
 import { Affiliate } from '@/components/afilliate'
+import { AddressData } from '@/components/address-data'
+import { CarouselPics } from '@/components/carousel-pics'
 
 export default function Home() {
   return (
-    <main className="flex flex-col   justify-center items-center">
+    <main className="flex flex-col   justify-between items-center">
       <TransitionEffect />
 
-      <MaxWidthWrapper className=" h-fit  md:h-screen pb-10 md:pb-0 pt-0 ">
-        <div className=" flex flex-col md:flex-row items-center  justify-center md:justify-between  w-full h-fit md:h-full gap-10 ">
+      <MaxWidthWrapper className=" h-fit md:h-[100vh]  pb-10 md:pb-0 pt-0 ">
+        <div className=" flex flex-col md:flex-row items-center  justify-center md:justify-between  w-full h-fit md:h-full md:gap-10 gap-0 ">
           <div className="relative flex justify-center items-center  w-full md:w-1/2 h-[70vh] md:h-full  ">
             <Image
               src={'/images/profile/fermiguerrero.png'}
@@ -26,45 +28,51 @@ export default function Home() {
               className="object-contain "
             />
           </div>
-          <div className="md:w-1/2 flex flex-col items-center self-center  lg:text-center">
+          <div className="md:w-1/2 h-auto flex flex-col items-start  justify-between self-center  lg:text-center md:gap-24 gap-1 px-2 md:px-0">
             <AnimatedText
-              text={'Modeling and control of Cyber-Physical Systems'}
-              className="text-3xl text-left xl:text-5xl lg:text-center lg:text-6xl md:text-5xl sm:text-3xl"
+              text={
+                'Designing, modeling, and controlling future collaborative and environmentally responsible autonomous and robotic systems.'
+              }
+              className="text-xl text-left lg:text-center  md:text-3xl"
             />
-            <p className="my-4 text-sm lg:text-base  font-medium">
+            {/* <p className="my-4 text-sm lg:text-base  font-medium">
               Designing, modeling, and controlling future collaborative and
               environmentally responsible autonomous and robotic systems.
-            </p>
-            <div className="flex items-center self-start mt-2 lg:self-center">
-              <Link
-                href="/"
-                target={'_blank'}
-                className={buttonVariants({
-                  variant: 'default',
-                  className: 'gap-1.5 text-dark dark:text-light',
-                })}
-              >
-                Resume <ArrowUpRightFromSquare />
-              </Link>
-              <Link
-                href="/contact"
-                target={'_blank'}
-                className={buttonVariants({
-                  variant: 'link',
-                  className: 'gap-1.5 text-dark dark:text-light',
-                })}
-              >
-                Contact
-              </Link>
-              <Link
-                href="/gallery"
-                className={buttonVariants({
-                  variant: 'secondary',
-                  className: 'gap-1.5 text-dark  dark:text-light md:hidden',
-                })}
-              >
-                Gallery
-              </Link>
+             </p> */}
+            <div className="flex flex-col-reverse  md:flex-row items-center self-start  lg:self-baseline gap-10">
+              <div className="">
+                <AddressData />
+              </div>
+              <div className="flex flex-row md:flex-col md:gap-5">
+                <Link
+                  href="/"
+                  target={'_blank'}
+                  className={buttonVariants({
+                    variant: 'default',
+                    className: 'gap-1.5 text-dark dark:text-light',
+                  })}
+                >
+                  Resume <ArrowUpRightFromSquare />
+                </Link>
+                <Link
+                  href="/contact"
+                  className={buttonVariants({
+                    variant: 'link',
+                    className: 'gap-1.5 text-dark dark:text-light',
+                  })}
+                >
+                  Contact
+                </Link>
+                <Link
+                  href="/gallery"
+                  className={buttonVariants({
+                    variant: 'secondary',
+                    className: 'gap-1.5 text-dark  dark:text-light md:hidden',
+                  })}
+                >
+                  Gallery
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -72,7 +80,7 @@ export default function Home() {
       <Separator className="my-4" />
 
       <MaxWidthWrapper className="flex justify-start items-center">
-        <div className="max-w-screen-xl  mx-auto ">
+        <div className="max-w-screen-xl  mx-auto py-10">
           <h3 className="font-bold py-5">News</h3>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-0 lg:grid-rows-2">
@@ -244,6 +252,18 @@ export default function Home() {
               </h2>
             </div>
           </div>
+        </div>
+      </MaxWidthWrapper>
+      <MaxWidthWrapper>
+        <Separator className="my-4" />
+        <div className="w-full mx-auto py-10 flex flex-col md:flex-row justify-center md:justify-around items-center gap-10">
+            <CarouselPics />
+
+          <h3 className="font-semibold py-10 md:py-5 w-full md:w-[40%]">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, odit
+            in esse autem mollitia tenetur nihil commodi sed voluptatibus
+            facilis?
+          </h3>
         </div>
       </MaxWidthWrapper>
       {/* <AskMe /> */}

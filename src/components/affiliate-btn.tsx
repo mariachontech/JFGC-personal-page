@@ -48,7 +48,7 @@ export const AffiliateBtn = ({ className }: Props) => {
             roboto.className
           )}
         >
-          Afiliate
+          Affiliate
         </button>
       </div>
     </div>

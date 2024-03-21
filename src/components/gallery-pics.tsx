@@ -4,7 +4,7 @@ import { PicsType } from '../../types'
 
 type Props = {}
 
-const imagesData: PicsType[] = [
+export const imagesData: PicsType[] = [
   {
     type: 'control',
     data: [

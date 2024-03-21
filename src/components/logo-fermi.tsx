@@ -91,12 +91,23 @@ export const LogoFermiIcon = (props: Props) => {
       </div>
       <div
         className={
-          'hidden md:flex absolute md:left-10  md:flex-col md:justify-end md:items-end md:w-full'
+          'hidden md:flex absolute  md:left-10  md:flex-col md:justify-end md:items-end md:w-full pb-1'
         }
       >
         <h5 className="font-light text-2xl text-foreground">José Fermi</h5>
-        <h6 className="font-thin text-sm">Consultor</h6>
+        <h6 className="font-thin text-xs text-">Professor</h6>
       </div>
     </MotionLink>
+  )
+}
+
+export const LogoFermiIconText = (props: Props) => {
+  return (
+    <div
+      className={' flex   flex-col justify-start items-end w-full pb-1 pr-10'}
+    >
+      <h5 className="font-light text-2xl text-foreground">José Fermi</h5>
+      <h6 className="font-thin text-xs text-foreground">Professor</h6>
+    </div>
   )
 }
