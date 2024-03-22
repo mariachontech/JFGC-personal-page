@@ -67,7 +67,7 @@ export const LogoFermiIcon = (props: Props) => {
     <MotionLink
       href={'/'}
       className={cn(
-        'relative flex items-center justify-center  md:mt-2',
+        'relative flex items-center justify-center  md:mt-2 ',
         roboto.className
       )}
       whileHover={{ scale: 1.1 }}
@@ -95,7 +95,7 @@ export const LogoFermiIcon = (props: Props) => {
         }
       >
         <h5 className="font-light text-2xl text-foreground">José Fermi</h5>
-        <h6 className="font-thin text-xs text-">Professor</h6>
+        <h6 className="font-thin text-xs text-foreground">Professor</h6>
       </div>
     </MotionLink>
   )

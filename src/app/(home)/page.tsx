@@ -39,40 +39,40 @@ export default function Home() {
               Designing, modeling, and controlling future collaborative and
               environmentally responsible autonomous and robotic systems.
              </p> */}
-            <div className="flex flex-col-reverse  md:flex-row items-center self-start  lg:self-baseline gap-10">
-              <div className="">
+            <div className="flex items-center self-center   gap-5">
+              {/* <div className="">
                 <AddressData />
-              </div>
-              <div className="flex flex-row md:flex-col md:gap-5">
-                <Link
-                  href="/"
-                  target={'_blank'}
-                  className={buttonVariants({
-                    variant: 'default',
-                    className: 'gap-1.5 text-dark dark:text-light',
-                  })}
-                >
-                  Resume <ArrowUpRightFromSquare />
-                </Link>
-                <Link
-                  href="/contact"
-                  className={buttonVariants({
-                    variant: 'link',
-                    className: 'gap-1.5 text-dark dark:text-light',
-                  })}
-                >
-                  Contact
-                </Link>
-                <Link
-                  href="/gallery"
-                  className={buttonVariants({
-                    variant: 'secondary',
-                    className: 'gap-1.5 text-dark  dark:text-light md:hidden',
-                  })}
-                >
-                  Gallery
-                </Link>
-              </div>
+              </div> */}
+              <Link
+                href="/"
+                target={'_blank'}
+                className={buttonVariants({
+                  variant: 'default',
+                  className: 'gap-1.5 text-dark dark:text-light',
+                })}
+              >
+                Resume <ArrowUpRightFromSquare />
+              </Link>
+              <Link
+                href="/contact"
+                className={buttonVariants({
+                  variant: 'link',
+                  className: 'gap-1.5 text-dark dark:text-light',
+                })}
+              >
+                Contact
+              </Link>
+              <Link
+                href="/gallery"
+                className={buttonVariants({
+                  variant: 'secondary',
+                  className: 'gap-1.5 text-dark  dark:text-light md:hidden',
+                })}
+              >
+                Gallery
+              </Link>
+              {/* <div className="flex flex-row  md:gap-5">
+              </div> */}
             </div>
           </div>
         </div>
@@ -257,7 +257,7 @@ export default function Home() {
       <MaxWidthWrapper>
         <Separator className="my-4" />
         <div className="w-full mx-auto py-10 flex flex-col md:flex-row justify-center md:justify-around items-center gap-10">
-            <CarouselPics />
+          <CarouselPics />
 
           <h3 className="font-semibold py-10 md:py-5 w-full md:w-[40%]">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, odit
