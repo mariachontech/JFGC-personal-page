@@ -8,6 +8,11 @@ import { Skills } from './_components/skills'
 import { Experience } from './_components/experience'
 import { Education } from './_components/education'
 import { TransitionEffect } from '@/components/transition-effect'
+import { Button, buttonVariants } from '@/components/ui/button'
+
+import { LucideDownloadCloud } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import Link from 'next/link'
 
 const experienceData = []
 export const metadata: Metadata = {
@@ -47,9 +52,19 @@ const BiographyPage = (props: Props) => {
               perturbaciones, que no existan retardos, ese día, el control en
               lazo cerrado dejará de existir. &quot;
             </p>
-            <h5 className="w-full text-end font-semibold">
-              Dr. José Fermi Guerrero Castellanos
-            </h5>
+            <div className="w-full flex flex-col justify-center items-end text-end font-semibold">
+              <h5>Dr. José Fermi Guerrero Castellanos</h5>
+              <Link
+                href={'/'}
+                target={'_blank'}
+                className={buttonVariants({
+                  variant: 'link',
+                  className: 'text-foreground',
+                })}
+              >
+                Get CV <LucideDownloadCloud className="ml-2" />
+              </Link>
+            </div>
             {/* <p className="my-4 font-medium text-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
               necessitatibus ipsam praesentium officia nesciunt dolorem?
