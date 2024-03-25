@@ -4,15 +4,29 @@ import { LiIcon } from './li-icon'
 import { motion } from 'framer-motion'
 
 type Props = {
-  type: string
-
+  grade: string
+  adviser?: string[] | []
   time: string
   place: string
-  info: string
+  title: string
 }
 
-export const DetailsEducation = ({ type, place, info, time }: Props) => {
+export const DetailsEducation = ({
+  grade,
+  place,
+  adviser = [],
+  time,
+  title,
+}: Props) => {
   const ref = useRef<HTMLLIElement>(null)
+  
+  const adviserSplit = adviser.map((adv, index) => (
+    <span key={index}>
+      {adv}
+      {index !== adviser.length - 1 ? ', ' : '.'}
+    </span>
+  ))
+
   return (
     <li
       ref={ref}
@@ -25,12 +39,12 @@ export const DetailsEducation = ({ type, place, info, time }: Props) => {
         transition={{ duration: 0.5, type: 'spring' }}
       >
         <h3 className="capitalize font-bold  text-lg sm:text-xl lg:text-2xl">
-          {type}
+          {grade}
         </h3>
-        <span className="capitalize font-medium text-dark/75">
-          {time} - {place}
-        </span>
-        <p className="font-medium w-full">{info}</p>
+        <p className="text-foreground/70">{time}</p>
+        <p className="font-medium w-full">{title}</p>
+        <h4>{adviserSplit}</h4>
+        <p className="capitalize font-medium ">{place}</p>
       </motion.div>
     </li>
   )

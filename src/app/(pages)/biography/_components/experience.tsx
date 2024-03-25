@@ -5,47 +5,29 @@ import { motion, useScroll } from 'framer-motion'
 
 const experienceData = [
   {
-    position: 'Software Engineer',
-    company: 'Google',
-    companyLink: 'https://google.com',
-    time: '2022-Present',
-    address: 'Mountain View, CA',
-    work: "Worked on a team responsible for developing new features for Google's search engine, including improving the accuracy and relevance of search results and developing new tools for data analysis and visualization.",
-  },
-
-  {
-    position: 'Intern',
-    company: 'Facebook',
-    companyLink: 'https://facebook.com',
-    time: 'Summer 2021',
-    address: 'Menlo Park, CA',
-    work: 'Worked on a team responsible for developing a new mobile app feature that allowed users to create andshare short-form video content, including designing and implementing a new user interface and developing the backend infrastructure to support the feature.',
+    position:
+      'Investigador, Departamento de control automático. Grenoble, Francia',
+    company: 'Gipsa-Lab',
+    companyLink: 'https://www.gipsa-lab.grenoble-inp.fr/',
+    time: 'October 2004-May 2008',
+    address: 'Grenoble, France',
+    work: 'Aplicaciones de sensores inerciales y magnéticos (Tecnología MEMS). Concepción e implementación de algoritmos de control para la estabilización en orientación de un mini-helicóptero con cuatro rotores (Implementación en tiempo real). Concepción de algoritmos de control y fusión de datos en el desarrollo de nuevs productos electrodomésticos “CALOR” sección Villefranche, Francia (Proyecto confidencial). Diseño de sistemas de control utilizando redes (Networked Control Systems).',
   },
   {
-    position: 'Software Developer',
-    company: 'Amazon',
-    companyLink: 'https://amazon.com',
-    time: '2020-2021',
-    address: 'Seattle, WA',
-    work: "Worked on a team responsible for developing Amazon's mobile app, including implementing new features such as product recommendations and user reviews, and optimizing the app's performance and reliability.",
+    position: 'Profesor Investigado',
+    company: 'Universidad Politécnica de Puebla',
+    companyLink: 'https://www.uppuebla.edu.mx/',
+    time: 'June 2008-April 2009',
+    address: 'Puebla, Pue',
+    work: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, fugit?',
   },
-
   {
-    position: 'Software Developer Intern',
-    company: 'Microsoft',
-    companyLink: 'https://microsoft.com',
-    time: 'Summer 2020',
-    address: 'Redmond, WA',
-    work: "Worked on a team responsible for developing a new feature for Microsoft's Windows operating system, including implementing a new user interface for a system settings panel and optimizing the performance of a core system component.",
-  },
-
-  {
-    position: 'Teaching Assistant',
-    company: 'MIT',
-    companyLink: 'https://mit.com',
-    time: 'Fall 2018',
-    address: 'Cambridge, MA',
-    work: 'Assisted in teaching a course on computer programming, held office hours to help students with assignments, and graded exams and assignments.',
+    position: 'Profesor Investigado',
+    company: 'BUAP',
+    companyLink: 'http://www.fguerrero.ece.buap.mx/',
+    time: 'May 2009 - ',
+    address: 'Puebla, Pue',
+    work: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, fugit?',
   },
 ]
 

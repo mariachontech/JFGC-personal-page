@@ -169,7 +169,7 @@ export function MenuBar({ className }: { className?: string }) {
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non,
                 asperiores.
               </ListItem>
-              <ListItem href="/biography/#carrer path" title="Carrer path">
+              <ListItem href="/biography/#carrer-path" title="Carrer path">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Itaque, est!
               </ListItem>

@@ -33,7 +33,7 @@ export const Details = ({
         transition={{ duration: 0.5, type: 'spring' }}
       >
         <h3 className="capitalize font-bold text-lg sm:text-xl lg:text-2xl">
-          {position}
+          {position}{' '}
           <a
             className="text-primary capitalize"
             href={companyLink}
@@ -42,7 +42,7 @@ export const Details = ({
             @{company}{' '}
           </a>
         </h3>
-        <span className="capitalize font-medium text-dark/75 text-sm lg:text-base">
+        <span className="capitalize font-medium text-foreground/75 text-sm lg:text-base">
           {time} - {address}
         </span>
         <p className="font-medium w-full text-sm lg:text-base">{work}</p>

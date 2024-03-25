@@ -5,23 +5,34 @@ import { DetailsEducation } from './details-education'
 
 const educationData = [
   {
-    type: 'Bachelor Of Science In Computer Science',
-    time: '2016-2020',
-    place: 'Massachusetts Institute Of Technology (MIT)',
-    info: 'Relevant courses included Data Structures and Algorithms, Computer Systems Engineering, and Artificial Intelligence.',
-  },
+    grade: 'Post-PhD ',
+    title:
+      'Modelado y control de sistemas distribuidos utilizando redes de comunicación.',
+    adviser: ['Dra. Suzanne Lesecq'],
 
-  {
-    type: 'Master Of Computer Science',
-    time: '2020-2022',
-    place: 'Stanford University',
-    info: 'Relevant courses included Machine Learning, Deep Learning, and Computer Vision.',
+    time: 'January 2008-May 2008',
+    place: 'INPG-ENSIEG-LAG, GIPSA-LAB (Grenoble, France).',
   },
   {
-    type: 'Online Coursework',
-    time: '2016-2020',
-    place: 'Coursera And EdX',
-    info: 'Completed coursework in advanced topics such as Reinforcement Learning, Computer Vision, and Machine Learning Engineering.',
+    grade: 'PhD ',
+    title:
+      'Estimación de la orientación y estabilización de la orientación con entrada acotada de un cuerpo rígido: aplicación a un mini-helicóptero con cuatro rotores.',
+    adviser: ['Dra. Suzanne Lesecq', 'Dr. Nicolas Marchand'],
+
+    time: 'October 2004-January 2008',
+    place: 'INPG-ENSIEG-LAG, GIPSA-LAB (Grenoble, France).',
+  },
+  {
+    grade: 'Master ',
+    title: 'Automatic control',
+    time: 'September 1997-June 2002',
+    place: 'INPG-ENSIEG-LAG, GIPSA-LAB (Grenoble, France).',
+  },
+  {
+    grade: 'Bachelor of Science in Electronics',
+    title: 'Robotics and control',
+    time: 'September 2003-July 2004',
+    place: 'FCE-BUAP, Facultad de Ciencias de la Electrónica (Puebla, México).',
   },
 ]
 
@@ -29,10 +40,12 @@ type Props = {}
 
 export const Education = (props: Props) => {
   const ref = useRef<HTMLDivElement>(null)
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'center start'],
   })
+
   return (
     <div className="my-64">
       <h2 className="font-bold text-4xl lg:text-8xl mb-32 w-full text-center">
@@ -45,7 +58,7 @@ export const Education = (props: Props) => {
           className="absolute left-[54px]  top-0 w-[4px] h-full bg-primary origin-top"
         />
         <ul className="w-fit flex flex-col items-start justify-between ml-14 md:ml-4">
-          {educationData.map((exp, index) => (
+          {educationData.reverse().map((exp, index) => (
             <DetailsEducation key={index} {...exp} />
           ))}
         </ul>
