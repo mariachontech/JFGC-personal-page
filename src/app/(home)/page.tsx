@@ -39,40 +39,40 @@ export default function Home() {
               Designing, modeling, and controlling future collaborative and
               environmentally responsible autonomous and robotic systems.
              </p> */}
-            <div className="flex items-center self-center   gap-5">
-              {/* <div className="">
+            <div className="flex items-center self-center   gap-5 flex-col md:flex-row">
+              <div className="">
                 <AddressData />
-              </div> */}
-              <Link
-                href="/"
-                target={'_blank'}
-                className={buttonVariants({
-                  variant: 'default',
-                  className: 'gap-1.5 text-dark dark:text-light',
-                })}
-              >
-                Resume <ArrowUpRightFromSquare />
-              </Link>
-              <Link
-                href="/contact"
-                className={buttonVariants({
-                  variant: 'link',
-                  className: 'gap-1.5 text-dark dark:text-light',
-                })}
-              >
-                Contact
-              </Link>
-              <Link
-                href="/gallery"
-                className={buttonVariants({
-                  variant: 'secondary',
-                  className: 'gap-1.5 text-dark  dark:text-light md:hidden',
-                })}
-              >
-                Gallery
-              </Link>
-              {/* <div className="flex flex-row  md:gap-5">
-              </div> */}
+              </div>
+              <div className="flex flex-row md:flex-col  md:gap-5">
+                <Link
+                  href="/"
+                  target={'_blank'}
+                  className={buttonVariants({
+                    variant: 'default',
+                    className: 'gap-1.5 text-dark dark:text-light',
+                  })}
+                >
+                  Resume <ArrowUpRightFromSquare />
+                </Link>
+                <Link
+                  href="/contact"
+                  className={buttonVariants({
+                    variant: 'link',
+                    className: 'gap-1.5 text-dark dark:text-light',
+                  })}
+                >
+                  Contact
+                </Link>
+                <Link
+                  href="/gallery"
+                  className={buttonVariants({
+                    variant: 'secondary',
+                    className: 'gap-1.5 text-dark  dark:text-light md:hidden',
+                  })}
+                >
+                  Gallery
+                </Link>
+              </div>
             </div>
           </div>
         </div>
