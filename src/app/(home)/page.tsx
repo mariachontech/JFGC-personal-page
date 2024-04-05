@@ -3,7 +3,11 @@ import MaxWidthWrapper from '@/components/max-width-wrapper'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
-import { ArrowUpRightFromSquare, ImagePlusIcon } from 'lucide-react'
+import {
+  ArrowUpRightFromSquare,
+  ImagePlusIcon,
+  LucideContact2,
+} from 'lucide-react'
 import { TransitionEffect } from '@/components/transition-effect'
 
 import { Icons } from '@/components/icons'
@@ -43,8 +47,8 @@ export default function Home() {
               <div className="">
                 <AddressData />
               </div>
-              <div className="flex flex-row md:flex-col  md:gap-5">
-                <Link
+              <div className="flex flex-row md:flex-col  gap-2 md:gap-5">
+                {/* <Link
                   href="/"
                   target={'_blank'}
                   className={buttonVariants({
@@ -53,15 +57,16 @@ export default function Home() {
                   })}
                 >
                   Resume <ArrowUpRightFromSquare />
-                </Link>
+                </Link> */}
                 <Link
                   href="/contact"
                   className={buttonVariants({
-                    variant: 'link',
+                    variant: 'default',
                     className: 'gap-1.5 text-dark dark:text-light',
                   })}
                 >
                   Contact
+                  <LucideContact2 />
                 </Link>
                 <Link
                   href="/gallery"

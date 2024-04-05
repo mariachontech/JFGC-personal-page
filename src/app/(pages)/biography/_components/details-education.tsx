@@ -6,24 +6,33 @@ import { motion } from 'framer-motion'
 type Props = {
   grade: string
   adviser?: string[] | []
+  commite?: string[] | []
   time: string
   place: string
-  title: string
+  title?: string
 }
 
 export const DetailsEducation = ({
   grade,
   place,
   adviser = [],
+  commite = [],
   time,
   title,
 }: Props) => {
   const ref = useRef<HTMLLIElement>(null)
-  
+
   const adviserSplit = adviser.map((adv, index) => (
     <span key={index}>
       {adv}
       {index !== adviser.length - 1 ? ', ' : '.'}
+    </span>
+  ))
+
+  const commiteSplit = commite.map((adv, index) => (
+    <span key={index}>
+      {adv}
+      {index !== commite.length - 1 ? ', ' : '.'}
     </span>
   ))
 
@@ -43,7 +52,18 @@ export const DetailsEducation = ({
         </h3>
         <p className="text-foreground/70">{time}</p>
         <p className="font-medium w-full">{title}</p>
-        <h4>{adviserSplit}</h4>
+        {commite.length !== 0 && (
+          <h4>
+            <span className="font-semibold ">Advisors: </span>
+            {adviserSplit}
+          </h4>
+        )}
+        {commite.length !== 0 && (
+          <h4>
+            <span className="font-semibold ">Ph.D. Thesis Committee: </span>
+            {commiteSplit}
+          </h4>
+        )}
         <p className="capitalize font-medium ">{place}</p>
       </motion.div>
     </li>

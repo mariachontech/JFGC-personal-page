@@ -14,7 +14,7 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
-import { LogoFermiMedium } from './logo-fermi'
+import { LogoFermiIconText, LogoFermiMedium } from './logo-fermi'
 import { usePathname } from 'next/navigation'
 
 const researchMenu: { title: string; href: string; description: string }[] = [
@@ -154,25 +154,23 @@ export function MenuBar({ className }: { className?: string }) {
                         />
                         <AvatarFallback>FG</AvatarFallback>
                       </Avatar>
-                      <LogoFermiMedium className="w-[150px] h-[150px]" />
+                      {/* <LogoFermiMedium className="w-[150px] h-[150px]" /> */}
+                      <LogoFermiIconText className="ml-5" />
                       {/* 
                       <p>Dr. José Fermi Guerrero Castellanos</p> */}
                     </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
+                    {/* <p className="text-sm leading-tight text-muted-foreground">
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                       Quod, molestias.
-                    </p>
+                    </p> */}
                   </Link>
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/biography/#quote" title="Quote">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non,
-                asperiores.
-              </ListItem>
-              <ListItem href="/biography/#carrer-path" title="Carrer path">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Itaque, est!
-              </ListItem>
+              <ListItem href="/biography/#quote" title="Quote"></ListItem>
+              <ListItem
+                href="/biography/#carrer-path"
+                title="Carrer path"
+              ></ListItem>
               <ListItem href="/biography/#cv" title="CV"></ListItem>
             </ul>
           </NavigationMenuContent>

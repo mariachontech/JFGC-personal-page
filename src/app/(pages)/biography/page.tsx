@@ -37,7 +37,6 @@ const BiographyPage = (props: Props) => {
         />
         <div className="grid w-full h-[60%] grid-cols-8 gap-8 sm:gap-16 px-2 md:px-0">
           <div className="col-span-8 md:col-span-3 xl:col-span-4 flex flex-col items-start justify-center order-2 md:order-1 gap-5">
-            <h2 className="mb-4 text-lg font-bold uppercase text-primary/75"></h2>
             <p
               id="quote"
               className="w-full font-medium text-lg text-pretty text-justify "
@@ -52,6 +51,7 @@ const BiographyPage = (props: Props) => {
               perturbaciones, que no existan retardos, ese día, el control en
               lazo cerrado dejará de existir. &quot;
             </p>
+
             <div className="w-full flex flex-col justify-center items-end text-end font-semibold">
               <h5>Dr. José Fermi Guerrero Castellanos</h5>
               <Link
@@ -65,6 +65,13 @@ const BiographyPage = (props: Props) => {
                 Get CV <LucideDownloadCloud className="ml-2" />
               </Link>
             </div>
+            <Image
+              src={'/images/bloq.jpeg'}
+              alt=""
+              width={350}
+              height={2500}
+              className="object-cover rounded-xl"
+            />
             {/* <p className="my-4 font-medium text-lg">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
               necessitatibus ipsam praesentium officia nesciunt dolorem?
@@ -80,7 +87,7 @@ const BiographyPage = (props: Props) => {
               <div className="relative w-full h-full ">
                 <Image
                   className="object-cover rounded-[2rem] "
-                  src={'/images/profile/fermi-lac.jpg'}
+                  src={'/images/profile/fermi-neige.jpeg'}
                   alt="Fermi Gerrero"
                   fill
                   priority
@@ -93,7 +100,7 @@ const BiographyPage = (props: Props) => {
             </div>
           </div>
 
-          <div className="col-span-8 w-full flex md:flex-col items-center   md:items-end justify-around md:gap-5 xl:col-span-8 xl:flex-row xl:items-center order-3 px-2 md:px-0">
+          {/* <div className="col-span-8 w-full flex md:flex-col items-center   md:items-end justify-around md:gap-5 xl:col-span-8 xl:flex-row xl:items-center order-3 px-2 md:px-0">
             <div className="flex flex-col items-center justify-center  md:items-end md:justify-between ">
               <span className="inline-block text-4xl md:text-7xl    font-bold">
                 <AnimatedNumbers value={50} />+
@@ -118,13 +125,13 @@ const BiographyPage = (props: Props) => {
                 Master thesis
               </h2>
             </div>
-          </div>
+          </div> */}
         </div>
-        <Skills />
+        {/* <Skills /> */}
         <div id="carrer-path">
+          <Experience />
           <Education />
         </div>
-        <Experience />
       </MaxWidthWrapper>
     </main>
   )

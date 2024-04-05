@@ -9,7 +9,7 @@ type Props = {
   companyLink: string
   time: string
   address: string
-  work: string
+  work?: string
 }
 
 export const Details = ({
@@ -32,6 +32,7 @@ export const Details = ({
         whileInView={{ y: 0 }}
         transition={{ duration: 0.5, type: 'spring' }}
       >
+        <h2 className="font-semibold  sm:text-lg">{work}</h2>
         <h3 className="capitalize font-bold text-lg sm:text-xl lg:text-2xl">
           {position}{' '}
           <a
@@ -45,7 +46,6 @@ export const Details = ({
         <span className="capitalize font-medium text-foreground/75 text-sm lg:text-base">
           {time} - {address}
         </span>
-        <p className="font-medium w-full text-sm lg:text-base">{work}</p>
       </motion.div>
     </li>
   )

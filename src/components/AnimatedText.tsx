@@ -41,7 +41,7 @@ export const AnimatedText = ({
     <div className="w-full mx-auto py-2 flex items-center justify-center text-left overflow-hidden sm:py-0">
       <motion.h1
         className={cn(
-          'inline-block w-full text-primary font-bold capitalize text-6xl',
+          'inline-block w-full text-primary font-bold  text-6xl',
           className
         )}
         variants={quote}

@@ -8,7 +8,9 @@ import { cn } from '@/lib/utils'
 import { roboto } from '@/lib/fonts'
 import { useTheme } from 'next-themes'
 
-type Props = {}
+type Props = {
+  className?: string
+}
 
 const MotionLink = motion(Link)
 
@@ -101,10 +103,13 @@ export const LogoFermiIcon = (props: Props) => {
   )
 }
 
-export const LogoFermiIconText = (props: Props) => {
+export const LogoFermiIconText = ({ className }: Props) => {
   return (
     <div
-      className={' flex   flex-col justify-start items-end w-full pb-1 pr-10'}
+      className={cn(
+        'flex flex-col justify-start items-end w-[180px] pb-1 pr-10',
+        className
+      )}
     >
       <h5 className="font-light text-2xl text-foreground">José Fermi</h5>
       <h6 className="font-thin text-xs text-foreground">Professor</h6>
