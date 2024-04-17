@@ -38,7 +38,7 @@ export const FeaturedProject = ({
           src={img}
           alt={title}
           fill
-          className="object-cover"
+          className="object-contain md:object-fill"
           priority
           sizes="(max-width:760px) 100vw,
           (max-width:1200px) 50vw,
@@ -62,20 +62,26 @@ export const FeaturedProject = ({
         <p className="my-2 text-sm md:text-base font-medium text-foreground">
           {summary}
         </p>
+
         <div className="mt-2 flex items-center gap-8">
-          <Link href={github} target="_blank">
-            <FaGithub size={34} />
-          </Link>
-          <Link
-            href={link}
-            target="_blank"
-            className={buttonVariants({
-              variant: 'default',
-              className: 'gap-1.5 text-dark dark:text-light',
-            })}
-          >
-            Visit Project
-          </Link>
+          {github && (
+            <Link href={github} target="_blank">
+              <FaGithub size={34} />
+            </Link>
+          )}
+
+          {link && (
+            <Link
+              href={link}
+              target="_blank"
+              className={buttonVariants({
+                variant: 'default',
+                className: 'gap-1.5 text-dark dark:text-light',
+              })}
+            >
+              Visit Project
+            </Link>
+          )}
         </div>
       </div>
     </article>
