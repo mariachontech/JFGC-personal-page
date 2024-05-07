@@ -59,3 +59,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+.toastp {
+  background-color: beige !important;
+
+}
