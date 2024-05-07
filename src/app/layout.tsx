@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/providers/theme-provider'
 import { Navbar } from '@/components/nav-bar'
 import { Footer } from '@/components/footer'
 import { AnimatedProvider } from '@/providers/animated-provider'
+import { Toaster } from '@/components/ui/toaster'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -31,6 +32,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Toaster />
+
           <Navbar />
           {children}
           <Footer />

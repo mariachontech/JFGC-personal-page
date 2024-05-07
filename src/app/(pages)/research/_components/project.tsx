@@ -18,6 +18,8 @@ type Props = {
 const FramerImage = motion(Image)
 
 export const Project = ({ title, type, img, link, github }: Props) => {
+
+  
   return (
     <article className=" realtive w-full flex flex-col items-center justify-center rounded-2xl border border-solid border-primary bg-background p-6 relative rounded-br-2xl">
       <div className="absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-primary rounded-br-3xl" />

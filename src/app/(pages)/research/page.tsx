@@ -7,6 +7,10 @@ import { Project } from './_components/project'
 import { TransitionEffect } from '@/components/transition-effect'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Publications } from './_components/publications'
+import { CitationPub } from './_components/citation-pub'
+
+// import Cite from 'citation-js'
 
 export const metadata: Metadata = {
   title: 'José Fermi Guerrero Castellanos | Proyectos',
@@ -44,9 +48,31 @@ const researchData = [
   },
 ]
 
+
 type Props = {}
 
-const ResearchPage = (props: Props) => {
+const ResearchPage = async (props: Props) => {
+  // const data = new Cite(
+  //   ['10.1109/TAC.2012.2225493', '10.1109/LSENS.2023.3300823'],
+  //   {
+  //     output: {
+  //       style: 'bibtex',
+  //     },
+  //   }
+  // )
+
+  // // await data.format('bibliography', {
+  // //   format: 'html',
+  // //   template: 'apa',
+  // //   lang: 'en-US',
+  // // })
+  //  data.options({
+  //   type: 'string',
+  //   style: 'bibtex',
+  // })
+
+  // console.log('Data: ', data.get())
+
   return (
     <main className="w-full mb-16 flex  flex-col items-center justify-center">
       <TransitionEffect />
@@ -88,6 +114,9 @@ const ResearchPage = (props: Props) => {
               text={'Publications'}
               className="sm:mb-16 text-4xl sm:text-5xl mb-8   "
             />
+            <div>
+              <Publications />
+            </div>
           </TabsContent>
           <TabsContent value="projects">
             <AnimatedText
