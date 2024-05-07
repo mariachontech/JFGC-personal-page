@@ -37,7 +37,7 @@ export function CitationPub({ doi }) {
       description: (
         <p
           dangerouslySetInnerHTML={{ __html: refs2.bibtex }}
-          className="bg-foreground text-white dark:text-black p-2"
+          className="bg-slate-700 text-white  p-2"
         />
       ),
     })
