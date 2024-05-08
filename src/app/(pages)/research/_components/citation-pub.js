@@ -8,7 +8,7 @@ require('@citation-js/plugin-ris')
 
 
 
-export function CitationPub({ doi }) {
+export function CitationPub({ doi, ind }) {
   const { toast } = useToast()
 
   const bibliographyData = [doi]
@@ -44,13 +44,16 @@ export function CitationPub({ doi }) {
   }
 
   return (
-    <li className="text-foreground flex flex-col gap-2 justify-between items-start">
-      <p dangerouslySetInnerHTML={{ __html: refs2.bibliography_iee }} />
+    <li className="text-foreground flex justify-start gap-2  ">
+      <p className='w-[10%] '>[{ind+1}]</p> 
+      <div className='w-[90%]'>
+        <p dangerouslySetInnerHTML={{ __html: refs2.bibliography_iee }} />
       <div className=" w-full flex justify-start items-center">
         <div className=" w-24 h-10 cursor-pointer " onClick={() => onCopy()}>
-          <Icons.bibTexIcon className="fill-foreground font-bold border-foreground    " />
+          <Icons.bibTexIcon className="fill-foreground hover:fill-foreground/50 font-bold border-foreground py-2   " />
         </div>
       </div>
+        </div> 
     </li>
   )
 }
