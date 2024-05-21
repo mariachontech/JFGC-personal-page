@@ -9,6 +9,7 @@ import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Publications } from './_components/publications'
 import { CitationPub } from './_components/citation-pub'
+import { ProjectByYear } from './_components/project-by-year'
 
 // import Cite from 'citation-js'
 
@@ -47,7 +48,6 @@ const researchData = [
     type: 'Scientific interest',
   },
 ]
-
 
 type Props = {}
 
@@ -123,6 +123,7 @@ const ResearchPage = async (props: Props) => {
               text={'Projects'}
               className="sm:mb-16 text-4xl sm:text-5xl mb-8   "
             />
+            <ProjectByYear />
           </TabsContent>
           <TabsContent value="research_group">
             <AnimatedText
