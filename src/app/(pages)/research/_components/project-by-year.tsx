@@ -5,7 +5,7 @@ export const ProjectByYear = () => {
         title: 'TOBACCO: fault TOlerant event-BAsed Cooperative COntrol',
         desc: 'The TOBACCO project (2019-2023) aims to develop a fault tolerant event-based cooperative control strategy for micro UAVs carrying a load suspended by cables. It is a joint project between GIPSA-lab (Grenoble) and ICube (Strasbourg) in France, and BUAP (Puebla) in Mexico. The TOBACCO project is financed through CONACyT-ANUIES and the ECOS Nord program (project IDs: MX_296702, FR_M18M02).',
       },
-    ], 
+    ],
     '2017': [
       {
         title: 'TOBACCO: fault TOlerant event-BAsed Cooperative COntrol',
@@ -138,7 +138,7 @@ export const ProjectByYear = () => {
 
   var years = []
   for (var key in projects) {
-    years.push(key)
+    years.unshift(key)
   }
 
   console.log('años', years)
