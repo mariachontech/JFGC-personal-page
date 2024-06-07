@@ -141,7 +141,6 @@ export const ProjectByYear = () => {
     years.unshift(key)
   }
 
-  console.log('años', years)
 
   return (
     <section className="bg-background/50">
