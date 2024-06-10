@@ -5,6 +5,8 @@ import React from 'react'
 import { FeaturedArticles } from './_components/featured-articles'
 import { Article } from './_components/article'
 import { TransitionEffect } from '@/components/transition-effect'
+import { MasterData } from './_components/master'
+import PhdStudents from './_components/phd-students'
 
 export const metadata: Metadata = {
   title: 'José Fermi Guerrero Castellanos | Articulos',
@@ -23,37 +25,27 @@ const StudentsPage = (props: Props) => {
 
       <MaxWidthWrapper className="pt-16  ">
         <AnimatedText
-          text="Words Can Change The World"
-          className="mb-16 mx-auto text-center text-3xl md:text-6xl"
+          text="Real knowledge is to know the extent of one's ignorance. -- Confucius"
+          className="mb-16 mx-auto text-center text-2xl md:text-5xl"
         />
-        <ul className="grid md:grid-cols-2 grid-cols-1 gap-16">
-          <FeaturedArticles
-            title="Build A Custom Pagination Component In Reactjs From Scratch"
-            summary="Learn how to build a custom pagination component in ReactJS from scratch. 
-Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
-            time="9 min read"
-            link="/"
-            img="/images/articles/form_validation_in_reactjs_using_custom_react_hook.png"
-          />
-          <FeaturedArticles
-            title="Build A Custom Pagination Component In Reactjs From Scratch"
-            summary="Learn how to build a custom pagination component in ReactJS from scratch. 
-Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
-            time="9 min read"
-            link="/"
-            img="/images/articles/What is higher order component in React.jpg"
-          />
-          <FeaturedArticles
-            title="Build A Custom Pagination Component In Reactjs From Scratch"
-            summary="Learn how to build a custom pagination component in ReactJS from scratch. 
-Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
-            time="9 min read"
-            link="/"
-            img="/images/articles/What is higher order component in React.jpg"
-          />
-        </ul>
+
         <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
-          All Articles
+          Master
+        </h2>
+
+        <MasterData />
+
+        <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
+          PhD
+        </h2>
+        <PhdStudents />
+        <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
+          Posdocs
+        </h2>
+        <PhdStudents />
+
+        <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
+          PhD Boards
         </h2>
         <ul className="lg:py-28">
           <Article

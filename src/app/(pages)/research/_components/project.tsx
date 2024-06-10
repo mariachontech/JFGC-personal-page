@@ -7,6 +7,8 @@ import Link from 'next/link'
 import React from 'react'
 import { FaGithub } from 'react-icons/fa'
 
+
+
 type Props = {
   title: string
   type: string

@@ -15,6 +15,8 @@ export function CitationPub({ doi, ind }) {
 
   const reference = new Cite(bibliographyData)
 
+  console.log("reference", reference);
+
   const refs2 = {
     bibliography_iee: reference.format('bibliography', {
       template: 'ieee',

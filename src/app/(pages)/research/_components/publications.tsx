@@ -1,6 +1,6 @@
 /* eslint-disable padded-blocks */
 'use client'
-import React, { Suspense } from 'react'
+import React from 'react'
 
 import { CitationPub } from './citation-pub'
 
@@ -113,12 +113,10 @@ const papersData = [
 
 export const Publications = ({}: Props) => {
   return (
-    <Suspense fallback={<p>Loading feed...</p>}>
       <ol className="ps-5 mt-2 space-y-1 list-decimal list-inside">
         {papersData.map((doi, ind) => (
           <CitationPub key={doi} doi={doi} ind={ind} />
         ))}
       </ol>
-    </Suspense>
   )
 }
