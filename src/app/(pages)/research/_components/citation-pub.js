@@ -22,9 +22,6 @@ export function CitationPub({ doi, ind }) {
       template: 'ieee',
       format: 'html',
     }),
-    bibtex: reference.format('bibtex', {
-      format: 'html',
-    }),
     bibtex2: reference.format('bibtex', {
       format: 'text',
     }),
@@ -38,9 +35,12 @@ export function CitationPub({ doi, ind }) {
       title: 'bibTex was been copied',
       description: (
         <p
-          dangerouslySetInnerHTML={{ __html: refs2.bibtex }}
-          className="toastp  p-2 "
-        />
+         
+        >
+          <code>
+            {refs2.bibtex2}
+          </code>
+        </p>
       ),
     })
   }
