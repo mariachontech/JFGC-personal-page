@@ -13,6 +13,11 @@ import { IndustrialPartners } from './_components/industrial-partners'
 import Loading from './loading'
 import { FeaturedArticles } from './_components/featured-articles'
 
+import fs, { promises as ps } from 'fs'
+
+import { BibtexParser } from 'bibtex-js-parser'
+import PaperPublicated from './_components/paper-publicated'
+
 require('@citation-js/plugin-bibtex')
 require('@citation-js/plugin-ris')
 
@@ -238,6 +243,10 @@ const ResearchPage = async (props: Props) => {
   //   }
   // )
 
+  const res = await ps.readFile('./lib2.bib', 'utf-8')
+
+  const bibJSON = BibtexParser.parseToJSON(res)
+
   // // await data.format('bibliography', {
   // //   format: 'html',
   // //   template: 'apa',
@@ -296,7 +305,23 @@ const ResearchPage = async (props: Props) => {
                 text={'Publications'}
                 className="sm:mb-16 text-4xl sm:text-5xl mb-8   "
               />
-              <Publications />
+              <ul>
+                {bibJSON.map((bib, ind) => (
+                  <PaperPublicated
+                    key={bib.id}
+                    index={ind}
+                    title={bib.title}
+                    author={bib.author || ''}
+                    publisher={bib.publisher}
+                    journal={bib.journal}
+                    pages={bib.pages}
+                    volume={bib.volume}
+                    number={bib.number}
+                    doi={bib.doi}
+                    raw={bib.raw}
+                  />
+                ))}
+              </ul>
             </TabsContent>
             <TabsContent value="projects">
               <AnimatedText

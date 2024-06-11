@@ -50,6 +50,9 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.0.7
         version: 1.0.7(@types/react-dom@18.2.19)(@types/react@18.2.55)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      bibtex-js-parser:
+        specifier: ^1.1.6
+        version: 1.1.6
       citation-js:
         specifier: ^0.7.11
         version: 0.7.11
@@ -1193,6 +1196,10 @@ packages:
     resolution: {integrity: sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==}
     engines: {node: '>=12'}
 
+  antlr4@4.13.1:
+    resolution: {integrity: sha512-kiXTspaRYvnIArgE97z5YVVf/cDVQABr3abFRR6mE7yesLMkgu4ujuyV/sgxafQ8wgve0DJQUJ38Z8tkgA2izA==}
+    engines: {node: '>=16'}
+
   any-promise@1.3.0:
     resolution: {integrity: sha512-7UvmKalWRt1wgjL1RrGxoSJW/0QZFIegpeGvZG9kjp8vrRu55XTHbwnqq2GpXm9uLbcuhxm3IqX9OB4MZR1b2A==}
 
@@ -1312,6 +1319,9 @@ packages:
 
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+
+  bibtex-js-parser@1.1.6:
+    resolution: {integrity: sha512-MIU5orNfUmUcBSr2jbxzjcK8QxoFRp2NsS5qrZO/5Hke7uEc/i8J2bUeLxLCJh7uuOmhl1EFQWHs8u+pukhxaQ==}
 
   binary-extensions@2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
@@ -4636,6 +4646,8 @@ snapshots:
 
   ansi-styles@6.2.1: {}
 
+  antlr4@4.13.1: {}
+
   any-promise@1.3.0: {}
 
   anymatch@3.1.3:
@@ -4773,6 +4785,10 @@ snapshots:
   balanced-match@1.0.2: {}
 
   base64-js@1.5.1: {}
+
+  bibtex-js-parser@1.1.6:
+    dependencies:
+      antlr4: 4.13.1
 
   binary-extensions@2.2.0: {}
 

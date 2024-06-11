@@ -30,5 +30,56 @@ const publications = [
 }
 `,
 
+`@article{Pancoatl2022Lienard,
+	author = {Pancoatl-Bortolotti, Pedro and Enr{\' i}quez-Caldera, Rogerio A. and Costa, Antonio H. and Guerrero-Castellanos, Jos{\' e} Fermi and Tello-Bello, Maribel},
+	journal = {IEEE Latin America Transactions},
+	doi = {10.1109/tla.2022.9853234},
+	issn = {1548-0992},
+	number = {8},
+	year = {2022},
+	month = {8},
+	pages = {2114--2121},
+	publisher = {{Institute of Electrical and Electronics Engineers (IEEE)}},
+	title = {Lienard chaotic system based on {Duffing} and the {Sinc} function for weak signals detection},
+	url = {http://dx.doi.org/10.1109/TLA.2022.9853234},
+	volume = {20},
+}
+`,
+`
+@article{ZentenoFranco2022SPICE,
+	author = {ZentenoFranco, Samuel and GonzalezDiaz, Victor R. and AmbrosioLazaro, Roberto C. and GuerreroCastellanos, J. Fermi and MinoAguilar, Gerardo},
+	journal = {International Journal of Circuit Theory and Applications},
+	doi = {10.1002/cta.3314},
+	issn = {0098-9886},
+	number = {9},
+	year = {2022},
+	month = {may 17},
+	pages = {3071--3085},
+	publisher = {Wiley},
+	title = {SPICE synthesis of a solar cell model with irradiance and temperature evaluation},
+	url = {http://dx.doi.org/10.1002/cta.3314},
+	volume = {50},
+}
+`,
+`@article{Linares2022Sliding,
+	author = {Linares-Flores, Jesus and Juarez-Abad, Jose Antonio and Hernandez-Mendez, Arturo and Castro-Heredia, Omar and Guerrero-Castellanos, Jose Fermi and Heredia-Barba, Ruben and Curiel-Olivares, G.},
+	journal = {IEEE Transactions on Industry Applications},
+	doi = {10.1109/tia.2021.3130017},
+	issn = {0093-9994},
+	number = {1},
+	year = {2022},
+	month = {1},
+	pages = {940--950},
+	publisher = {{Institute of Electrical and Electronics Engineers (IEEE)}},
+	title = {Sliding {Mode} {Control} {Based} on {Linear} {Extended} {State} {Observer} for {DC}-to-{DC} {Buck}--{Boost} {Power} {Converter} {System} {With} {Mismatched} {Disturbances}},
+	url = {http://dx.doi.org/10.1109/TIA.2021.3130017},
+	volume = {58},
+}
+`,
+`
+
+`
+
 
 ]
+

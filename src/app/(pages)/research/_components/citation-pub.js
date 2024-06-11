@@ -13,19 +13,19 @@ export function CitationPub({ doi, ind }) {
 
   const bibliographyData = [doi]
 
+
   const reference = new Cite(bibliographyData)
 
-  console.log("reference", reference);
 
   const refs2 = {
-    bibliography_iee: reference.format('bibliography', {
-      template: 'ieee',
-      format: 'html',
-    }),
+    bibliography_iee: reference.format('bibliography'),
     bibtex2: reference.format('bibtex', {
       format: 'text',
     }),
   }
+
+ 
+
 
   const onCopy = () => {
     navigator.clipboard.writeText(refs2.bibtex2)
@@ -49,7 +49,8 @@ export function CitationPub({ doi, ind }) {
     <li className="text-foreground flex justify-start gap-2  ">
       <p className='w-[10%] '>[{ind+1}]</p> 
       <div className='w-[90%]'>
-        <p dangerouslySetInnerHTML={{ __html: refs2.bibliography_iee }} />
+        {/* <p dangerouslySetInnerHTML={{ __html: refs2.bibliography_iee }} /> */}
+        
       <div className=" w-full flex justify-start items-center">
         <div className=" w-24 h-10 cursor-pointer " onClick={() => onCopy()}>
           <Icons.bibTexIcon className="fill-foreground hover:fill-foreground/50 font-bold border-foreground py-2   " />
