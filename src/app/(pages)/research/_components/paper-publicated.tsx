@@ -6,8 +6,7 @@ import { Volume } from 'lucide-react'
 import React from 'react'
 
 type Props = {
-  id: string | undefined
-  index: number | undefined
+  index: number
   title: string | undefined
   author: string | undefined
   publisher: string | undefined
@@ -20,7 +19,6 @@ type Props = {
 }
 
 const PaperPublicated = ({
-  id,
   index,
   title,
   author,
