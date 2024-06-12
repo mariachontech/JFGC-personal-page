@@ -112,3 +112,209 @@ export const phdBoards = [
     avatar: '/images/drone.webp',
   },
 ]
+
+export const electronicaAndMecatronica = [
+  {
+    title: 'Control de sistemas lineales (control I)',
+    link: '#',
+    image: '',
+  },
+  {
+    title: 'Control Moderno y sus aplicaciones (Control II)',
+    link: '#',
+    image: '',
+  },
+  {
+    title: 'Control Moderno y sus aplicaciones (Control III)',
+    link: '#',
+    image: '',
+  },
+  {
+    title: 'Microcontroladores y DSPs',
+    link: '#',
+    image: '',
+  },
+]
+
+export const renoAndAuto = [
+  {
+    title: 'Información de la carrera',
+    plan: '#',
+    image: '',
+  },
+  {
+    title: 'Modelado y simulación de sistemas',
+    link: '#',
+    report: '#',
+    image: '',
+  },
+  {
+    title: 'Taller de Introducción a los recursos energéticos renovables',
+    link: '#',
+    exam: '#',
+    image: '',
+  },
+]
+
+export const masterElectronica = [
+  {
+    title: 'Tópicos selectos de control (Análisis y Control no lineal)',
+    link: '#',
+    image: '',
+  },
+  {
+    title: 'Robótica y Mecatrónica',
+    link: '#',
+    image: '',
+  },
+  {
+    title: 'Propedéutico: Sistemas de Control',
+    link: '#',
+    image: '',
+  },
+]
+
+export const tutoAndMento = [
+  {
+    title: 'Seguimiento académico',
+    follow: {
+      title: 'Seguimiento académico Otoño 2019',
+      link: '#',
+    },
+    register: {
+      title: 'egistro al CNCA 2019',
+      link: '#',
+    },
+  },
+]
+
+export const labActivities = [
+  {
+    title: 'Control System Laboratory',
+    description:
+      'I am a believer in the value of performing experiments, and I always try balancing theory and practice in the art of doing good and proper research. My objective and role as a professor and a researcher are preparing students to contribute as a researcher in industry or academia. However, that is not easy, but it is fun!',
+    image: [
+      {
+        src: 'http://www.fguerrero.ece.buap.mx/images/research_activities.png',
+        alt: 'Drone',
+      },
+      {
+        src: 'http://www.fguerrero.ece.buap.mx/images/Application_Lab.png',
+        alt: 'Drone',
+      },
+      {
+        src: 'http://www.fguerrero.ece.buap.mx/images/drones_research.png',
+        alt: 'Drone',
+      },
+    ],
+  },
+]
+
+export const labFacilities = [
+  {
+    title: 'Teams dedicated to teaching and research',
+    description:
+      'There is a very close collaboration with the  Dynamic Systems Control Laboratory of the Faculty of Physical and Mathematical Sciences, where there are some systems dedicated to teaching and research. This collaboration is based on the co-supervision of master`s and doctoral students in the field of Applied Physics.',
+    image: [
+      {
+        src: 'http://www.fguerrero.ece.buap.mx/images/twin.jpg',
+        alt: 'Drone',
+        caption: 'The Twin Rotor MIMO (Multiple Input, Multiple Output) System',
+      },
+      {
+        src: 'http://www.fguerrero.ece.buap.mx/images/pendulo.jpg',
+        alt: 'Drone',
+        caption: 'Inverted pendulum on a moving base',
+      },
+      {
+        src: 'http://www.fguerrero.ece.buap.mx/images/uav.jpg',
+        alt: 'Drone',
+        caption:
+          'Fixed-wing aerial vehicle which is being equipped for monitoring missions',
+      },
+      {
+        src: 'http://www.fguerrero.ece.buap.mx/images/mech.jpg',
+        alt: 'Drone',
+        caption: 'Mechatronic Control Kit',
+      },
+    ],
+  },
+]
+
+export const developedProto = {
+  title: 'Developed prototypes',
+  description:
+    'We have been working in the development of AHRS (Attitude Heading and Reference System) INS-GPS systems and autopilots for aerial robots. Here, some examples...',
+  images: [
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/Four_rotor_edgar.jpg',
+      alt: 'Drone',
+      caption: 'Version I (Student: Edgar Muñoz)',
+    },
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/quadrotor_volando3.jpg',
+      alt: 'Drone',
+      caption: 'Version II (Student: Juan Téllez Guzmán)',
+    },
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/set_prototypes.png',
+      alt: 'Drone',
+      caption: 'Experimental platforms developed by my group.',
+    },
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/solarfixedwing.png',
+      alt: 'Drone',
+      caption: 'Solar Fixed wing UAV',
+    },
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/sistema_network.jpg',
+      alt: 'Drone',
+      caption:
+        'PVTOL Vehicle (Planar Vertical Take-Off and Landing) for implementation of event-triggered control algorithms over networks (NCS: Networked Control Systems)',
+    },
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/prototipo_navegacion.jpg',
+      alt: 'Drone',
+      caption:
+        'INS-GPS platform (Data fusion using Kalman Filter and Nonlinear observers)',
+    },
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/AHRS.jpg',
+      alt: 'Drone',
+      caption: 'AHRS strapdown',
+    },
+  ],
+}
+
+export const experimentalProto = {
+  title: 'Experimental results',
+  images: [
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/bomberinfly.png',
+      alt: 'Drone',
+      caption: 'Four-rotor in fligh',
+    },
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/vuelovolcan1.png',
+      alt: 'Drone',
+      caption: 'Flight of the mini helicopter and vision system',
+    },
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/vuelovolcan2.png',
+      alt: 'Drone',
+      caption:
+        'View taken with the onboard camera of the mini helicopter with four rotors (Popocatepetl)',
+    },
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/vueloestadioBUAP.png',
+      alt: 'Drone',
+      caption:
+        'View taken with the onboard camera of the mini helicopter with four rotors (University City)',
+    },
+    {
+      src: 'http://www.fguerrero.ece.buap.mx/images/seguimientopuntos.png',
+      alt: 'Drone',
+      caption: 'Tracking points using automatic control',
+    },
+  ],
+}
