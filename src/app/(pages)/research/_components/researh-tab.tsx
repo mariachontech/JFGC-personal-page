@@ -50,7 +50,7 @@ export const ResearhTab = ({
     <Tabs value={page} className="w-full ">
       <Separator className="" />
 
-      <TabsList className="w-[100%] md:w-full flex flex-wrap justify-start md:justify-evenly items-center mb-10 md:mb-0 bg-background ">
+      <TabsList className="w-[100%] md:w-full flex flex-wrap justify-start md:justify-evenly items-center mb-24 md:mb-0 bg-background ">
         <TabsTrigger value="interest" onClick={() => setPage('interest')}>
           Scientific interest
         </TabsTrigger>

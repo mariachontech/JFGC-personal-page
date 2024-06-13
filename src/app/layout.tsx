@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'José Fermi Guerrero Castellanos',
     description: "Fermi's Page",
-    url: 'https://mariachon.com.mx',
-    siteName: 'Mariachon',
+    url: 'https://jfgc-personal-page.vercel.app',
+    siteName: 'Fermi',
     images: [
       {
         url: '/images/profile/fermi-lac.jpg',
