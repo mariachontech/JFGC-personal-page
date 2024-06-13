@@ -194,9 +194,7 @@ export function MenuBar({ className }: { className?: string }) {
                   key={component.title}
                   title={component.title}
                   href={component.href}
-                >
-                  {component.description}
-                </ListItem>
+                ></ListItem>
               ))}
             </ul>
           </NavigationMenuContent>
@@ -220,9 +218,7 @@ export function MenuBar({ className }: { className?: string }) {
                   key={component.title}
                   title={component.title}
                   href={component.href}
-                >
-                  {component.description}
-                </ListItem>
+                ></ListItem>
               ))}
             </ul>
           </NavigationMenuContent>
@@ -246,9 +242,7 @@ export function MenuBar({ className }: { className?: string }) {
                   key={component.title}
                   title={component.title}
                   href={component.href}
-                >
-                  {component.description}
-                </ListItem>
+                ></ListItem>
               ))}
             </ul>
           </NavigationMenuContent>
@@ -272,9 +266,7 @@ export function MenuBar({ className }: { className?: string }) {
                   key={component.title}
                   title={component.title}
                   href={component.href}
-                >
-                  {component.description}
-                </ListItem>
+                ></ListItem>
               ))}
             </ul>
           </NavigationMenuContent>
