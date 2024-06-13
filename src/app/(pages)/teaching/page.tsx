@@ -17,7 +17,7 @@ type Props = {}
 
 const TeachingPage = (props: Props) => {
   return (
-    <MaxWidthWrapper className="px-16">
+    <MaxWidthWrapper className="px-2 md:px-16">
       <TransitionEffect />
 
       <div className=" flex flex-col md:flex-row items-center  justify-center md:justify-between  w-full h-fit md:h-full md:gap-10 gap-0 ">

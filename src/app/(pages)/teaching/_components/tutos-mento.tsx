@@ -28,7 +28,7 @@ type Props = {
 }
 
 export const TutosAndMento = ({ title, description, tutos }: Props) => (
-  <section className="py-24 w-screen">
+  <section className="py-24 px-2 md:px-0">
     <div className="max-w-screen-lg mx-auto  md:px-8">
       <div className="w-[80vw]">
         <h1 className=" text-2xl font-extrabold sm:text-3xl">{title}</h1>

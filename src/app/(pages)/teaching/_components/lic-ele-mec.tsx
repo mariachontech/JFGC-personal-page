@@ -17,9 +17,9 @@ type Props = {
 }
 
 export const LicElecMec = ({ title, description, courses }: Props) => (
-  <section className="py-24 w-[80%]">
+  <section className="py-24 w-[screen]">
     <div className="max-w-screen-lg mx-auto px-4 md:px-8">
-      <div className="">
+      <div className=" w-full">
         <h1 className=" text-2xl font-extrabold sm:text-3xl">{title}</h1>
         <p className=" mt-2">{description}</p>
       </div>
