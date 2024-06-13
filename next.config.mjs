@@ -17,6 +17,9 @@ const nextConfig = {
         hostname: 'source.unsplash.com',
    
       },
+      {
+        hostname: 'www.fguerrero.ece.buap.mx',
+      }
     ],
   },
 };

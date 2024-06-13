@@ -117,22 +117,22 @@ export const electronicaAndMecatronica = [
   {
     title: 'Control de sistemas lineales (control I)',
     link: '#',
-    image: '',
+    image: '/images/bloq.jpeg',
   },
   {
     title: 'Control Moderno y sus aplicaciones (Control II)',
     link: '#',
-    image: '',
+    image: '/images/bloq.jpeg',
   },
   {
     title: 'Control Moderno y sus aplicaciones (Control III)',
     link: '#',
-    image: '',
+    image: '/images/bloq.jpeg',
   },
   {
     title: 'Microcontroladores y DSPs',
     link: '#',
-    image: '',
+    image: '/images/bloq.jpeg',
   },
 ]
 
@@ -140,19 +140,19 @@ export const renoAndAuto = [
   {
     title: 'Información de la carrera',
     plan: '#',
-    image: '',
+    image: '/images/bloq.jpeg',
   },
   {
     title: 'Modelado y simulación de sistemas',
     link: '#',
-    report: '#',
-    image: '',
+    extras: '#',
+    image: '/images/bloq.jpeg',
   },
   {
     title: 'Taller de Introducción a los recursos energéticos renovables',
     link: '#',
-    exam: '#',
-    image: '',
+    extras: '#',
+    image: '/images/bloq.jpeg',
   },
 ]
 
@@ -160,17 +160,17 @@ export const masterElectronica = [
   {
     title: 'Tópicos selectos de control (Análisis y Control no lineal)',
     link: '#',
-    image: '',
+    image: '/images/bloq.jpeg',
   },
   {
     title: 'Robótica y Mecatrónica',
     link: '#',
-    image: '',
+    image: '/images/bloq.jpeg',
   },
   {
     title: 'Propedéutico: Sistemas de Control',
     link: '#',
-    image: '',
+    image: '/images/bloq.jpeg',
   },
 ]
 
@@ -182,7 +182,7 @@ export const tutoAndMento = [
       link: '#',
     },
     register: {
-      title: 'egistro al CNCA 2019',
+      title: 'Registro al CNCA 2019',
       link: '#',
     },
   },
@@ -197,25 +197,28 @@ export const labActivities = [
       {
         src: 'http://www.fguerrero.ece.buap.mx/images/research_activities.png',
         alt: 'Drone',
+        caption: 'Research Activities in our Lab',
       },
       {
         src: 'http://www.fguerrero.ece.buap.mx/images/Application_Lab.png',
         alt: 'Drone',
+        caption: 'Applications',
       },
       {
         src: 'http://www.fguerrero.ece.buap.mx/images/drones_research.png',
         alt: 'Drone',
+        caption: 'Aerial Robotics Scheme',
       },
     ],
   },
 ]
 
-export const labFacilities = [
+export const labFacilitiesData = [
   {
     title: 'Teams dedicated to teaching and research',
     description:
       'There is a very close collaboration with the  Dynamic Systems Control Laboratory of the Faculty of Physical and Mathematical Sciences, where there are some systems dedicated to teaching and research. This collaboration is based on the co-supervision of master`s and doctoral students in the field of Applied Physics.',
-    image: [
+    images: [
       {
         src: 'http://www.fguerrero.ece.buap.mx/images/twin.jpg',
         alt: 'Drone',
@@ -315,6 +318,27 @@ export const experimentalProto = {
       src: 'http://www.fguerrero.ece.buap.mx/images/seguimientopuntos.png',
       alt: 'Drone',
       caption: 'Tracking points using automatic control',
+    },
+  ],
+}
+
+export const headerLabData = {
+  title:
+    'Evolution of the experimental platforms developed by my group over the past years',
+  image: {
+    src: 'http://www.fguerrero.ece.buap.mx/images/integrantes_2012.jpg',
+    alt: 'Drone',
+    caption:
+      'Here is my first group of students and me (from left) working with drones around 2012. Thanks for starting this adventure...',
+  },
+  links: [
+    {
+      title: 'UAV Four-rotor plaform evolution',
+      url: 'https://www.youtube.com/watch?v=GrqaE3QxMM4&feature=youtu.be',
+    },
+    {
+      title: 'Attitude control and estimation under own autopilot (FPGA based)',
+      url: 'https://www.youtube.com/watch?v=ZB4Am-B6w34&feature=youtu.be',
     },
   ],
 }
