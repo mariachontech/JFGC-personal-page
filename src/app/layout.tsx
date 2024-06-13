@@ -14,8 +14,28 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: 'José Fermi Guerrero Castellanos',
-  description:
-    'Información referente a la trayectoría del Dr J. Fermi Guerrero Castellanos',
+  description: "Fermi`'`s Page",
+  openGraph: {
+    title: 'José Fermi Guerrero Castellanos',
+    description: "Fermi's Page",
+    url: 'https://mariachon.com.mx',
+    siteName: 'Mariachon',
+    images: [
+      {
+        url: '/images/profile/fermi-lac.jpg',
+        width: 800,
+        height: 600,
+      },
+      {
+        url: '/images/profile/fermi-neige.jpeg',
+        width: 1800,
+        height: 1600,
+        alt: 'My custom alt',
+      },
+    ],
+    locale: 'en',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({
