@@ -80,7 +80,7 @@ export const ResearhTab = ({
       <TabsContent value="interest" className="w-fit">
         <AnimatedText
           text={'Scientific Interest'}
-          className="sm:mb-16 text-4xl sm:text-5xl mb-8   "
+          className="hidden md:block sm:mb-16 text-4xl sm:text-5xl mb-8   "
         />
         <div className="grid grid-cols-12 gap-24 lg:gap-x-8 md:gap-y-24 gap-x-2   xl:gap-y-32 ">
           <div className="col-span-12 space-y-10">
@@ -102,7 +102,7 @@ export const ResearhTab = ({
       <TabsContent value="publications">
         <AnimatedText
           text={'Publications'}
-          className="sm:mb-16 text-4xl sm:text-5xl mb-8   "
+          className="hidden md:block sm:mb-16 text-4xl sm:text-5xl mb-8   "
         />
         <ul>
           {bibJSON.map((bib, ind) => (
@@ -125,14 +125,14 @@ export const ResearhTab = ({
       <TabsContent value="projects">
         <AnimatedText
           text={'Projects'}
-          className="sm:mb-16 text-4xl sm:text-5xl mb-8   "
+          className="hidden md:block sm:mb-16 text-4xl sm:text-5xl mb-8   "
         />
         <ProjectByYear />
       </TabsContent>
       <TabsContent value="research-group">
         <AnimatedText
           text={'Research group'}
-          className="sm:mb-16 text-4xl sm:text-5xl mb-8   "
+          className="hidden md:block sm:mb-16 text-4xl sm:text-5xl mb-8   "
         />
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-4 ">
           {dataResearchGroup.map((research) => (
@@ -144,7 +144,7 @@ export const ResearhTab = ({
       <TabsContent value="industrial-partners">
         <AnimatedText
           text={'Industrial partners'}
-          className="sm:mb-16 text-4xl sm:text-5xl mb-8   "
+          className="hidden md:block sm:mb-16 text-4xl sm:text-5xl mb-8   "
         />
         <ul className="grid md:grid-cols-2 grid-cols-1 gap-16">
           <FeaturedArticles

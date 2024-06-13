@@ -241,7 +241,7 @@ const ResearchPage = async (props: Props) => {
     <main className="w-full mb-16 flex  flex-col items-center justify-center">
       <TransitionEffect />
 
-      <MaxWidthWrapper className="pt-16 ">
+      <MaxWidthWrapper className="pt-4 md:pt-16 ">
         <ResearhTab
           bibJSON={bibJSON}
           dataResearchGroup={dataResearchGroup}
