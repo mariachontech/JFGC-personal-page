@@ -39,30 +39,20 @@ import { Badge } from '@/components/ui/badge'
 
 type Props = {
   name: string
-  date: string
-  university: string
-  rol?: string
-  avatar: string
+  year: string
+  tesis: string
+  image: string
 }
 
-export const PhdBoards = ({ avatar, name, rol, university, date }: Props) => (
+export const PhdStudentsList = ({ year, name, tesis, image }: Props) => (
   <li className="py-5 flex items-start justify-between">
     <div className="flex gap-3">
-      <img src={avatar} className="flex-none w-12 h-12 rounded-full" />
+      <img src={image} className="flex-none w-12 h-12 rounded-full" />
       <div className="flex flex-col">
         <span className="block text-sm font-semibold">{name}</span>
-        <span>{university}</span>
-        <span className="italic"> {date}</span>
+        <span>{tesis}</span>
+        <span className="italic"> {year}</span>
       </div>
     </div>
-
-    {rol && (
-      <Badge
-        variant={rol === 'Rapporteur' ? 'destructive' : 'default'}
-        className="text-foreground"
-      >
-        {rol}
-      </Badge>
-    )}
   </li>
 )

@@ -19,7 +19,9 @@ const ControlComponent = ({ title, description, image }: Props) => {
       <h2 className="text-2xl text-foreground font-bold">{title}</h2>
       <Separator className="my-5" />
       <p>{description}</p>
-      <CarouselPhotos images={image} />
+      <div className="mt-10">
+        <CarouselPhotos images={image} />
+      </div>
       {/* <div className="image-container">
         {image.map((ima, index) => (
           <img key={index} src={ima.src} alt={ima.alt} />

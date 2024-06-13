@@ -1,23 +1,17 @@
 import React from 'react'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+
 import { TransitionEffect } from '@/components/transition-effect'
 import MaxWidthWrapper from '@/components/max-width-wrapper'
 import { AnimatedText } from '@/components/AnimatedText'
 import Image from 'next/image'
-import { LicElecMec } from './_components/lic-ele-mec'
 
-import {
-  electronicaAndMecatronica,
-  renoAndAuto,
-  masterElectronica,
-  tutoAndMento,
-} from '../../../../dataPage'
-import { TutosAndMento } from './_components/tutos-mento'
+// import {
+//   electronicaAndMecatronica,
+//   renoAndAuto,
+//   masterElectronica,
+//   tutoAndMento,
+// } from '../../../../dataPage'
+import { AccordeonTeach } from './_components/accordeon-teach'
 
 type Props = {}
 
@@ -42,8 +36,15 @@ const TeachingPage = (props: Props) => {
         />
       </div>
 
-      <Accordion type="single" collapsible className="w-full">
-        <AccordionItem value="item-1">
+      <AccordeonTeach />
+
+      {/* <Accordion
+        type="single"
+        collapsible
+        className="w-full"
+        defaultValue="undergraduate-courses"
+      >
+        <AccordionItem value="undergraduate-courses">
           <AccordionTrigger className="text-primary font-semibold text-xl">
             Undergraduate Courses
           </AccordionTrigger>
@@ -58,7 +59,7 @@ const TeachingPage = (props: Props) => {
             />
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-2">
+        <AccordionItem value="graduate-courses">
           <AccordionTrigger className="text-primary font-semibold text-xl">
             Graduate Courses
           </AccordionTrigger>
@@ -75,7 +76,7 @@ const TeachingPage = (props: Props) => {
             />
           </AccordionContent>
         </AccordionItem>
-      </Accordion>
+      </Accordion> */}
     </MaxWidthWrapper>
   )
 }

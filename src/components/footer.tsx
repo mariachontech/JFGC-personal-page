@@ -1,39 +1,40 @@
 import React from 'react'
 import MaxWidthWrapper from './max-width-wrapper'
-import {} from './logo-fermi'
+
 import { Separator } from './ui/separator'
 import { AddressData } from './address-data'
 import Link from 'next/link'
-import { FaLinkedin, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
+import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 
 const researchMenu: { title: string; href: string; description: string }[] = [
   {
     title: 'Scientific Interests',
-    href: '/research/#scientific-interest',
+    href: '/research?q=interest',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },
   {
     title: 'Publications',
-    href: '/research/#scientific-interest',
+    href: '/research?q=publications',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },
   {
     title: 'Projects',
-    href: '/research/#scientific-interest',
+    href: '/research?q=projects',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },
   {
     title: 'Research Group',
-    href: '/research/#scientific-interest',
+    href: '/research?q=research-group',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },
   {
     title: 'Industrial Partners',
-    href: '/research/#scientific-interest',
+
+    href: '/research?q=industrial-partners',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },

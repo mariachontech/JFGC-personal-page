@@ -82,7 +82,7 @@ export function MenuSheet() {
               className={`${
                 pathname === '/research' ? 'border-b-2 border-white pb-2' : ''
               }`}
-              onClick={() => handlePushUrl('/research')}
+              onClick={() => handlePushUrl('/research?q=publications')}
             >
               Research
             </button>

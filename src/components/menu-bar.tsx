@@ -20,31 +20,31 @@ import { usePathname } from 'next/navigation'
 const researchMenu: { title: string; href: string; description: string }[] = [
   {
     title: 'Scientific Interests',
-    href: '/research/#scientific-interest',
+    href: '/research?q=interest',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },
   {
     title: 'Publications',
-    href: '/research/#scientific-interest',
+    href: '/research?q=publications',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },
   {
     title: 'Projects',
-    href: '/research/#scientific-interest',
+    href: '/research?q=projects',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },
   {
     title: 'Research Group',
-    href: '/research/#scientific-interest',
+    href: '/research?q=research-group',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },
   {
     title: 'Industrial Partners',
-    href: '/research/#scientific-interest',
+    href: '/research?q=industrial-partners',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },
@@ -59,7 +59,7 @@ const studentsMenu: { title: string; href: string; description: string }[] = [
   },
   {
     title: 'PhD',
-    href: '/students/#phd',
+    href: '/students/#phd-students',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },
@@ -80,13 +80,13 @@ const studentsMenu: { title: string; href: string; description: string }[] = [
 const teachingMenu: { title: string; href: string; description: string }[] = [
   {
     title: 'Undergraduate Courses',
-    href: '/teaching/#undergraduate-courses',
+    href: '/teaching?q=undergraduate-courses',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },
   {
     title: 'Graduate Courses',
-    href: '/teaching/#graduate-courses',
+    href: '/teaching?q=graduate-courses',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, iure!',
   },

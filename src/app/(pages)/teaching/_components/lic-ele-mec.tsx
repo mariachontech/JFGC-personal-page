@@ -17,9 +17,9 @@ type Props = {
 }
 
 export const LicElecMec = ({ title, description, courses }: Props) => (
-  <section className="py-28">
+  <section className="py-24 w-[80%]">
     <div className="max-w-screen-lg mx-auto px-4 md:px-8">
-      <div className="max-w-md">
+      <div className="">
         <h1 className=" text-2xl font-extrabold sm:text-3xl">{title}</h1>
         <p className=" mt-2">{description}</p>
       </div>
@@ -31,7 +31,7 @@ export const LicElecMec = ({ title, description, courses }: Props) => (
           >
             <div className="space-y-3">
               <div className="flex items-center gap-x-3">
-                <div className="relative bg-white w-14 h-14 border rounded-full flex items-center justify-center">
+                <div className="relative bg-white w-14 h-14 border rounded-full lg:flex items-center justify-center  hidden">
                   <Image
                     src={item.image}
                     alt={''}
@@ -40,7 +40,7 @@ export const LicElecMec = ({ title, description, courses }: Props) => (
                   />
                 </div>
                 <div>
-                  <span className="block  text-sm font-medium">
+                  <span className="block  text-sm font-bold italic">
                     {item.title}
                   </span>
                   {/* <h3 className="text-base text-gray-800 font-semibold mt-1">
@@ -49,10 +49,10 @@ export const LicElecMec = ({ title, description, courses }: Props) => (
                 </div>
               </div>
               {/* <p className="text-gray-600 sm:text-sm">{item.job_description}</p> */}
-              <div className="text-sm  flex items-center gap-6">
+              <div className="text-sm  flex  flex-col md:flex-row  items-start  mditems-center gap-6">
                 {item.link && (
                   <a href={item.link} className="cursor-cell">
-                    <span className="flex items-center gap-2">
+                    <span className="flex  items-center gap-2">
                       <LucideDownload />
                       Sources
                     </span>

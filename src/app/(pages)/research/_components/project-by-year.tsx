@@ -1,137 +1,60 @@
 export const ProjectByYear = () => {
   const projects = {
+    '2020': [
+      {
+        title: 'CAB: Control of autonomous buoys',
+        desc: 'his project (2020-2022) is ongoing in collaboration with Dr. Lizeth Torres at the II-UNAM, Mexico. The aim is to develop new sensor fusion algorithms and nonlinear control techniques for autonomous navigation of individuals and collective mini buoys. The project is financed by means of PAPIIT-TA100421',
+      },
+    ],
+
     '2019': [
       {
-        title: 'TOBACCO: fault TOlerant event-BAsed Cooperative COntrol',
-        desc: 'The TOBACCO project (2019-2023) aims to develop a fault tolerant event-based cooperative control strategy for micro UAVs carrying a load suspended by cables. It is a joint project between GIPSA-lab (Grenoble) and ICube (Strasbourg) in France, and BUAP (Puebla) in Mexico. The TOBACCO project is financed through CONACyT-ANUIES and the ECOS Nord program (project IDs: MX_296702, FR_M18M02).',
+        title: 'TOBACCO: fault TOlerant event-BAsed Cooperative Control',
+        desc: 'The TOBACCO project (2019-2024) aims to develop a fault tolerant event-based cooperative control strategy for micro UAVs carrying a load suspended by cables. It is a joint project between GIPSA-lab (Grenoble) and ICube (Strasbourg) in France, and BUAP (Puebla) in Mexico. The TOBACCO project is financed through CONACyT-ANUIES and the ECOS Nord program (project IDs: MX_296702, FR_M18M02).',
       },
     ],
-    '2017': [
-      {
-        title: 'TOBACCO: fault TOlerant event-BAsed Cooperative COntrol',
-        id_key: 'GUCJ-ING17-I',
-        type: 'Proyecto individual',
-        finantial:
-          'Vicerrectoría de Investigación y Estudios de Posgrado (VIEP) de la Benemérita Universidad Autónoma de Puebla',
-      },
-    ],
+    // '2017': [
+    //   {
+    //     title: 'TOBACCO: fault TOlerant event-BAsed Cooperative COntrol',
+    //     id_key: 'GUCJ-ING17-I',
+    //     type: 'Proyecto individual',
+    //     finantial:
+    //       'Vicerrectoría de Investigación y Estudios de Posgrado (VIEP) de la Benemérita Universidad Autónoma de Puebla',
+    //   },
+    // ],
     '2016': [
       {
-        title:
-          'Control de formación de múltiples vehículos aéreos no tripulados mediante control cooperativo: aplicación al monitoreo ambiental (Parte II)',
-        id_key: 'GUCJ-ING16-I',
-        type: 'Proyecto individual',
-        finantial:
-          'Vicerrectoría de Investigación y Estudios de Posgrado (VIEP) de la Benemérita Universidad Autónoma de Puebla.',
+        title: 'TIWEV: Two-In-Wheeled Self-Balancing Low-cost Electric-Vehicle',
+        desc: 'The project was issued from the cooperation between three Mexican institutions; BUAP, UTM, and CINVESTAV. The project (2016-2018) aimed to develop new control and data fusion algorithms for the stabilization, autonomous navigation, and power electronics of such a vehicle. Financed by PRODEP/RED COLABORACION ACDEMICA/BUAP-CA-248/UTMIX-CA-24',
       },
-      {
-        title:
-          'Desarrollo tecnológico de un nuevo sistema de frenado electrohidráulico para vehículos automotores',
-        id_key: 'CONACYT:231959',
-        type: 'Responsable Técnico de software y simulación',
-        finantial: 'CONACYT y RASSINI FRENOS S.A de C.V.',
-      },
-      {
-        title:
-          'Desarrollo de vehículo eléctrico de autobalanceo de bajo costo.',
-        responsability: 'Responsable Técnico por parte de BUAP',
-        finantial:
-          'Red temática de colaboración académica entre cuerpos académicos y financiada por PRODEP-SEP',
-        team: 'Universidad Tecnológica de la Mixteca (UTMIX-CA-24), CINVESTAV-IPN (Prof. H. Sira-Ramírez), Benemérita universidad AUtonoma de Puebla (BUAP-CA-248)',
-      },
+      // {
+      //   title:
+      //     'Desarrollo tecnológico de un nuevo sistema de frenado electrohidráulico para vehículos automotores',
+      //   id_key: 'CONACYT:231959',
+      //   type: 'Responsable Técnico de software y simulación',
+      //   finantial: 'CONACYT y RASSINI FRENOS S.A de C.V.',
+      // },
+      // {
+      //   title:
+      //     'Desarrollo de vehículo eléctrico de autobalanceo de bajo costo.',
+      //   responsability: 'Responsable Técnico por parte de BUAP',
+      //   finantial:
+      //     'Red temática de colaboración académica entre cuerpos académicos y financiada por PRODEP-SEP',
+      //   team: 'Universidad Tecnológica de la Mixteca (UTMIX-CA-24), CINVESTAV-IPN (Prof. H. Sira-Ramírez), Benemérita universidad AUtonoma de Puebla (BUAP-CA-248)',
+      // },
     ],
     '2015': [
       {
         title:
-          'Control de formación de múltiples vehículos aéreos no tripulados mediante control cooperativo: aplicación al monitoreo ambiental',
-        id_key: 'GUCJ-ING15-I',
-        type: 'Proyecto individual',
-        finantial:
-          'Vicerrectoría de Investigación y Estudios de Posgrado (VIEP) de la Benemérita Universidad Autónoma de Puebla.',
-      },
-    ],
-    '2014': [
-      {
-        title:
-          'Estabilización de sistemas no lineales unidos mediante una red de comunicación usando control basado en eventos: aplicación a robótica aérea (continuación)',
-        id_key: 'GUCJ-ING14-I',
-        type: 'Proyecto individual',
-        finantial:
-          'Vicerrectoría de Investigación y Estudios de Posgrado (VIEP) de la Benemérita Universidad Autónoma de Puebla.',
-      },
-      {
-        title:
-          'Sistema Piloto para triturar retornos, optimizar la fusión de hornos de inducción en la manufactura de acutopartes y reducir las emisiones de Co2 equivalente',
-        id_key: 'CONACYT:213399',
-        type: 'Responsable Técnico',
-        finantial: 'CONACYT y RASSINI FRENOS S.A de C.V.',
+          'FOMA: Formation Control of Multi MAVs via event-based communication: application to environmental monitoring',
+        desc: 'The project (2015-2018) aimed to design and implement an event-triggered control approach applied to the leader-following consensus and formation of a group of autonomous micro-aircraft with vertical take-off and landing capabilities and equipped with environmental sensors such as CO2 and temperature. The project was financed trough VIEP/BUAP/JFGC15-18',
       },
     ],
     '2013': [
       {
         title:
-          'Estabilización de sistemas no lineales unidos mediante una red de comunicación usando control basado en eventos: aplicación a robótica aérea',
-        id_key: 'GUCJ-ING13-I',
-        type: 'Proyecto individual',
-        finantial:
-          'Vicerrectoría de Investigación y Estudios de Posgrado (VIEP) de la Benemérita Universidad Autónoma de Puebla.',
-      },
-      {
-        title:
-          'Desarrollo en instalación de una planta piloto para el Acabado Automatizado de Piezas Fundidas de Hierro Nodular',
-        id_key: 'CONACYT:188466',
-        type: 'Responsable Técnico',
-        finantial: 'CONACYT y RASSINI FRENOS S.A de C.V.',
-      },
-    ],
-    '2012': [
-      {
-        title:
-          'Diseño, Desarrollo e Instalación de una Planta Piloto para Estibado de Discos de Freno',
-        id_key: 'GUCJ-ING13-I',
-        type: 'Responsable Técnico',
-        desc: 'Concurso del CONACYT de Innovación Tecnológica “InnovaTEC”, bajo la convocatoria: C0003-2012-01, con número de folio: 182002 y con resultados positivos según lo publicado en el archivo: 1ª_publicación_de_ganadores.pdf en el renglón #261',
-      },
-      {
-        title: 'Estrategias de Control Asíncro',
-        id_key: 'GUCJ-ING12-I',
-        type: 'Proyecto individual',
-        finantial:
-          'Vicerrectoría de Investigación y Estudios de Posgrado (VIEP) de la Benemérita Universidad Autónoma de Puebla',
-      },
-    ],
-    '2011': [
-      {
-        title:
-          'Diseño e implementación de una mini nave aérea no tripulada de despegue y aterrizaje vertical (VTOL)',
-        id_key: 'GPROMEP/103.5/10/7296 Proyecto PTC-226',
-        type: 'Proyecto individual',
-        finantial: 'PROMEP-SEP',
-      },
-      {
-        title:
-          'Diseño y construcción de un vehículo eléctrico con tecnología verde',
-        id_key: 'GPROMEP/103.5/10/7296 Proyecto PTC-226',
-        desc: 'Proyecto del cuerpo académico Sistemas de Potencia para Traccción Calidad y Generación de Energía.',
-        finantial: 'PROMEP-SEP',
-      },
-      {
-        title:
-          'Diseño, construcción y control de una mini nave aérea no tripulada de despegue y aterrizaje vertical (VTOL)',
-        id_key: 'GUCJ-ING11-I',
-        type: 'Proyecto individual',
-        finantial:
-          ' Vicerrectoría de Investigación y Estudios de Posgrado (VIEP) de la Benemérita Universidad Autónoma de Puebla',
-      },
-    ],
-    '2010': [
-      {
-        title:
-          'Diseño e Implementación de un mini sistema de aeronavegación basado en sensores de tecnología MEMS y GPS',
-        id_key: 'GUCJ-ING10-I',
-        type: 'Proyecto individual',
-        finantial:
-          ' Vicerrectoría de Investigación y Estudios de Posgrado (VIEP) de la Benemérita Universidad Autónoma de Puebla',
+          'VEUREE: Automotive platform for an energy efficient urban electric vehicle',
+        desc: 'The project (2013-2015) aimed to develop new control algorithms and power electronics configurations for load and torque sharing in new electric vehicles using in-wheels motors. The project was issued from the bilateral cooperation between Mexico and Spain and financed through CONACYT – CDTI – 191148',
       },
     ],
   } as any
@@ -140,7 +63,6 @@ export const ProjectByYear = () => {
   for (var key in projects) {
     years.unshift(key)
   }
-
 
   return (
     <section className="bg-background/50">

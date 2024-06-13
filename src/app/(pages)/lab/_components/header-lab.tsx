@@ -45,7 +45,9 @@ export const HeaderLab = ({ title, image, links }: Props) => {
                 href={link.url}
                 className="flex gap-2 items-center justify-start py-2"
               >
-                <FaYoutube className="mr-4" />
+                <div>
+                  <FaYoutube className="mr-4 " />
+                </div>
                 <span>{link.title}</span>
               </a>
             </li>

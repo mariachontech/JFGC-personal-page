@@ -23,19 +23,23 @@ const LabPage = (props: Props) => {
     <MaxWidthWrapper>
       <TransitionEffect />
 
-      <HeaderLab {...headerLabData} />
-
-      {labActivities.map((item, index) => (
-        <ControlComponent key={index} {...item} />
-      ))}
+      <div id="lab-activities">
+        <HeaderLab {...headerLabData} />
+      </div>
 
       <div className="my-24">
+        {labActivities.map((item, index) => (
+          <ControlComponent key={index} {...item} />
+        ))}
+      </div>
+
+      <div id="developed-prototypes" className="my-24">
         <DevelopedProto {...developedProto} />
       </div>
       <div className="my-24">
         <ExperimentalProto {...experimentalProto} />
       </div>
-      <div className="my-24">
+      <div id="lab-facilities" className="my-24">
         {labFacilitiesData.map((item, index) => (
           <LabFacilitiesComponent key={index} {...item} />
         ))}

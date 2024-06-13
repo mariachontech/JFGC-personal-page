@@ -40,7 +40,7 @@ export function CarouselPhotos({ images, className }: Props) {
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <Carousel setApi={setApi} className="w-[55%] ">
+      <Carousel setApi={setApi} className="w-[80%] md:w-[55%] ">
         <CarouselContent>
           {images?.map((image, index) => (
             <CarouselItem key={index}>

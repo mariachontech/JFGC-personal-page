@@ -2,14 +2,13 @@ import { AnimatedText } from '@/components/AnimatedText'
 import MaxWidthWrapper from '@/components/max-width-wrapper'
 import { Metadata } from 'next'
 import React from 'react'
-import { Article } from './_components/article'
 import { TransitionEffect } from '@/components/transition-effect'
 import { MasterData } from './_components/master'
-import PhdStudents from './_components/phd-students'
 
 import { phdStudents } from '../../../../dataPage'
 import { phdBoards } from '../../../../dataPage'
 import { PhdBoards } from './_components/phdBoard'
+import { PhdStudentsList } from './_components/phd-students-list'
 
 export const metadata: Metadata = {
   title: 'José Fermi Guerrero Castellanos | Articulos',
@@ -32,26 +31,42 @@ const StudentsPage = (props: Props) => {
           className="mb-16 mx-auto text-center text-2xl md:text-5xl"
         />
 
-        <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
+        <h2
+          id="master"
+          className="font-bold text-4xl w-full text-center my-16 mt-32"
+        >
           Master
         </h2>
 
         <MasterData />
 
-        <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
+        <h2
+          id="phd-students"
+          className="font-bold text-4xl w-full text-center my-16 mt-32"
+        >
           PhD
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3  gap-3">
-          {phdStudents.map((phd, ind) => (
-            <PhdStudents key={ind} {...phd} />
-          ))}
+
+        <div className="max-w-2xl mx-auto px-4">
+          <ul className="mt-12 divide-y">
+            {phdStudents.map((phd, ind) => (
+              <PhdStudentsList key={ind} {...phd} />
+            ))}
+          </ul>
         </div>
-        <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
+
+        <h2
+          id="post-docs"
+          className="font-bold text-4xl w-full text-center my-16 mt-32"
+        >
           Posdocs
         </h2>
         {/* <PhdStudents /> */}
 
-        <h2 className="font-bold text-4xl w-full text-center my-16 mt-32">
+        <h2
+          id="phd-boards"
+          className="font-bold text-4xl w-full text-center my-16 mt-32"
+        >
           PhD Boards
         </h2>
 
