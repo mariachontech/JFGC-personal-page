@@ -13,16 +13,10 @@ type Props = {
     caption: string
   }
   title: string
-  links: [
-    {
-      title: string
-      url: string
-    },
-    {
-      title: string
-      url: string
-    }
-  ]
+  links: {
+    title: string
+    url: string
+  }[]
 }
 
 export const HeaderLab = ({ title, image, links }: Props) => {
