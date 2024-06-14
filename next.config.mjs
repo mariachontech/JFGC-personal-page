@@ -19,8 +19,15 @@ const nextConfig = {
       },
       {
         hostname: 'www.fguerrero.ece.buap.mx',
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
     ],
+  },
+  experimental: {
+    taint: true,
   },
 };
 
