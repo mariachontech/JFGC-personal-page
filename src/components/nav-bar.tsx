@@ -7,13 +7,12 @@ import { usePathname, useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { motion } from 'framer-motion'
 
-import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 import { ModeToggle } from './mode-toggle'
 import { Button, buttonVariants } from './ui/button'
 import { MenuBar } from './menu-bar'
 import { MenuSheet } from './menu-sheet'
-
-type Props = {}
+import { SocialIcon } from 'react-social-icons'
+import { Principal } from '../../types'
 
 const CustomLink = ({
   href,
@@ -32,7 +31,7 @@ const CustomLink = ({
       <span
         className={cn(
           'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300',
-          pathName === href ? 'w-full' : 'w-0'
+          pathName === href ? 'w-full' : 'w-0',
         )}
       >
         &nbsp;
@@ -69,14 +68,14 @@ const CustomMovileLink = ({
           variant: 'link',
           className: 'bg-transparent text-foreground',
         }),
-        className && ' relative group cursor-pointer my-2'
+        className && ' relative group cursor-pointer my-2',
       )}
     >
       {title}
       <span
         className={cn(
           'h-[2px] inline-block bg-foreground absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300',
-          pathName === href ? 'w-full' : 'w-0'
+          pathName === href ? 'w-full' : 'w-0',
         )}
       >
         &nbsp;
@@ -85,8 +84,13 @@ const CustomMovileLink = ({
   )
 }
 
-export const Navbar = (props: Props) => {
+type Props = {
+  personalData?: Principal
+}
+
+export const Navbar = ({ personalData }: Props) => {
   const pathName = usePathname()
+  const urlWhatsapp = `https://wa.me/52${personalData?.phone}/`
 
   return (
     <header className="relative w-full  px-1 md:px-32 py-8 font-medium flex items-center md:justify-around justify-center m-auto">
@@ -140,7 +144,30 @@ export const Navbar = (props: Props) => {
           <div className="-mt-5 lg:mt-0">
             <LogoFermiIcon />
           </div>
-          <div className="hidden lg:flex lg:flex-row lg:gap-2">
+          <div className="hidden lg:flex lg:flex-row lg:gap-1 items-center">
+            {personalData?.socialsNet?.map((social) => (
+              <SocialIcon
+                className=" "
+                key={social?._id}
+                url={social?.urlSocial}
+                fgColor="gray"
+                bgColor="transparent"
+                style={{ height: 50, width: 50 }}
+                network=""
+                target="_blank"
+              />
+            ))}
+            <SocialIcon
+              url={urlWhatsapp || ''}
+              bgColor="transparent"
+              fgColor="gray"
+              style={{ height: 50, width: 50 }}
+              network="whatsapp"
+              target="_blank"
+            />
+            <ModeToggle />
+          </div>
+          {/* <div className="hidden lg:flex lg:flex-row lg:gap-2">
             <motion.a
               href={'/'}
               target={'_blank'}
@@ -160,7 +187,7 @@ export const Navbar = (props: Props) => {
               <FaLinkedinIn size={30} />
             </motion.a>
             <ModeToggle />
-          </div>
+          </div> */}
         </nav>
       </div>
       {/* 

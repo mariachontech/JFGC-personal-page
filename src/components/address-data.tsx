@@ -4,16 +4,17 @@ import React from 'react'
 import { TooltipCom } from './tooltip-com'
 import { Separator } from './ui/separator'
 import Link from 'next/link'
+import { Principal } from '../../types'
 
-type Props = {}
+type Props = {
+  principalData?: Principal
+}
 
-export const AddressData = (props: Props) => {
+export const AddressData = ({ principalData }: Props) => {
   return (
     <div className="space-y-1 w-full text-start text-sm">
       <Link href={'/biography'} className="cursor-alias">
-        <h4 className="text-sm font-semibold">
-          Prof. José Fermi Guerrero Castellanos
-        </h4>
+        <h4 className="text-sm font-semibold">Prof. {principalData?.name}</h4>
       </Link>
       <Separator />
 
@@ -21,21 +22,24 @@ export const AddressData = (props: Props) => {
         <MapPin />
         <div className="flex flex-col justify-start ">
           <TooltipCom message="Facultad de ciencias de la electrónica">
-            <p className="font-semibold  ">FCE</p>
+            <p className="font-semibold  ">{principalData?.university}</p>
           </TooltipCom>
-          <TooltipCom message="Benemerita universidad autonoma de Puebla">
+          {/* <TooltipCom message="Benemerita universidad autonoma de Puebla">
             <p className="font-semibold">BUAP </p>
-          </TooltipCom>
+          </TooltipCom> */}
 
-          <p>Av. San Claudio y 18 Sur Col. San Manuel</p>
-          <p>Puebla México, C.P. 72450</p>
-          <p>Oficina: FCE-307</p>
+          <p>{principalData?.street}</p>
+          <p>
+            {principalData?.city} {principalData?.country}, C.P.{' '}
+            {principalData?.cp}
+          </p>
+          <p>Oficina: {principalData?.office}</p>
         </div>
       </div>
       <p className="flex justify-startr items-center gap-5">
         <Mail />
 
-        <span>fermi.guerrero@correo.buap.mx</span>
+        <span>{principalData?.email}</span>
       </p>
     </div>
   )

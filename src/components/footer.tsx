@@ -5,6 +5,9 @@ import { Separator } from './ui/separator'
 import { AddressData } from './address-data'
 import Link from 'next/link'
 import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
+import { Principal } from '../../types'
+
+import { SocialIcon } from 'react-social-icons'
 
 const researchMenu: { title: string; href: string; description: string }[] = [
   {
@@ -103,16 +106,19 @@ const labMenu: { title: string; href: string; description: string }[] = [
   },
 ]
 
-type Props = {}
+type Props = {
+  personalData?: Principal
+}
 
-export const Footer = (props: Props) => {
+export const Footer = ({ personalData }: Props) => {
+  const urlWhatsapp = `https://wa.me/52${personalData?.phone}/`
   return (
     <MaxWidthWrapper>
       <footer className="px-4 divide-y  bg-background ">
         <Separator />
         <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0 gap-10">
           <div className="w-fit md:px-10">
-            <AddressData />
+            <AddressData principalData={personalData} />
           </div>
           <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
             <div className="space-y-3">
@@ -164,24 +170,28 @@ export const Footer = (props: Props) => {
               </ul>
             </div>
             <div className="space-y-3">
-              <div className="uppercase dark:text-gray-50">Social Media</div>
-              <div className="flex justify-start space-x-3">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  title="Facebook"
-                  className="flex items-center p-1"
-                >
-                  <FaWhatsapp size={20} />
-                </a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  title="Twitter"
-                  className="flex items-center p-1"
-                >
-                  <FaLinkedinIn size={20} />
-                </a>
+              <div className="uppercase text-foreground">Social Media</div>
+              <div className="flex justify-start ">
+                {personalData?.socialsNet?.map((social) => (
+                  <SocialIcon
+                    className=" "
+                    key={social?._id}
+                    url={social?.urlSocial}
+                    fgColor="gray"
+                    bgColor="transparent"
+                    style={{ height: 50, width: 50 }}
+                    network=""
+                    target="_blank"
+                  />
+                ))}
+                <SocialIcon
+                  url={urlWhatsapp || ''}
+                  bgColor="transparent"
+                  fgColor="gray"
+                  style={{ height: 50, width: 50 }}
+                  network="whatsapp"
+                  target="_blank"
+                />
               </div>
             </div>
           </div>

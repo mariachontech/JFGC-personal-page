@@ -4,8 +4,12 @@ import './globals.css'
 import { ThemeProvider } from '@/providers/theme-provider'
 import { Navbar } from '@/components/nav-bar'
 import { Footer } from '@/components/footer'
-import { AnimatedProvider } from '@/providers/animated-provider'
 import { Toaster } from '@/components/ui/toaster'
+
+import { SanityDocument, VisualEditing } from 'next-sanity'
+import { draftMode } from 'next/headers'
+import { sanityFetch } from '../../sanity/lib/fetch'
+import { HOME_QUERY, HOME_QUERY_LIGHT } from '../../sanity/lib/queries'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -38,11 +42,17 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const homeData = await sanityFetch<SanityDocument>({
+    query: HOME_QUERY_LIGHT,
+  })
+
+  const { principal } = homeData
+
   return (
     <html lang="es">
       <body className={montserrat.className}>
@@ -52,11 +62,20 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {draftMode().isEnabled && (
+            <div>
+              <a className="p-4 bg-blue-300 block" href="/api/disable-draft">
+                Disable preview mode
+              </a>
+            </div>
+          )}
           <Toaster />
 
-          <Navbar />
+          <Navbar personalData={principal} />
           {children}
-          <Footer />
+          {draftMode().isEnabled && <VisualEditing />}
+
+          <Footer personalData={principal} />
         </ThemeProvider>
       </body>
     </html>

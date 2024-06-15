@@ -16,8 +16,22 @@ import { Separator } from '@/components/ui/separator'
 import { Affiliate } from '@/components/afilliate'
 import { AddressData } from '@/components/address-data'
 import { CarouselPics } from '@/components/carousel-pics'
+import { sanityFetch } from '../../../sanity/lib/fetch'
+import { SanityDocument } from 'next-sanity'
+import { HOME_QUERY } from '../../../sanity/lib/queries'
+import { urlForImage } from '../../../sanity/lib/image'
+import { NewsComponent } from './_components/news-component'
 
-export default function Home() {
+export default async function Home() {
+  const homeData = await sanityFetch<SanityDocument>({
+    query: HOME_QUERY,
+  })
+
+  console.log(homeData)
+
+  const { mainImage, message, cta, principal, news, galleries, galleryCite } =
+    homeData
+
   return (
     <main className="flex flex-col   justify-between items-center">
       <TransitionEffect />
@@ -26,38 +40,23 @@ export default function Home() {
         <div className=" flex flex-col md:flex-row items-center  justify-center md:justify-between  w-full h-fit md:h-full md:gap-10 gap-0 ">
           <div className="relative flex justify-center items-center  w-full md:w-1/2 h-[70vh] md:h-full  ">
             <Image
-              src={'/images/profile/fermiguerrero.png'}
-              alt="Profile"
+              src={urlForImage(mainImage)}
+              alt={mainImage.alt}
               fill
               className="object-contain "
             />
           </div>
           <div className="md:w-1/2 h-auto flex flex-col items-start  justify-between self-center  lg:text-center md:gap-24 gap-1 px-2 md:px-0">
             <AnimatedText
-              text={
-                'Designing, modeling, and controlling future collaborative and environmentally responsible autonomous and robotic systems.'
-              }
+              text={message}
               className="text-xl text-left lg:text-center  md:text-3xl"
             />
-            {/* <p className="my-4 text-sm lg:text-base  font-medium">
-              Designing, modeling, and controlling future collaborative and
-              environmentally responsible autonomous and robotic systems.
-             </p> */}
+
             <div className="flex items-center self-center   gap-5 flex-col md:flex-row">
               <div className="">
-                <AddressData />
+                <AddressData principalData={principal} />
               </div>
               <div className="flex flex-row md:flex-col  gap-2 md:gap-5">
-                {/* <Link
-                  href="/"
-                  target={'_blank'}
-                  className={buttonVariants({
-                    variant: 'default',
-                    className: 'gap-1.5 text-dark dark:text-light',
-                  })}
-                >
-                  Resume <ArrowUpRightFromSquare />
-                </Link> */}
                 <Link
                   href="/contact"
                   className={buttonVariants({
@@ -65,7 +64,7 @@ export default function Home() {
                     className: 'gap-1.5 text-dark dark:text-light',
                   })}
                 >
-                  Contact
+                  {cta}
                   <LucideContact2 />
                 </Link>
                 <Link
@@ -85,7 +84,7 @@ export default function Home() {
       <Separator className="my-4" />
 
       <MaxWidthWrapper className="flex justify-start items-center">
-        <div className="max-w-screen-xl  mx-auto py-10">
+        {/* <div className="max-w-screen-xl  mx-auto py-10">
           <h3 className="font-bold py-5">News</h3>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 md:gap-0 lg:grid-rows-2">
@@ -257,17 +256,17 @@ export default function Home() {
               </h2>
             </div>
           </div>
-        </div>
+        </div> */}
+        <NewsComponent news={news} />
       </MaxWidthWrapper>
       <MaxWidthWrapper>
         <Separator className="my-4" />
         <div className="w-full mx-auto py-10 flex flex-col md:flex-row justify-center md:justify-around items-center gap-10">
-          <CarouselPics />
+          <CarouselPics galleries={galleries} />
 
           <h3 className="font-semibold py-10 md:py-5 w-full md:w-[40%]">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, odit
-            in esse autem mollitia tenetur nihil commodi sed voluptatibus
-            facilis?
+            <cite>{galleryCite?.cite}.</cite> --
+            <span className="text-sm font-light"> {galleryCite.author}</span>
           </h3>
         </div>
       </MaxWidthWrapper>
