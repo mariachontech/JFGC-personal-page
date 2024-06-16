@@ -51,3 +51,11 @@ export const BIOGRAPHY_QUERY = groq`
 }
 
 `
+
+export const RESEARCH_QUERY = groq`*[_type == "researchPage"][0] {
+  ...,
+  publications[]->{
+    bibText
+  }
+}
+`

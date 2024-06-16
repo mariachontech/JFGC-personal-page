@@ -16,6 +16,7 @@ type Props = {
   number: string | number | undefined
   doi: string | undefined
   raw: string | undefined
+  lengthArray: number
 }
 
 const PaperPublicated = ({
@@ -29,6 +30,7 @@ const PaperPublicated = ({
   number,
   doi,
   raw,
+  lengthArray,
 }: Props) => {
   const onCopy = () => {
     navigator.clipboard.writeText(raw || '')
@@ -46,13 +48,14 @@ const PaperPublicated = ({
   return (
     <li className="w-full flex flex-col   gap-2">
       <div className="flex justify-between  gap-2">
-        [{index + 1}]
+        [{lengthArray - index}]
         <p className="leadig-relaxed">
-          {author},<span> &quot;{title}&quot;</span>,{' '}
-          <span className="italic">{journal ? journal : publisher}</span>,{' '}
-          {volume}
-          {number && `(${number})`}, {pages}.{' '}
-          <span className="italic">{`https://doi.org/${doi}`}</span>
+          {author}
+          <span> &quot;{title}&quot;</span>,{' '}
+          <span className="italic">{journal ? journal : publisher + ','}</span>{' '}
+          {volume && volume}
+          {number && `(${number}), `} {pages && pages}.{' '}
+          {doi && <span className="italic">{`https://doi.org/${doi}`}</span>}
         </p>
       </div>
       <div className=" w-full flex justify-end items-center">

@@ -19,6 +19,9 @@ import { BibtexParser } from 'bibtex-js-parser'
 
 import PaperPublicated from './_components/paper-publicated'
 import { ResearhTab } from './_components/researh-tab'
+import { SanityDocument } from 'next-sanity'
+import { sanityFetch } from '../../../../sanity/lib/fetch'
+import { RESEARCH_QUERY, BIOGRAPHY_QUERY } from '../../../../sanity/lib/queries'
 
 // import Cite from 'citation-js'
 
@@ -233,9 +236,26 @@ const dataResearchGroup = [
 type Props = {}
 
 const ResearchPage = async (props: Props) => {
-  const res = await ps.readFile('./lib2.bib', 'utf-8')
+  const researchDatas = await sanityFetch<SanityDocument>({
+    query: RESEARCH_QUERY,
+  })
 
-  const bibJSON = BibtexParser.parseToJSON(res)
+  const bibArrayJson = () => {
+    let bibTextGetted: any[] = []
+    researchDatas.publications.map((pub: { bibText: string }) => {
+      const bibText = BibtexParser.parseToJSON(pub.bibText)
+      //console.log('bibText', bibText[0])
+
+      bibTextGetted.push(bibText[0])
+    })
+
+    return bibTextGetted
+  }
+
+  const bibJSON1 = bibArrayJson()
+  const bibJSON = bibJSON1.reverse() //BibtexParser.parseToJSON(bibArrayJson())
+
+  //const bibJSONOne = BibtexParser.parseToJSON(textEncoder.encode(variable))
 
   return (
     <main className="w-full mb-16 flex  flex-col items-center justify-center">

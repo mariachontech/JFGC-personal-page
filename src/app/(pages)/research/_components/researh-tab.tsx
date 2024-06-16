@@ -118,6 +118,7 @@ export const ResearhTab = ({
               number={bib.number}
               doi={bib.doi}
               raw={bib.raw}
+              lengthArray={bibJSON.length}
             />
           ))}
         </ul>

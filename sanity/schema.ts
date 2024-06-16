@@ -12,11 +12,15 @@ import galleryKind from './schemaTypes/common/galleryKind'
 import education from './schemaTypes/common/education'
 import biography from './schemaTypes/biography/biography'
 import experienceScheme from './schemaTypes/common/experience-schema'
+import researchPage from './schemaTypes/researchPage/researchPage'
+import publicationScheme from './schemaTypes/common/publicationScheme'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     home,
     biography,
+    researchPage,
+    publicationScheme,
     education,
     experienceScheme,
     user,
