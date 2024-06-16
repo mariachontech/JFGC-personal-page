@@ -2,6 +2,8 @@
 import React, { useRef } from 'react'
 import { useScroll, motion } from 'framer-motion'
 import { DetailsEducation } from './details-education'
+import { EditAction } from 'next-sanity'
+import { EducationType } from '../../../../../types'
 
 const educationData = [
   // {
@@ -42,9 +44,9 @@ const educationData = [
   },
 ]
 
-type Props = {}
+type Props = { educationData: EducationType[] }
 
-export const Education = (props: Props) => {
+export const Education = ({ educationData }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
 
   const { scrollYProgress } = useScroll({
@@ -65,7 +67,7 @@ export const Education = (props: Props) => {
         />
         <ul className="w-fit flex flex-col items-start justify-between ml-14 md:ml-4">
           {educationData.reverse().map((exp, index) => (
-            <DetailsEducation key={index} {...exp} />
+            <DetailsEducation key={index} educationData={exp} />
           ))}
         </ul>
       </div>

@@ -1,8 +1,8 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'home',
-  title: 'Home',
+  name: 'biography',
+  title: 'Biography',
   type: 'document',
   fields: [
     defineField({
@@ -11,16 +11,22 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'message',
-      title: 'Message',
-      type: 'text',
+      name: 'citeAuthor',
+      title: 'Cite',
+      type: 'object',
+      fields: [
+        { name: 'cite', type: 'text', title: 'cite' },
+        { name: 'author', type: 'string', title: 'Author' },
+      ],
     }),
+    // Field with accept option set to PDF
     defineField({
-      name: 'cta',
-      title: 'Call to action',
-      type: 'string',
+      name: 'pdfFile',
+      type: 'file',
+      options: {
+        accept: 'application/pdf',
+      },
     }),
-
     defineField({
       name: 'mainImage',
       title: 'Main image',
@@ -37,48 +43,49 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'principal',
-      title: 'Principal Data',
-      type: 'reference',
-      to: { type: 'user' },
+      name: 'secondImage',
+      title: 'Second image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative Text',
+        },
+      ],
     }),
+
+    defineField({
+      name: 'education',
+      title: 'Education',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: { type: 'education' },
+        }),
+      ],
+    }),
+    defineField({
+      name: 'experience',
+      title: 'Experience',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: { type: 'experienceScheme' },
+        }),
+      ],
+    }),
+
     defineField({
       name: 'author',
       title: 'Author',
       type: 'reference',
       to: { type: 'user' },
-    }),
-    defineField({
-      name: 'news',
-      title: 'Lastest news',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          title: 'News',
-          type: 'reference',
-          to: { type: 'news' },
-        }),
-      ],
-    }),
-    defineField({
-      name: 'galleryCite',
-      title: 'Biography Phrase',
-      type: 'object',
-      fields: [
-        { name: 'cite', type: 'string', title: 'cite' },
-        { name: 'author', type: 'string', title: 'Author' },
-      ],
-    }),
-    defineField({
-      name: 'galleries',
-      title: 'Galleries',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: { type: 'galleryKind' },
-        }),
-      ],
     }),
     defineField({
       name: 'publishedAt',

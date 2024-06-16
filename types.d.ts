@@ -144,3 +144,102 @@ export interface Author {
   _type: string
   _ref: string
 }
+
+export interface Root {
+  experience: Experience[]
+  secondImage: SecondImage
+  education: Education[]
+  _updatedAt: string
+  _createdAt: string
+  pdfFile: PdfFile
+  mainImage: MainImage
+  _id: string
+  author: Author
+  _rev: string
+  publishedAt: string
+  _type: string
+  title: string
+  citeAuthor: CiteAuthor
+  pdfURL: string
+}
+
+export interface ExperienceType {
+  company: string
+  startTime: string
+  _id: string
+  _updatedAt: string
+  work: string
+  _rev: string
+  _type: string
+  companyLink: string
+  _createdAt: string
+  location: string
+  position: string
+  endTime?: string
+}
+
+export interface SecondImage {
+  alt: string
+  asset: Asset
+  _type: string
+}
+
+export interface Asset {
+  _type: string
+  _ref: string
+}
+
+export interface EducationType {
+  _updatedAt: string
+  advisers?: Adviser[]
+  _createdAt: string
+  grade: string
+  _rev: string
+  _type: string
+  _id: string
+  commite?: Commite[]
+  place?: string
+  endTime?: string
+  startTime?: string
+}
+
+export interface Adviser {
+  _id: string
+  name: string
+}
+
+export interface Commite {
+  _id: string
+  name: string
+}
+
+export interface PdfFile {
+  _type: string
+  asset: Asset2
+}
+
+export interface Asset2 {
+  _ref: string
+  _type: string
+}
+
+export interface MainImage {
+  _type: string
+  alt: string
+  asset: Asset3
+}
+
+export interface Asset3 {
+  _ref: string
+  _type: string
+}
+
+export interface Author {
+  _ref: string
+  _type: string
+}
+
+export interface CiteAuthor {
+  cite: string
+  author: string
+}

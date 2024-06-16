@@ -13,6 +13,10 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import { LucideDownloadCloud } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Link from 'next/link'
+import { sanityFetch } from '../../../../sanity/lib/fetch'
+import { SanityDocument } from 'next-sanity'
+import { BIOGRAPHY_QUERY } from '../../../../sanity/lib/queries'
+import { urlForImage } from '../../../../sanity/lib/image'
 
 const experienceData = []
 export const metadata: Metadata = {
@@ -23,16 +27,30 @@ export const metadata: Metadata = {
 
 type Props = {}
 
-const BiographyPage = (props: Props) => {
+const BiographyPage = async (props: Props) => {
+  const biographyData = await sanityFetch<SanityDocument>({
+    query: BIOGRAPHY_QUERY,
+  })
+
+  const {
+    title,
+    experience,
+    education,
+    pdfURL,
+    mainImage,
+    secondImage,
+    citeAuthor,
+  } = await biographyData
+
+  console.log(experience)
+
   return (
     <main className="flex w-full  flex-col items-center justify-center">
       <TransitionEffect />
 
       <MaxWidthWrapper className="pt-16 px-4 h-full ">
         <AnimatedText
-          text={
-            '“The laws of nature are but the mathematical thoughts of God.” -- Euclid'
-          }
+          text={title}
           className="w-fit mb-8 sm:mb-16 text-xl  sm:text-2xl lg:text-3xl "
         />
         <div className="grid w-full h-[60%] grid-cols-8 gap-8 sm:gap-16 px-2 md:px-0">
@@ -41,21 +59,13 @@ const BiographyPage = (props: Props) => {
               id="quote"
               className="w-full font-medium text-lg text-pretty text-justify "
             >
-              &quot;La humanidad por naturaleza teme y no quisiera escuchar la
-              palabra error, sin embargo para la gente que trabajamos en teoría
-              e ingeniería de control, el error es el objeto de nuestra pasión,
-              parte fundamental de nuestras teorías y somos la única disciplina
-              que hace uso explícito del error para formular lo necesario y
-              obtener el mejor desempeño de eso que intentamos controlar. El día
-              que el modelo de los sistemas sea perfecto, que no existan
-              perturbaciones, que no existan retardos, ese día, el control en
-              lazo cerrado dejará de existir. &quot;
+              &quot;{citeAuthor.cite} &quot;
             </p>
 
             <div className="w-full flex flex-col justify-center items-end text-end font-semibold">
-              <h5>Dr. José Fermi Guerrero Castellanos</h5>
+              <h5>{citeAuthor.author}</h5>
               <Link
-                href={'/'}
+                href={pdfURL}
                 target={'_blank'}
                 className={buttonVariants({
                   variant: 'link',
@@ -66,8 +76,8 @@ const BiographyPage = (props: Props) => {
               </Link>
             </div>
             <Image
-              src={'/images/bloq.jpeg'}
-              alt=""
+              src={urlForImage(secondImage.asset)}
+              alt={secondImage.alt}
               width={350}
               height={2500}
               className="object-cover rounded-xl"
@@ -87,8 +97,8 @@ const BiographyPage = (props: Props) => {
               <div className="relative w-full h-full ">
                 <Image
                   className="object-cover rounded-[2rem] "
-                  src={'/images/profile/fermi-neige.jpeg'}
-                  alt="Fermi Gerrero"
+                  src={urlForImage(mainImage.asset)}
+                  alt={mainImage?.alt}
                   fill
                   priority
                   sizes="(max-width:760px) 100vw,
@@ -129,8 +139,8 @@ const BiographyPage = (props: Props) => {
         </div>
         {/* <Skills /> */}
         <div id="carrer-path">
-          <Experience />
-          <Education />
+          <Experience experience={biographyData.experience} />
+          <Education educationData={biographyData.education} />
         </div>
       </MaxWidthWrapper>
     </main>

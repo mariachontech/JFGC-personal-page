@@ -31,3 +31,23 @@ export const HOME_QUERY_LIGHT = groq`*[_type == "home"][0]{
     
 
 }`
+
+export const BIOGRAPHY_QUERY = groq`
+*[_type == "biography"][0]{
+  ...,
+   "pdfURL": pdfFile.asset->url,
+  experience[]->,
+  education[]->{
+    ...,
+    commite[]->{
+      _id,
+      name
+    },
+     advisers[]->{
+       _id,
+      name
+    }
+  }
+}
+
+`
