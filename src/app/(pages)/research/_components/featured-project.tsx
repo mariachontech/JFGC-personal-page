@@ -5,14 +5,16 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { FaGithub } from 'react-icons/fa'
+import { Category, ImageOfEvent } from '../../../../../types'
+import { urlForImage } from '../../../../../sanity/lib/image'
 
 type Props = {
-  type: string
+  type: Category[]
   title: string
   summary: string
-  img: string
-  link: string
-  github: string
+  img: ImageOfEvent
+  link?: string
+  github?: string
 }
 
 const FramerImage = motion(Image)
@@ -30,13 +32,13 @@ export const FeaturedProject = ({
       <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2.5rem] bg-primary rounded-br-3xl" />
 
       <Link
-        href={link}
+        href={link || ''}
         target="_blank"
         className="w-[90vw] md:w-1/2 h-[50vh] md:h-[360px] relative cursor-pointer overflow-hidden rounded-lg"
       >
         <FramerImage
-          src={img}
-          alt={title}
+          src={urlForImage(img.asset as any)}
+          alt={img.alt}
           fill
           className="object-contain md:object-fill"
           priority
@@ -49,10 +51,12 @@ export const FeaturedProject = ({
         />
       </Link>
       <div className="w-full md:w-1/2 flex flex-col items-start justify-between pl-6">
-        <span className="text-primary font-medium text-xl">{type}</span>
+        <span className="text-primary font-medium text-xl">
+          {type[0].title}
+        </span>
         <Link
+          href={link || ''}
           className="hover:underline underline-offset-2"
-          href={link}
           target="_blank"
         >
           <h2 className="my-2 w-full text-left text-xl md:text-4xl font-bold">
@@ -65,7 +69,7 @@ export const FeaturedProject = ({
 
         <div className="mt-2 flex items-center gap-8">
           {github && (
-            <Link href={github} target="_blank">
+            <Link href={github || ''} target="_blank">
               <FaGithub size={34} />
             </Link>
           )}

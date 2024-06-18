@@ -1,71 +1,61 @@
-import { Linkedin } from 'lucide-react'
 import React from 'react'
+import { GroupType, Tag } from '../../../../../types'
+import { Link, Link2 } from 'lucide-react'
 
 type Props = {
-  id: String
-  tag: String
-  group: String
-  title: String
-  description: String
-  link: String
-  link2: String
-  linkedin: String
-  github: String
-  page: String
+  dataresearchGroup: GroupType
 }
 
-export const ResearchGroup = ({
-  tag,
-  group,
-  title,
-  description,
-  link,
-  link2,
-  linkedin,
-  github,
-  page,
-}: Props) => {
+export const ResearchGroup = ({ dataresearchGroup }: Props) => {
+  console.log(dataresearchGroup.tag)
+
   return (
     <div className="w-full max-w-sm px-4 py-3 bg-white rounded-md shadow-md dark:bg-gray-800">
       <div className="flex items-center justify-between">
         <span className="text-sm font-light text-gray-800 dark:text-gray-400">
-          {tag}
+          Team
         </span>
         <span className="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900">
-          {group}
+          {dataresearchGroup?.tag.map((ta: Tag) => (
+            <span key={ta._id}>{ta.title}</span>
+          ))}
         </span>
       </div>
 
       <div>
         <h1 className="mt-2 text-lg font-semibold text-gray-800 dark:text-white">
-          {title}
+          {dataresearchGroup?.title}
         </h1>
         <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-          {description}
+          {dataresearchGroup?.description}
         </p>
       </div>
 
-      <div>
-        <div className="flex items-center mt-2 text-gray-700 dark:text-gray-200">
-          <span>Visit on:</span>
-          <a
-            className="mx-2 text-blue-600 cursor-pointer dark:text-blue-400 hover:underline"
-            tabIndex={0}
-            role="link"
-          >
-            {link}
-          </a>
-          <span>or</span>
-          <a
-            className="mx-2 text-blue-600 cursor-pointer dark:text-blue-400 hover:underline"
-            tabIndex={0}
-            role="link"
-          >
-            {link2}
-          </a>
-        </div>
+      <div className="my-5">
+        {dataresearchGroup?.link && (
+          <div className="flex items-center mt-2 text-gray-700 dark:text-gray-200">
+            <span>Visit on:</span>
+            <a
+              className="mx-2 text-blue-600 cursor-pointer dark:text-blue-400 hover:underline"
+              tabIndex={0}
+              role="link"
+              href={dataresearchGroup?.link}
+            >
+              <Link className="w-5" />
+            </a>
+            <span>or</span>
+            <a
+              className="mx-2 text-blue-600 cursor-pointer dark:text-blue-400 hover:underline"
+              tabIndex={0}
+              role="link"
+              href={dataresearchGroup?.link2}
+            >
+              <Link2 className="w-5" />
+            </a>
+          </div>
+        )}
 
-        <div className="flex items-center justify-center mt-4">
+        {/* <div className="flex items-center justify-center mt-4">
           <a
             className="mr-2 text-gray-800 cursor-pointer dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300"
             tabIndex={0}
@@ -102,7 +92,7 @@ export const ResearchGroup = ({
               <path d="M14.8284 10.5857C15.2189 10.1952 15.2189 9.56199 14.8284 9.17147C14.4379 8.78094 13.8047 8.78094 13.4142 9.17147L9.17154 13.4141C8.78101 13.8046 8.78101 14.4378 9.17154 14.8283C9.56206 15.2188 10.1952 15.2188 10.5857 14.8283L14.8284 10.5857Z" />
             </svg>
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   )

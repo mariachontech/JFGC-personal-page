@@ -1,8 +1,8 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'researchPage',
-  title: 'Research Page',
+  name: 'studentPage',
+  title: 'Students Page',
   type: 'document',
   fields: [
     defineField({
@@ -11,68 +11,51 @@ export default defineType({
       type: 'string',
     }),
 
-    // Field with accept option set to PDF
-    // defineField({
-    //   title: 'Bib Text',
-    //   name: 'bibText',
-    //   type: 'text',
-    // }),
+    defineField({
+      name: 'master',
+      title: 'Master Students',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: { type: 'masterSchema' },
+        }),
+      ],
+    }),
+    defineField({
+      name: 'phd',
+      title: 'PhD Students',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: { type: 'phdSchema' },
+        }),
+      ],
+    }),
+    defineField({
+      name: 'postdoc',
+      title: 'Post Doc',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: { type: 'postdocSchema' },
+        }),
+      ],
+    }),
+    defineField({
+      name: 'pboard',
+      title: 'PhD board',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: { type: 'pboardSchema' },
+        }),
+      ],
+    }),
 
-    defineField({
-      name: 'publications',
-      title: 'Publications',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: { type: 'publicationScheme' },
-        }),
-      ],
-    }),
-    defineField({
-      name: 'scientificInterest',
-      title: 'Scientific interest',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: { type: 'scientificInterest' },
-        }),
-      ],
-    }),
-    defineField({
-      name: 'projects',
-      title: 'Projects',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: { type: 'projectScheme' },
-        }),
-      ],
-    }),
-    defineField({
-      name: 'groups',
-      title: 'Research Groups',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: { type: 'researchGroup' },
-        }),
-      ],
-    }),
-    defineField({
-      name: 'industrialPartners',
-      title: 'Industrial Partners',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: { type: 'industrialPartners' },
-        }),
-      ],
-    }),
     defineField({
       name: 'author',
       title: 'Author',

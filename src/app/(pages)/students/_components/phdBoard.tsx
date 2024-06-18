@@ -1,4 +1,7 @@
 import { Badge } from '@/components/ui/badge'
+import { PboardType } from '../../../../../types'
+import { urlForImage } from '../../../../../sanity/lib/image'
+import { month } from '@/lib/utils'
 
 // const members = [
 //   {
@@ -38,31 +41,43 @@ import { Badge } from '@/components/ui/badge'
 // ]
 
 type Props = {
-  name: string
-  date: string
-  university: string
-  rol?: string
-  avatar: string
+  phdBoards: PboardType
 }
 
-export const PhdBoards = ({ avatar, name, rol, university, date }: Props) => (
-  <li className="py-5 flex items-start justify-between">
-    <div className="flex gap-3">
-      <img src={avatar} className="flex-none w-12 h-12 rounded-full" />
-      <div className="flex flex-col">
-        <span className="block text-sm font-semibold">{name}</span>
-        <span>{university}</span>
-        <span className="italic"> {date}</span>
-      </div>
-    </div>
+export const PhdBoards = ({ phdBoards }: Props) => {
+  const endTime = new Date(phdBoards?.date as any)
 
-    {rol && (
-      <Badge
-        variant={rol === 'Rapporteur' ? 'destructive' : 'default'}
-        className="text-foreground"
-      >
-        {rol}
-      </Badge>
-    )}
-  </li>
-)
+  return (
+    <li className="py-5 flex items-start justify-between">
+      <div className="flex gap-3">
+        <img
+          src={
+            phdBoards?.student?.image?.asset
+              ? urlForImage(phdBoards?.student?.image?.asset as any)
+              : ''
+          }
+          className="flex-none w-12 h-12 rounded-full"
+        />
+        <div className="flex flex-col">
+          <span className="block text-sm font-semibold">
+            {phdBoards?.student.name}
+          </span>
+          <span>{phdBoards?.university}</span>
+          <span className="italic">
+            {' '}
+            {month[endTime.getMonth()]} {endTime.getFullYear()}
+          </span>
+        </div>
+      </div>
+
+      {phdBoards?.role && (
+        <Badge
+          variant={phdBoards?.role === 'Examiner' ? 'destructive' : 'default'}
+          className="text-foreground"
+        >
+          {phdBoards?.role}
+        </Badge>
+      )}
+    </li>
+  )
+}

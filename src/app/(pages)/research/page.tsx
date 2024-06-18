@@ -135,104 +135,73 @@ export const metadata: Metadata = {
   description: 'Proyectos',
 }
 
-const researchData = [
-  {
-    title: 'Inertial Navigation Systems (INS)',
-    summary:
-      'Special interest is put into attitude estimation, MEMS sensors, GNSS and compass navigation, sensor fusion and state estimation, nonlinear observer theory, and Kalman filtering.',
-    img: '/images/projects/prototipo_navegacion.jpg',
-    link: '',
-    github: '',
-    type: 'Scientific interest',
-  },
-  {
-    title:
-      'Control and stabilization of individual and multiple Unmaned Vehicles (UAV, USV, UGV)',
-    summary:
-      'Where the feedback is carry out by the development of nonlinear and “asynchronous” (Event-Triggered) control strategies. Furthermore, new active disturbance rejection control techniques are continuously proposed and exploited.',
-    img: '/images/projects/vuelovolcan1.png',
-    link: '',
-    github: '',
-    type: 'Scientific interest',
-  },
-  {
-    title: 'Modeling and control of Cyber-Physical Systems (CPS)',
-    summary:
-      'Special interest is put into Ankle-Foot-Orthosis control and renewable energy systems.',
-    img: '/images/projects/Application_Lab.png',
-    link: '',
-    github: '',
-    type: 'Scientific interest',
-  },
-]
-
-const dataResearchGroup = [
-  {
-    id: '1',
-    tag: 'courses and MOOCs',
-    group: 'Control',
-    title: 'Automatic Control',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.',
-    link: 'buap.org',
-    link2: 'fermi.com',
-    linkedin: '#',
-    github: '#',
-    page: '#',
-  },
-  {
-    id: '2',
-    tag: 'Course',
-    group: 'Robotics',
-    title: 'Bounded control',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.',
-    link: 'buap.org',
-    link2: 'fermi.com',
-    linkedin: '#',
-    github: '#',
-    page: '#',
-  },
-  {
-    id: '3',
-    tag: 'Course',
-    group: 'Robotics',
-    title: 'Bounded control',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.',
-    link: 'buap.org',
-    link2: 'fermi.com',
-    linkedin: '#',
-    github: '#',
-    page: '#',
-  },
-  {
-    id: '4',
-    tag: 'Course',
-    group: 'Robotics',
-    title: 'Bounded control',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.',
-    link: 'buap.org',
-    link2: 'fermi.com',
-    linkedin: '#',
-    github: '#',
-    page: '#',
-  },
-  {
-    id: '5',
-    tag: 'Course',
-    group: 'Robotics',
-    title: 'Bounded control',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.',
-    link: 'buap.org',
-    link2: 'fermi.com',
-    linkedin: '#',
-    github: '#',
-    page: '#',
-  },
-]
+// const dataResearchGroup = [
+//   {
+//     id: '1',
+//     tag: 'courses and MOOCs',
+//     group: 'Control',
+//     title: 'Automatic Control',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.',
+//     link: 'buap.org',
+//     link2: 'fermi.com',
+//     linkedin: '#',
+//     github: '#',
+//     page: '#',
+//   },
+//   {
+//     id: '2',
+//     tag: 'Course',
+//     group: 'Robotics',
+//     title: 'Bounded control',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.',
+//     link: 'buap.org',
+//     link2: 'fermi.com',
+//     linkedin: '#',
+//     github: '#',
+//     page: '#',
+//   },
+//   {
+//     id: '3',
+//     tag: 'Course',
+//     group: 'Robotics',
+//     title: 'Bounded control',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.',
+//     link: 'buap.org',
+//     link2: 'fermi.com',
+//     linkedin: '#',
+//     github: '#',
+//     page: '#',
+//   },
+//   {
+//     id: '4',
+//     tag: 'Course',
+//     group: 'Robotics',
+//     title: 'Bounded control',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.',
+//     link: 'buap.org',
+//     link2: 'fermi.com',
+//     linkedin: '#',
+//     github: '#',
+//     page: '#',
+//   },
+//   {
+//     id: '5',
+//     tag: 'Course',
+//     group: 'Robotics',
+//     title: 'Bounded control',
+//     description:
+//       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eligendi similique exercitationem optio libero vitae accusamus cupiditate laborum eos.',
+//     link: 'buap.org',
+//     link2: 'fermi.com',
+//     linkedin: '#',
+//     github: '#',
+//     page: '#',
+//   },
+// ]
 type Props = {}
 
 const ResearchPage = async (props: Props) => {
@@ -255,7 +224,8 @@ const ResearchPage = async (props: Props) => {
   const bibJSON1 = bibArrayJson()
   const bibJSON = bibJSON1.reverse() //BibtexParser.parseToJSON(bibArrayJson())
 
-  //const bibJSONOne = BibtexParser.parseToJSON(textEncoder.encode(variable))
+  //const bibJSONOne = BibtexParser.parseToJS
+  const project = researchDatas.projects
 
   return (
     <main className="w-full mb-16 flex  flex-col items-center justify-center">
@@ -264,8 +234,10 @@ const ResearchPage = async (props: Props) => {
       <MaxWidthWrapper className="pt-4 md:pt-16 ">
         <ResearhTab
           bibJSON={bibJSON}
-          dataResearchGroup={dataResearchGroup}
-          researchData={researchData}
+          dataResearchGroup={researchDatas.groups}
+          researchData={researchDatas.scientificInterest}
+          projects={researchDatas.projects}
+          industrialPart={researchDatas.industrialPartners}
         />
         {/* <Tabs defaultValue="publications" className="w-full ">
           <Separator className="" />

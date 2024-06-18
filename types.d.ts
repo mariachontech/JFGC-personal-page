@@ -89,6 +89,7 @@ export interface Image {
   asset: Asset2
   _type: string
   alt: string
+  caption?: string
 }
 
 export interface Asset2 {
@@ -115,7 +116,7 @@ export interface News {
 export interface ImageOfEvent {
   _type: string
   alt: string
-  caption: string
+  caption?: string
   asset: Asset3
 }
 
@@ -143,24 +144,6 @@ export interface GalleryCite {
 export interface Author {
   _type: string
   _ref: string
-}
-
-export interface Root {
-  experience: Experience[]
-  secondImage: SecondImage
-  education: Education[]
-  _updatedAt: string
-  _createdAt: string
-  pdfFile: PdfFile
-  mainImage: MainImage
-  _id: string
-  author: Author
-  _rev: string
-  publishedAt: string
-  _type: string
-  title: string
-  citeAuthor: CiteAuthor
-  pdfURL: string
 }
 
 export interface ExperienceType {
@@ -242,4 +225,145 @@ export interface Author {
 export interface CiteAuthor {
   cite: string
   author: string
+}
+
+export interface ScientificInterest {
+  _type: string
+  author: Author2
+  categories: Category[]
+  _updatedAt: string
+  _id: string
+  _rev: string
+  description: string
+  title: string
+  image: Image
+  _createdAt: string
+}
+
+export interface Author2 {
+  _ref: string
+  _type: string
+}
+
+export interface ProjectType {
+  _rev: string
+  _createdAt: string
+  author: {
+    _ref: string
+    _type: string
+  }
+  _type: string
+  description: string
+  _id: string
+  title: string
+  _updatedAt: string
+  year: string
+}
+
+export interface GroupType {
+  tag: Tag[]
+  _rev: string
+  _id: string
+  _type: string
+  description: string
+  title: string
+  _updatedAt: string
+  author: {
+    _ref: string
+    _type: string
+  }
+  _createdAt: string
+  link2?: string
+  link?: string
+  page?: string
+  github?: string
+}
+
+export interface IndustrialPartner {
+  _rev: string
+  description: string
+  _id: string
+  title: string
+  _updatedAt: string
+  _createdAt: string
+  author: {
+    _ref: string
+    _type: string
+  }
+  _type: string
+  link: string
+  image: Image
+}
+
+export interface Tag {
+  _id: string
+  title: string
+  _updatedAt: string
+  _createdAt: string
+  _rev: string
+  _type: string
+}
+
+export interface MasterType {
+  _id: string
+  student: StudentData
+  _rev: string
+  _type: string
+  tesis: string
+  endTime: string
+  _updatedAt: string
+  university: string
+  _createdAt: string
+  status: string
+}
+
+export interface StudentData {
+  _createdAt: string
+  _rev: string
+  _type: string
+  name: string
+  _id: string
+  _updatedAt: string
+  slug: Slug
+  image: Image
+}
+
+export interface PhdType {
+  endTime: string
+  _type: string
+  collaborators?: Collaborator[]
+  startTime: string
+  _updatedAt: string
+  university?: string
+  tesis: string
+  status: string
+  student: StudentData
+  _rev: string
+  _id: string
+  _createdAt: string
+  now?: string
+}
+
+export interface Collaborator {
+  image: Image
+  university: string
+  _type: string
+  _id: string
+  _createdAt: string
+  _rev: string
+  name: string
+  _updatedAt: string
+  slug: Slug
+}
+
+export interface PboardType {
+  student: StudentData
+  _rev: string
+  _type: string
+  _updatedAt: string
+  role: string
+  date: string
+  university: string
+  _id: string
+  _createdAt: string
 }

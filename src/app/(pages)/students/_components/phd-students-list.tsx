@@ -1,4 +1,7 @@
 import { Badge } from '@/components/ui/badge'
+import { urlForImage } from '../../../../../sanity/lib/image'
+import { month } from '@/lib/utils'
+import { PhdType } from '../../../../../types'
 
 // const members = [
 //   {
@@ -38,21 +41,51 @@ import { Badge } from '@/components/ui/badge'
 // ]
 
 type Props = {
-  name: string
-  year: string
-  tesis: string
-  image: string
+  studentData: PhdType
 }
 
-export const PhdStudentsList = ({ year, name, tesis, image }: Props) => (
-  <li className="py-5 flex items-start justify-between">
-    <div className="flex gap-3">
-      <img src={image} className="flex-none w-12 h-12 rounded-full" />
-      <div className="flex flex-col">
-        <span className="block text-sm font-semibold">{name}</span>
-        <span>{tesis}</span>
-        <span className="italic"> {year}</span>
+export const PhdStudentsList = ({ studentData }: Props) => {
+  const startTime = new Date(studentData?.startTime as any)
+  const endTime = new Date(studentData?.endTime as any)
+
+  const collaboratorsSplit = studentData?.collaborators?.map((adv, index) => (
+    <span key={index}>
+      {adv.name}
+      {index !== (studentData?.collaborators?.length as any) - 1 ? ', ' : '.'}
+    </span>
+  ))
+
+  return (
+    <li className="py-5 flex items-start justify-between">
+      <div className="flex gap-3">
+        <img
+          src={urlForImage(studentData.student.image.asset as any)}
+          className="flex-none w-12 h-12 rounded-full"
+        />
+        <div className="flex flex-col">
+          <p className="block text-sm font-semibold">
+            {studentData?.student?.name}
+          </p>
+          <p>{studentData.tesis}</p>
+          {studentData.now && (
+            <p>
+              {' '}
+              <span className="italic font-light">Now:</span> {studentData.now}
+            </p>
+          )}
+          {studentData.collaborators && (
+            <p>
+              <span className="italic font-light">
+                collaborators: {collaboratorsSplit}
+              </span>
+            </p>
+          )}
+          <p className="italic">
+            {month[startTime.getMonth()]} {startTime.getFullYear()} -{' '}
+            {month[endTime.getMonth()]} {endTime.getFullYear()}
+          </p>
+        </div>
       </div>
-    </div>
-  </li>
-)
+    </li>
+  )
+}

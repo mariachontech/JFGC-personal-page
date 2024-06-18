@@ -3,41 +3,33 @@ import React, { useEffect, useState } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Separator } from '@/components/ui/separator'
 import { AnimatedText } from '@/components/AnimatedText'
-import { FeaturedProject } from './featured-project'
 import PaperPublicated from './paper-publicated'
 import { ProjectByYear } from './project-by-year'
 import { ResearchGroup } from './research-group'
 import { FeaturedArticles } from './featured-articles'
 import { useSearchParams } from 'next/navigation'
+import {
+  GroupType,
+  IndustrialPartner,
+  ProjectType,
+  ScientificInterest,
+} from '../../../../../types'
+import { FeaturedProject } from './featured-project'
 
 type Props = {
-  researchData: {
-    title: string
-    summary: string
-    img: string
-    link: string
-    github: string
-    type: string
-  }[]
-  dataResearchGroup: {
-    id: string
-    tag: string
-    group: string
-    title: string
-    description: string
-    link: string
-    link2: string
-    linkedin: string
-    github: string
-    page: string
-  }[]
+  researchData: ScientificInterest[]
+  dataResearchGroup: GroupType[]
   bibJSON: any[]
+  projects: ProjectType[]
+  industrialPart: IndustrialPartner[]
 }
 
 export const ResearhTab = ({
   researchData,
   dataResearchGroup,
   bibJSON,
+  projects,
+  industrialPart,
 }: Props) => {
   const [page, setPage] = useState('')
   const searchParams = useSearchParams()
@@ -86,13 +78,13 @@ export const ResearhTab = ({
           <div className="col-span-12 space-y-10">
             {researchData.map((research) => (
               <FeaturedProject
-                key={research.title}
+                key={research._id}
                 title={research.title}
-                summary={research.summary}
-                img={research.img}
-                link={research.link}
-                github={research.github}
-                type={research.type}
+                summary={research.description}
+                img={research.image}
+                link={''}
+                github={''}
+                type={research.categories}
               />
             ))}
           </div>
@@ -128,7 +120,7 @@ export const ResearhTab = ({
           text={'Projects'}
           className="hidden md:block sm:mb-16 text-4xl sm:text-5xl mb-8   "
         />
-        <ProjectByYear />
+        <ProjectByYear projects={projects} />
       </TabsContent>
       <TabsContent value="research-group">
         <AnimatedText
@@ -137,7 +129,7 @@ export const ResearhTab = ({
         />
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-4 ">
           {dataResearchGroup.map((research) => (
-            <ResearchGroup key={research.id} {...research} />
+            <ResearchGroup key={research._id} dataresearchGroup={research} />
           ))}
         </div>
       </TabsContent>
@@ -148,30 +140,9 @@ export const ResearhTab = ({
           className="hidden md:block sm:mb-16 text-4xl sm:text-5xl mb-8   "
         />
         <ul className="grid md:grid-cols-2 grid-cols-1 gap-16">
-          <FeaturedArticles
-            title="Build A Custom Pagination Component In Reactjs From Scratch"
-            summary="Learn how to build a custom pagination component in ReactJS from scratch. 
-Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
-            time="9 min read"
-            link="/"
-            img="/images/articles/form_validation_in_reactjs_using_custom_react_hook.png"
-          />
-          <FeaturedArticles
-            title="Build A Custom Pagination Component In Reactjs From Scratch"
-            summary="Learn how to build a custom pagination component in ReactJS from scratch. 
-Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
-            time="9 min read"
-            link="/"
-            img="/images/articles/What is higher order component in React.jpg"
-          />
-          <FeaturedArticles
-            title="Build A Custom Pagination Component In Reactjs From Scratch"
-            summary="Learn how to build a custom pagination component in ReactJS from scratch. 
-Follow this step-by-step guide to integrate Pagination component in your ReactJS project."
-            time="9 min read"
-            link="/"
-            img="/images/articles/What is higher order component in React.jpg"
-          />
+          {industrialPart.map((industrial) => (
+            <FeaturedArticles key={industrial._id} indPartners={industrial} />
+          ))}
         </ul>{' '}
       </TabsContent>
     </Tabs>

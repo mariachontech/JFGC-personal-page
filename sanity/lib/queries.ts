@@ -56,6 +56,39 @@ export const RESEARCH_QUERY = groq`*[_type == "researchPage"][0] {
   ...,
   publications[]->{
     bibText
+  },
+   scientificInterest[]->{
+    ...,
+    categories[]->
+  },
+  projects[]->,
+  groups[]->{
+    ...,
+      tag[]->
+  },
+  industrialPartners[]->
+}
+`
+
+export const STUDENTS_QUERY = groq`*[_type == "studentPage"][0]{
+  ...,
+  master[]->{
+    ...,
+    student->
+  },
+  phd[]->{
+    ...,
+    student->,
+     collaborators[]->
+  },
+   postdoc[]->{
+    ...,
+    student->
+  },
+  pboard[]->{
+    ...,
+    student->
   }
+      
 }
 `

@@ -42,12 +42,7 @@ export default defineType({
       type: 'reference',
       to: { type: 'user' },
     }),
-    defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: { type: 'user' },
-    }),
+
     defineField({
       name: 'news',
       title: 'Lastest news',
@@ -79,6 +74,12 @@ export default defineType({
           to: { type: 'galleryKind' },
         }),
       ],
+    }),
+    defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: { type: 'user' },
     }),
     defineField({
       name: 'publishedAt',
