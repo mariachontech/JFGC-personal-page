@@ -12,10 +12,20 @@ import Image from 'next/image'
 //   tutoAndMento,
 // } from '../../../../dataPage'
 import { AccordeonTeach } from './_components/accordeon-teach'
+import { sanityFetch } from '../../../../sanity/lib/fetch'
+import { SanityDocument } from 'next-sanity'
+import { COURSES_QUERY } from '../../../../sanity/lib/queries'
+import { urlForImage } from '../../../../sanity/lib/image'
 
 type Props = {}
 
-const TeachingPage = (props: Props) => {
+const TeachingPage = async (props: Props) => {
+  const coursesData = await sanityFetch<SanityDocument>({
+    query: COURSES_QUERY,
+  })
+
+  console.log('course', coursesData)
+
   return (
     <MaxWidthWrapper className="px-2 md:px-16">
       <TransitionEffect />
@@ -24,19 +34,22 @@ const TeachingPage = (props: Props) => {
         {' '}
         <div className="relative flex justify-center items-center  w-full md:w-1/2 h-[70vh]   ">
           <Image
-            src={'/images/profile/fermiguerrero.png'}
-            alt="Profile"
+            src={urlForImage(coursesData?.mainImage?.asset)}
+            alt={coursesData?.mainImage?.alt}
             fill
             className="object-contain "
           />
         </div>
         <AnimatedText
-          text="Real knowledge is to know the extent of one's ignorance. -- Confucius"
+          text={coursesData?.title || ''}
           className="mb-16 mx-auto text-center text-2xl md:text-3xl"
         />
       </div>
 
-      <AccordeonTeach />
+      <AccordeonTeach
+        underGraduate={coursesData?.underGraduateCourses}
+        graduate={coursesData?.graduateCourses}
+      />
 
       {/* <Accordion
         type="single"

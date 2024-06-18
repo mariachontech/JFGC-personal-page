@@ -92,3 +92,16 @@ export const STUDENTS_QUERY = groq`*[_type == "studentPage"][0]{
       
 }
 `
+
+export const COURSES_QUERY = groq`*[_type == "coursesPage"][0]{
+  ...,
+ graduateCourses[]->{
+   ...,
+   level[]->
+ },
+underGraduateCourses[]->{
+   ...,
+   level[]->
+ }
+}
+`

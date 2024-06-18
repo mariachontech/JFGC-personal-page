@@ -10,24 +10,26 @@ import {
 } from '@/components/ui/accordion'
 import { LicElecMec } from './lic-ele-mec'
 import {
-  electronicaAndMecatronica,
   masterElectronica,
   renoAndAuto,
   tutoAndMento,
 } from '../../../../../dataPage'
 import { TutosAndMento } from './tutos-mento'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
+import { CourseType } from '../../../../../types'
 
-type Props = {}
+type Props = {
+  underGraduate: CourseType[]
+  graduate: CourseType[]
+}
 
-export const AccordeonTeach = (props: Props) => {
+export const AccordeonTeach = ({ underGraduate, graduate }: Props) => {
   const [page, setPage] = useState('')
   const searchParams = useSearchParams()
 
   useEffect(() => {
     setPage(page || searchParams.get('q') || '')
   }, [searchParams, page, setPage])
-
 
   return (
     <Accordion type="single" collapsible className="w-full" value={page}>
@@ -39,14 +41,9 @@ export const AccordeonTeach = (props: Props) => {
           Undergraduate Courses
         </AccordionTrigger>
         <AccordionContent>
-          <LicElecMec
-            title="Lic. Electrónica e Ing. Mecatrónica"
-            courses={electronicaAndMecatronica}
-          />
-          <LicElecMec
-            title="Ing. en Energías Renovables e Ing. en Sistemas Automotrices"
-            courses={renoAndAuto}
-          />
+          {underGraduate?.map((course: CourseType) => (
+            <LicElecMec key={course._id} courseData={course} />
+          ))}
         </AccordionContent>
       </AccordionItem>
       <AccordionItem
@@ -57,16 +54,15 @@ export const AccordeonTeach = (props: Props) => {
           Graduate Courses
         </AccordionTrigger>
         <AccordionContent>
-          <LicElecMec
-            title="Maestría en Ingeniería Electrónica, opción instrumentación"
-            courses={masterElectronica}
-          />
+          {graduate.map((course: CourseType) => (
+            <LicElecMec key={course._id} courseData={course} />
+          ))}
 
-          <TutosAndMento
+          {/* <TutosAndMento
             title="Tutorías y Mentorías
 "
             tutos={tutoAndMento}
-          />
+          /> */}
         </AccordionContent>
       </AccordionItem>
     </Accordion>

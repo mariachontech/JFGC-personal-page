@@ -367,3 +367,26 @@ export interface PboardType {
   _id: string
   _createdAt: string
 }
+
+export interface CourseType {
+  _id: string
+  title: string
+  _updatedAt: string
+  level: LevelType[]
+  _createdAt: string
+  _rev: string
+  _type: string
+}
+
+export interface LevelType {
+  _id: string
+  _updatedAt: string
+  levelCourse: string
+  _createdAt: string
+  _rev: string
+  _type: string
+  name: string
+  link?: string
+  plan?: string
+  extras?: string
+}

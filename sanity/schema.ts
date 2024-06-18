@@ -23,24 +23,30 @@ import masterSchema from './schemaTypes/common/masterSchema'
 import phdSchema from './schemaTypes/common/phdSchema'
 import postdocSchema from './schemaTypes/common/postdocSchema'
 import pboardSchema from './schemaTypes/common/pboardSchema'
+import coursesPage from './schemaTypes/coursesPage/courses-page'
+import coursesSchema from './schemaTypes/common/courses-schema'
+
+import levelCourses from './schemaTypes/common/level-course'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     home,
     biography,
     researchPage,
+    studentsPage,
+    coursesPage,
     publicationScheme,
     scientificInterest,
     projectScheme,
     researchGroup,
     industrialPartners,
-    studentsPage,
     masterSchema,
     phdSchema,
     postdocSchema,
     pboardSchema,
     education,
     experienceScheme,
+    coursesSchema,
     user,
     category,
     blockContent,
@@ -49,5 +55,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     news,
     photo,
     galleryKind,
+    levelCourses,
   ],
 }
