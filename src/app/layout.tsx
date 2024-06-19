@@ -19,19 +19,21 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'José Fermi Guerrero Castellanos',
   description: "Fermi`'`s Page",
+  metadataBase: new URL('https://fermiguerrero.com/'),
+  keywords: ['Control', 'research', 'Navigation', 'PhD', 'BUAP', 'GIPSA-Lab'],
   openGraph: {
     title: 'José Fermi Guerrero Castellanos',
     description: "Fermi's Page",
-    url: 'https://jfgc-personal-page.vercel.app',
+    url: new URL('https://fermiguerrero.com/'),
     siteName: 'Fermi',
     images: [
       {
-        url: '/images/profile/fermi-lac.jpg',
+        url: 'https://www.fermiguerrero.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fp5gi3lsc%2Fproduction%2Ff502d2c0699eaf253e6965bd64d48967df5d5ade-1343x1390.png%3Ffit%3Dmax%26auto%3Dformat&w=1920&q=75',
         width: 800,
         height: 600,
       },
       {
-        url: '/images/profile/fermi-neige.jpeg',
+        url: 'https://www.fermiguerrero.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fp5gi3lsc%2Fproduction%2Ff502d2c0699eaf253e6965bd64d48967df5d5ade-1343x1390.png%3Ffit%3Dmax%26auto%3Dformat&w=1920&q=75',
         width: 1800,
         height: 1600,
         alt: 'My custom alt',
