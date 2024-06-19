@@ -34,11 +34,11 @@ const LabPage = async (props: Props) => {
         <HeaderLab headerLab={labData?.header} />
       </div>
 
-      <div className="my-24">
-        {labData.seccionLab.map((seccion: SeccionLabType) => (
-          <ControlComponent key={seccion._id} seccionData={seccion} />
-        ))}
-      </div>
+      {labData.seccionLab.map((seccion: SeccionLabType) => (
+        <div className="my-24" key={seccion._id}>
+          <ControlComponent seccionData={seccion} />
+        </div>
+      ))}
 
       {/* <div className="my-24">
         {labActivities.map((item, index) => (
