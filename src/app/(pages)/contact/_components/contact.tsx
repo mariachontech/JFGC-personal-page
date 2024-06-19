@@ -1,13 +1,46 @@
 'use client'
 
+import React, { FormEvent, useState } from 'react'
 import { TooltipCom } from '@/components/tooltip-com'
 import { Button } from '@/components/ui/button'
 import { Mail, MapPin } from 'lucide-react'
-import React from 'react'
+
+import { sendEmail } from '@/actions/send-email'
+import { ToastAction } from '@/components/ui/toast'
+import { useToast } from '@/components/ui/use-toast'
+import { cn } from '@/lib/utils'
 
 type Props = {}
 
 export const ContactForm = (props: Props) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const { toast } = useToast()
+
+  const sendEmailAction = async (formData: FormData) => {
+
+    setIsLoading(true)
+
+    try {
+      const product = await sendEmail(formData)
+      if (product) {
+        toast({
+          description: 'Your message has been sent.',
+        })
+
+        setIsLoading(false)
+      } else {
+        setIsLoading(false)
+
+        toast({
+          variant: 'destructive',
+          title: 'Uh oh! Something went wrong.',
+          description: 'There was a problem with your request.',
+          action: <ToastAction altText="Try again"> Try again!</ToastAction>,
+        })
+      }
+    } catch (error) {}
+  }
+
   return (
     <section className="py-6 ">
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
@@ -53,12 +86,14 @@ export const ContactForm = (props: Props) => {
         </div>
         <form
           // novalidate=""
+          action={sendEmailAction}
           className="flex flex-col py-6 space-y-6 md:py-0 md:px-6"
         >
           <label className="block">
             <span className="mb-1">Full name</span>
             <input
               type="text"
+              name="name"
               placeholder="José Fermi Guerrero Castellanos"
               className="block w-full rounded-md bg-foreground/10 shadow-sm focus:ring focus:ri focus:ri p-2"
             />
@@ -76,6 +111,7 @@ export const ContactForm = (props: Props) => {
             <span className="mb-2">Email address</span>
             <input
               type="email"
+              name="email"
               placeholder="fermi@gmail.com"
               className="block w-full rounded-md bg-foreground/10 shadow-sm focus:ring focus:ri focus:ri p-2"
             />
@@ -83,11 +119,19 @@ export const ContactForm = (props: Props) => {
           <label className="block">
             <span className="mb-2">Message</span>
             <textarea
+              name="message"
               rows={3}
               className="block w-full rounded-md bg-foreground/10 focus:ring focus:ri focus:ri p-2"
             ></textarea>
           </label>
-          <Button type="button">Submit</Button>
+          <Button
+            type="submit"
+            className={cn(isLoading && 'bg-red-300')}
+            disabled={isLoading}
+          >
+            {' '}
+            {isLoading ? 'Loading...' : 'Submit'}
+          </Button>
         </form>
       </div>
     </section>
