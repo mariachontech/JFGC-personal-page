@@ -4,8 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
 import {
-  ArrowUpRightFromSquare,
-  ImagePlusIcon,
+ 
   LucideContact2,
 } from 'lucide-react'
 import { TransitionEffect } from '@/components/transition-effect'
@@ -274,7 +273,7 @@ export default async function Home() {
       <Affiliate />
       <div className="absolute right-0 bottom-0 md:inline-block w-24 h-48 hidden">
         <TooltipCom message="Gallery">
-          <Link href={'/gallery'}>
+          <Link href={'/lab'}>
             <Icons.droneIcon className="fill-foreground" />
           </Link>
         </TooltipCom>
