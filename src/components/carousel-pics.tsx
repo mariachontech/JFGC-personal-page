@@ -39,7 +39,7 @@ export function CarouselPics({ galleries }: Props) {
 
   return (
     <div>
-      <Carousel setApi={setApi} className="w-[30vw] max-w-xs ">
+      <Carousel setApi={setApi} className="w-[80vw] md:w-[30vw] max-w-xs ">
         <CarouselContent>
           {galleries &&
             galleries[0]?.gallery?.map((dat, index) => (
