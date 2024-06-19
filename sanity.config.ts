@@ -13,12 +13,16 @@ import { structureTool } from 'sanity/structure'
 import { apiVersion, dataset, projectId } from './sanity/env'
 import { schema } from './sanity/schema'
 
+import { myTheme } from './theme'
+
 export default defineConfig({
   basePath: '/studio',
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder
   schema,
+  theme: myTheme,
+  // This is where you define the structure of your documents and their corresponding components
   plugins: [
     structureTool(),
     // Vision is a tool that lets you query your content with GROQ in the studio
