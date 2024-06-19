@@ -2,25 +2,22 @@
 import React from 'react'
 import { Separator } from '@/components/ui/separator'
 import { CarouselPhotos } from './carousel-photos'
+import { SeccionLabType } from '../../../../../types'
 
 type Props = {
-  title: string
-  description: string
-  image: {
-    src: string
-    alt: string
-    caption: string
-  }[]
+  seccionData: SeccionLabType
 }
 
-const ControlComponent = ({ title, description, image }: Props) => {
+const ControlComponent = ({ seccionData }: Props) => {
   return (
     <section>
-      <h2 className="text-2xl text-foreground font-bold">{title}</h2>
+      <h2 className="text-2xl text-foreground font-bold">
+        {seccionData?.title}
+      </h2>
       <Separator className="my-5" />
-      <p>{description}</p>
+      <p>{seccionData?.description}</p>
       <div className="mt-10">
-        <CarouselPhotos images={image} />
+        <CarouselPhotos images={seccionData.gallery} />
       </div>
       {/* <div className="image-container">
         {image.map((ima, index) => (

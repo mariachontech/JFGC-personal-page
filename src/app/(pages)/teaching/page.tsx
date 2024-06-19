@@ -24,8 +24,6 @@ const TeachingPage = async (props: Props) => {
     query: COURSES_QUERY,
   })
 
-  console.log('course', coursesData)
-
   return (
     <MaxWidthWrapper className="px-2 md:px-16">
       <TransitionEffect />

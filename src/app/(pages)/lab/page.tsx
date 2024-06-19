@@ -10,30 +10,43 @@ import {
   developedProto,
   experimentalProto,
   labFacilitiesData,
-  headerLabData,
 } from '../../../../dataPage'
 import { ExperimentalProto } from './_components/experimental-proto'
 import { LabFacilitiesComponent } from './_components/lab-facilities'
 import { HeaderLab } from './_components/header-lab'
+import { LAB_QUERY } from '../../../../sanity/lib/queries'
+import { sanityFetch } from '../../../../sanity/lib/fetch'
+import { SanityDocument } from 'next-sanity'
+import { SeccionLabType } from '../../../../types'
 
 type Props = {}
 
-const LabPage = (props: Props) => {
+const LabPage = async (props: Props) => {
+  const labData = await sanityFetch<SanityDocument>({
+    query: LAB_QUERY,
+  })
+
   return (
     <MaxWidthWrapper>
       <TransitionEffect />
 
       <div id="lab-activities">
-        <HeaderLab {...headerLabData} />
+        <HeaderLab headerLab={labData?.header} />
       </div>
 
       <div className="my-24">
-        {labActivities.map((item, index) => (
-          <ControlComponent key={index} {...item} />
+        {labData.seccionLab.map((seccion: SeccionLabType) => (
+          <ControlComponent key={seccion._id} seccionData={seccion} />
         ))}
       </div>
 
-      <div id="developed-prototypes" className="my-24">
+      {/* <div className="my-24">
+        {labActivities.map((item, index) => (
+          <ControlComponent key={index} {...item} />
+        ))}
+      </div> */}
+
+      {/* <div id="developed-prototypes" className="my-24">
         <DevelopedProto {...developedProto} />
       </div>
       <div className="my-24">
@@ -43,7 +56,7 @@ const LabPage = (props: Props) => {
         {labFacilitiesData.map((item, index) => (
           <LabFacilitiesComponent key={index} {...item} />
         ))}
-      </div>
+      </div> */}
     </MaxWidthWrapper>
   )
 }

@@ -105,3 +105,12 @@ underGraduateCourses[]->{
  }
 }
 `
+
+export const LAB_QUERY = groq`*[_type == "labPage"][0]{
+  ...,
+seccionLab[]->{
+  ...,
+  gallery[]->
+}
+}
+`

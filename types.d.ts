@@ -390,3 +390,36 @@ export interface LevelType {
   plan?: string
   extras?: string
 }
+
+export interface HeaderLabType {
+  mainImage: MainImage
+  links: LinkType[]
+  title: string
+}
+
+export interface LinkType {
+  _key: string
+  title: string
+  url: string
+}
+
+export interface SeccionLabType {
+  _type: string
+  description?: string
+  _id: string
+  title: string
+  _updatedAt: string
+  gallery: GalleryType[]
+  _createdAt: string
+  _rev: string
+}
+
+export interface GalleryType {
+  _id: string
+  title: string
+  _updatedAt: string
+  imageGallery: Image
+  _createdAt: string
+  _rev: string
+  _type: string
+}

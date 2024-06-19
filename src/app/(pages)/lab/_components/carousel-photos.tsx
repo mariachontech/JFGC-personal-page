@@ -14,10 +14,12 @@ import {
 import Image from 'next/image'
 import { TooltipCom } from '@/components/tooltip-com'
 import { cn } from '@/lib/utils'
+import { GalleryType } from '../../../../../types'
+import { urlForImage } from '../../../../../sanity/lib/image'
 
 type Props = {
   className?: string
-  images: { src: string; alt: string; caption?: string }[]
+  images: GalleryType[]
 }
 
 export function CarouselPhotos({ images, className }: Props) {
@@ -48,13 +50,17 @@ export function CarouselPhotos({ images, className }: Props) {
                 <CardContent
                   className={cn(
                     'relative flex aspect-square bg-foreground/50 items-center justify-center p-6',
-                    className
+                    className,
                   )}
                 >
-                  <TooltipCom message={image.caption || ''}>
+                  <TooltipCom message={image?.imageGallery?.caption || ''}>
                     <Image
-                      src={image.src}
-                      alt={image.alt}
+                      src={
+                        image?.imageGallery
+                          ? urlForImage(image?.imageGallery?.asset as any)
+                          : ''
+                      }
+                      alt={image?.imageGallery?.alt}
                       className="object-contain"
                       fill
                     />
@@ -68,7 +74,7 @@ export function CarouselPhotos({ images, className }: Props) {
         <CarouselNext />
       </Carousel>
       <div className="py-2 text-center text-lg font-semibold text-muted-foreground">
-        {images[current - 1]?.caption}
+        {images[current - 1]?.title}
       </div>
     </div>
   )

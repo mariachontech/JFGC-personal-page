@@ -19,7 +19,7 @@ const DevelopedProto = ({ title, description, images }: Props) => {
       <h2 className="text-2xl text-foreground font-bold">{title}</h2>
       <Separator className="my-5" />
       <p>{description}</p>
-      <CarouselPhotos images={images} className="bg-transparent" />
+      {/* <CarouselPhotos images={images} className="bg-transparent" /> */}
     </section>
   )
 }

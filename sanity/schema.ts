@@ -27,6 +27,8 @@ import coursesPage from './schemaTypes/coursesPage/courses-page'
 import coursesSchema from './schemaTypes/common/courses-schema'
 
 import levelCourses from './schemaTypes/common/level-course'
+import labPage from './schemaTypes/lab/labPage'
+import labBlockSchema from './schemaTypes/common/lab-block-schema'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -35,6 +37,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     researchPage,
     studentsPage,
     coursesPage,
+    labPage,
     publicationScheme,
     scientificInterest,
     projectScheme,
@@ -47,6 +50,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     education,
     experienceScheme,
     coursesSchema,
+    labBlockSchema,
     user,
     category,
     blockContent,
