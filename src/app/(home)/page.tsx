@@ -3,10 +3,7 @@ import MaxWidthWrapper from '@/components/max-width-wrapper'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
-import {
- 
-  LucideContact2,
-} from 'lucide-react'
+import { LucideContact2 } from 'lucide-react'
 import { TransitionEffect } from '@/components/transition-effect'
 
 import { Icons } from '@/components/icons'
@@ -28,7 +25,7 @@ export default async function Home() {
 
   console.log(homeData)
 
-  const { mainImage, message, cta, principal, news, galleries, galleryCite } =
+  const { mainImage, message, cta, principal, galleries, galleryCite } =
     homeData
 
   return (
@@ -256,7 +253,7 @@ export default async function Home() {
             </div>
           </div>
         </div> */}
-        <NewsComponent news={news} />
+        <NewsComponent news={homeData?.news} />
       </MaxWidthWrapper>
       <MaxWidthWrapper>
         <Separator className="my-4" />
