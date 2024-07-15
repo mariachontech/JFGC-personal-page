@@ -57,7 +57,7 @@ export const NewsComponent = ({ news }: Props) => {
               <div className="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
                 <a
                   rel="noopener noreferrer"
-                  href="#"
+                  href={newData?.link}
                   className="px-3 py-2 text-xs font-semibold tracki uppercase hover:underline dark:text-gray-100 dark:bg-violet-400"
                 >
                   {newData.area}
