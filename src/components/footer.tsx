@@ -4,7 +4,6 @@ import MaxWidthWrapper from './max-width-wrapper'
 import { Separator } from './ui/separator'
 import { AddressData } from './address-data'
 import Link from 'next/link'
-import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 import { Principal } from '../../types'
 
 import { SocialIcon } from 'react-social-icons'
@@ -116,14 +115,17 @@ export const Footer = ({ personalData }: Props) => {
     <MaxWidthWrapper>
       <footer className="px-4 divide-y  bg-background ">
         <Separator />
-        <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0 gap-10">
+        <div className="container flex flex-col justify-between py-10 mx-auto space-y-4 lg:flex-row lg:space-y-0 gap-10">
           <div className="w-fit md:px-10">
             <AddressData principalData={personalData} />
           </div>
-          <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
+
+          <div className="grid grid-cols-2 text-sm gap-x-3  lg:w-1/2 s">
             <div className="space-y-3">
-              <h3 className="tracki uppercase dark:text-gray-50">Research</h3>
-              <ul className="space-y-1">
+              <Link href={'/biography'}>
+                <h3 className=" uppercase dark:text-gray-50">Biography</h3>
+              </Link>
+              {/* <ul className="space-y-1">
                 {researchMenu.map((item) => (
                   <li key={item.title}>
                     <Link href={item.href} className="hover:underline">
@@ -131,11 +133,27 @@ export const Footer = ({ personalData }: Props) => {
                     </Link>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
             <div className="space-y-3">
-              <h3 className="tracki uppercase dark:text-gray-50">Students</h3>
-              <ul className="space-y-1">
+              <Link href={'/research?q=publications'}>
+                <h3 className=" uppercase dark:text-gray-50">Research</h3>
+              </Link>
+              {/* <ul className="space-y-1">
+                {researchMenu.map((item) => (
+                  <li key={item.title}>
+                    <Link href={item.href} className="hover:underline">
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul> */}
+            </div>
+            <div className="space-y-3">
+              <Link href={'/students'}>
+                <h3 className=" uppercase dark:text-gray-50">Students</h3>
+              </Link>
+              {/* <ul className="space-y-1">
                 {studentsMenu.map((item) => (
                   <li key={item.title}>
                     <Link href={item.href} className="hover:underline">
@@ -143,11 +161,13 @@ export const Footer = ({ personalData }: Props) => {
                     </Link>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
             <div className="space-y-3">
-              <h3 className="uppercase ">Teaching</h3>
-              <ul className="space-y-1">
+              <Link href={'/teaching'}>
+                <h3 className="uppercase ">Teaching</h3>
+              </Link>
+              {/* <ul className="space-y-1">
                 {teachingMenu.map((item) => (
                   <li key={item.title}>
                     <Link href={item.href} className="hover:underline">
@@ -155,11 +175,13 @@ export const Footer = ({ personalData }: Props) => {
                     </Link>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
             <div className="space-y-3">
-              <h3 className="uppercase ">Lab</h3>
-              <ul className="space-y-1">
+              <Link href={'/lab'}>
+                <h3 className="uppercase ">Lab</h3>
+              </Link>
+              {/* <ul className="space-y-1">
                 {labMenu.map((item) => (
                   <li key={item.title}>
                     <Link href={item.href} className="hover:underline">
@@ -167,32 +189,32 @@ export const Footer = ({ personalData }: Props) => {
                     </Link>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
-            <div className="space-y-3">
-              <div className="uppercase text-foreground">Social Media</div>
-              <div className="flex justify-start ">
-                {personalData?.socialsNet?.map((social) => (
-                  <SocialIcon
-                    className=" "
-                    key={social?._id}
-                    url={social?.urlSocial}
-                    fgColor="gray"
-                    bgColor="transparent"
-                    style={{ height: 50, width: 50 }}
-                    network=""
-                    target="_blank"
-                  />
-                ))}
+          </div>
+          <div className="space-y-3">
+            {/* <div className="uppercase text-foreground">Social Media</div> */}
+            <div className="flex  justify-end items-end">
+              {personalData?.socialsNet?.map((social) => (
                 <SocialIcon
-                  url={urlWhatsapp || ''}
-                  bgColor="transparent"
+                  className=" "
+                  key={social?._id}
+                  url={social?.urlSocial}
                   fgColor="gray"
+                  bgColor="transparent"
                   style={{ height: 50, width: 50 }}
-                  network="whatsapp"
+                  network=""
                   target="_blank"
                 />
-              </div>
+              ))}
+              <SocialIcon
+                url={urlWhatsapp || ''}
+                bgColor="transparent"
+                fgColor="gray"
+                style={{ height: 50, width: 50 }}
+                network="whatsapp"
+                target="_blank"
+              />
             </div>
           </div>
         </div>

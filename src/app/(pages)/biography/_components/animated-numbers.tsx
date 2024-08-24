@@ -22,7 +22,7 @@ export const AnimatedNumbers = ({ value }: Props) => {
 
   useEffect(() => {
     springValue.on('change', (latest) => {
-      if (ref.current && latest.toFixed(0) <= value) {
+      if (ref.current && latest.toFixed(0) <= value.toString()) {
         ref.current.textContent = latest.toFixed(0)
       }
     })

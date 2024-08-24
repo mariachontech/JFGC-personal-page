@@ -2,6 +2,7 @@
 import { Badge } from '@/components/ui/badge'
 import { urlForImage } from '../../../../../sanity/lib/image'
 import { MasterType } from '../../../../../types'
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 
 type Props = {
   masterData: MasterType
@@ -9,10 +10,16 @@ type Props = {
 export const MasterData = ({ masterData }: Props) => (
   <li className="py-5 flex items-start justify-between">
     <div className="flex gap-3">
-      <img
-        src={urlForImage(masterData.student.image.asset as any)}
-        className="flex-none w-12 h-12 rounded-full"
-      />
+      {masterData?.student?.image ? (
+        <img
+          src={urlForImage(masterData.student.image.asset as any)}
+          className="flex-none w-12 h-12 rounded-full"
+        />
+      ) : (
+        <Avatar>
+          <AvatarFallback>FG</AvatarFallback>
+        </Avatar>
+      )}
       <div>
         <span className="block text-sm font-semibold">
           {masterData.student.name}

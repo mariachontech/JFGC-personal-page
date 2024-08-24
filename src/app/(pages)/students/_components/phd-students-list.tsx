@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge'
 import { urlForImage } from '../../../../../sanity/lib/image'
 import { month } from '@/lib/utils'
 import { PhdType } from '../../../../../types'
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 
 // const members = [
 //   {
@@ -58,10 +59,16 @@ export const PhdStudentsList = ({ studentData }: Props) => {
   return (
     <li className="py-5 flex items-start justify-between">
       <div className="flex gap-3">
-        <img
-          src={urlForImage(studentData.student.image.asset as any)}
-          className="flex-none w-12 h-12 rounded-full"
-        />
+        {studentData.student.image.asset ? (
+          <img
+            src={urlForImage(studentData.student.image.asset as any)}
+            className="flex-none w-12 h-12 rounded-full"
+          />
+        ) : (
+          <Avatar>
+            <AvatarFallback>FG</AvatarFallback>
+          </Avatar>
+        )}
         <div className="flex flex-col">
           <p className="block text-sm font-semibold">
             {studentData?.student?.name}
