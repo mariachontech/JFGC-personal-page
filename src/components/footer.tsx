@@ -120,7 +120,7 @@ export const Footer = ({ personalData }: Props) => {
             <AddressData principalData={personalData} />
           </div>
 
-          <div className="grid grid-cols-2 text-sm gap-x-3  lg:w-1/2 s">
+          <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-4  lg:w-1/2 s">
             <div className="space-y-3">
               <Link href={'/biography'}>
                 <h3 className=" uppercase dark:text-gray-50">Biography</h3>
