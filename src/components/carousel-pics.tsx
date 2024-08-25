@@ -62,7 +62,7 @@ export function CarouselPics({ galleries }: Props) {
         <CarouselNext className="right-2" />
         <div className="py-2 text-center text-sm text-muted-foreground">
           {current} of {count} -{' '}
-          <Link href={'/lab'} className="hover:text-primary">
+          <Link href={'/gallery'} className="hover:text-primary">
             View all
           </Link>
         </div>

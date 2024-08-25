@@ -23,7 +23,6 @@ export default async function Home() {
     query: HOME_QUERY,
   })
 
-  console.log(homeData)
 
   const { mainImage, message, cta, principal, galleries, galleryCite } =
     homeData
@@ -67,7 +66,7 @@ export default async function Home() {
                   href="/gallery"
                   className={buttonVariants({
                     variant: 'secondary',
-                    className: 'gap-1.5 text-dark  dark:text-light md:hidden',
+                    className: 'gap-1.5 text-dark  dark:text-light ',
                   })}
                 >
                   Gallery
@@ -270,7 +269,7 @@ export default async function Home() {
       <Affiliate />
       <div className="absolute right-0 bottom-0 md:inline-block w-24 h-48 hidden">
         <TooltipCom message="Gallery">
-          <Link href={'/lab'}>
+          <Link href={'/gallery'}>
             <Icons.droneIcon className="fill-foreground" />
           </Link>
         </TooltipCom>

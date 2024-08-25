@@ -1,8 +1,10 @@
 import React from 'react'
 import PinterestStyle from './pinterest-style'
-import { PicsType } from '../../types'
+import { Gallery, PicsType } from '../../types'
 
-type Props = {}
+type Props = {
+  galleryData: Gallery[]
+}
 
 export const imagesData: PicsType[] = [
   {
@@ -233,15 +235,15 @@ export const imagesData: PicsType[] = [
   },
 ]
 
-export const GalleryPics = (props: Props) => {
+export const GalleryPics = ({ galleryData }: Props) => {
   return (
     <section className="">
-      {imagesData.map((data) => (
-        <div key={data.type} className="pb-10">
+      {galleryData.map((data) => (
+        <div key={data._id} className="pb-10">
           <h1 className="font-bold text-xl uppercase w-full text-center py-4">
-            {data.type}
+            {data.title}
           </h1>
-          <PinterestStyle key={data.type} pics={data.data} />
+          <PinterestStyle pics={data.gallery} categories={data.categories} />
         </div>
       ))}
     </section>

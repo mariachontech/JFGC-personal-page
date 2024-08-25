@@ -21,6 +21,15 @@ export const HOME_QUERY = groq`*[_type == "home"][0]{
      }
   `
 
+export const GALLERY_QUERY = groq`*[_type == "home"][0]{
+  galleries[]->{
+     ...,
+     gallery[]->,
+     categories[]->
+   },
+     }`
+
+
 export const HOME_QUERY_LIGHT = groq`*[_type == "home"][0]{
 
   principal->{

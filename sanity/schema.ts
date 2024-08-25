@@ -29,6 +29,8 @@ import coursesSchema from './schemaTypes/common/courses-schema'
 import levelCourses from './schemaTypes/common/level-course'
 import labPage from './schemaTypes/lab/labPage'
 import labBlockSchema from './schemaTypes/common/lab-block-schema'
+//import galleryArray from './schemaTypes/common/galleries-array'
+//import gallery from './schemaTypes/gallery/gallery-page'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -38,6 +40,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     studentsPage,
     coursesPage,
     labPage,
+    // gallery,
     publicationScheme,
     scientificInterest,
     projectScheme,
@@ -59,6 +62,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     news,
     photo,
     galleryKind,
+    //galleryArray,
     levelCourses,
   ],
 }
