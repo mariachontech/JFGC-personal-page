@@ -207,14 +207,16 @@ export const Footer = ({ personalData }: Props) => {
                   target="_blank"
                 />
               ))}
-              <SocialIcon
-                url={urlWhatsapp || ''}
-                bgColor="transparent"
-                fgColor="gray"
-                style={{ height: 50, width: 50 }}
-                network="whatsapp"
-                target="_blank"
-              />
+              {personalData?.phone && (
+                <SocialIcon
+                  url={urlWhatsapp || ''}
+                  bgColor="transparent"
+                  fgColor="gray"
+                  style={{ height: 50, width: 50 }}
+                  network="whatsapp"
+                  target="_blank"
+                />
+              )}
             </div>
           </div>
         </div>
