@@ -13,7 +13,6 @@ import { LogoFermiIconText } from './logo-fermi'
 
 import { useTheme } from 'next-themes'
 import { usePathname, useRouter } from 'next/navigation'
-import { FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 import { ModeToggle } from './mode-toggle'
 
 export function MenuSheet() {
@@ -36,19 +35,19 @@ export function MenuSheet() {
           <span
             className={cn(
               'bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ',
-              false ? 'rotate-45 translate-y-1' : '-translate-y-0.5'
+              false ? 'rotate-45 translate-y-1' : '-translate-y-0.5',
             )}
           ></span>
           <span
             className={cn(
               'bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5',
-              false ? 'opacity-0' : 'opacity-100'
+              false ? 'opacity-0' : 'opacity-100',
             )}
           ></span>
           <span
             className={cn(
               'bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ',
-              false ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'
+              false ? '-rotate-45 -translate-y-1' : 'translate-y-0.5',
             )}
           ></span>
         </button>
@@ -121,21 +120,17 @@ export function MenuSheet() {
           </SheetClose>
         </SheetHeader>
         <SheetFooter className="w-full flex flex-row  gap-5 items-center justify-end ">
-          <SheetClose>
-            <a href={'/'} target={'_blank'}>
-              <FaWhatsapp size={30} />
-            </a>
-          </SheetClose>
-          <SheetClose>
+          <SheetClose></SheetClose>
+          {/* <SheetClose>
             <a href={'/'} target={'_blank'}>
               <FaLinkedinIn size={30} />
             </a>
-          </SheetClose>
-          <SheetClose>
+          </SheetClose> */}
+          {/* <SheetClose>
             <a href={'/'} target={'_blank'}>
               <FaWhatsapp size={30} />
             </a>
-          </SheetClose>
+          </SheetClose> */}
 
           <ModeToggle />
         </SheetFooter>
