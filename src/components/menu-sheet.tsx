@@ -120,7 +120,6 @@ export function MenuSheet() {
           </SheetClose>
         </SheetHeader>
         <SheetFooter className="w-full flex flex-row  gap-5 items-center justify-end ">
-          <SheetClose></SheetClose>
           {/* <SheetClose>
             <a href={'/'} target={'_blank'}>
               <FaLinkedinIn size={30} />
