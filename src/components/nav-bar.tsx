@@ -13,6 +13,7 @@ import { MenuBar } from './menu-bar'
 import { MenuSheet } from './menu-sheet'
 import { SocialIcon } from 'react-social-icons'
 import { Principal } from '../../types'
+import { Icons } from './icons'
 
 const CustomLink = ({
   href,
@@ -168,6 +169,9 @@ export const Navbar = ({ personalData }: Props) => {
                 target="_blank"
               />
             )}
+            {/* <Link href={'/bibtext'} className="w-20">
+              <Icons.bibTexIcon className="fill-foreground hover:fill-foreground/50 font-bold border-foreground   " />
+            </Link> */}
 
             <ModeToggle />
           </div>

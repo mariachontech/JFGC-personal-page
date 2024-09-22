@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@citation-js/core": "^0.7.14",
+    "@citation-js/plugin-bibtex": "^0.7.14",
+    "@citation-js/plugin-doi": "^0.7.14",
+    "@citation-js/plugin-ris": "^0.7.14",
     "@cloudflare/next-on-pages": "^1.10.0",
     "@cloudflare/workers-types": "^4.20240314.0",
     "@hookform/resolvers": "^3.3.4",
@@ -27,6 +31,7 @@
     "@sanity/preview-url-secret": "^1.6.17",
     "@sanity/vision": "^3.46.1",
     "bibtex-js-parser": "^1.1.6",
+    "citation-js": "^0.7.15",
     "citeproc": "^2.4.63",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

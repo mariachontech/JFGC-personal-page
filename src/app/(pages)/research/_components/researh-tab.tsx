@@ -15,6 +15,8 @@ import {
   ScientificInterest,
 } from '../../../../../types'
 import { FeaturedProject } from './featured-project'
+import { Server } from 'lucide-react'
+import { SearchByDoi } from './search-by-doi'
 
 type Props = {
   researchData: ScientificInterest[]
@@ -92,11 +94,15 @@ export const ResearhTab = ({
       </TabsContent>
 
       <TabsContent value="publications">
-        <AnimatedText
-          text={'Publications'}
-          className="hidden md:block sm:mb-16 text-4xl sm:text-5xl mb-8   "
-        />
-        <ul>
+        <div className="w-[30vw] flex flex-row  justify-center items-start">
+          <AnimatedText
+            text={'Publications'}
+            className="hidden md:block sm:mb-16 text-4xl sm:text-5xl mb-8   "
+          />
+
+          <SearchByDoi />
+        </div>
+        <ul className="mt-4">
           {bibJSON.map((bib, ind) => (
             <PaperPublicated
               key={bib.id}

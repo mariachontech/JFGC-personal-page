@@ -1,17 +1,36 @@
-const Cite = require('citation-js')
+// const  {Cite}  = require('@citation-js/core')
+// require('@citation-js/plugin-doi')
+// require('@citation-js/plugin-csl')
 
-async function citeMod(){
-
-  return await Cite.async('Q30000000')
-}
+// let example =  Cite.async('10.5281/zenodo.1005176')
 
 
-const data =  citeMod()
+// example.format('bibliography', {
+//   format: 'html',
+//   template: 'apa',
+//   lang: 'en-US'
+// })
 
-data.format('bibliography', {
-  format: 'html',
-  template: 'apa',
-  lang: 'en-US'
-})
 
-console.log(data);
+const { Cite } = require('@citation-js/core')  
+require('@citation-js/plugin-bibtex')  
+require('@citation-js/plugin-doi')
+require('@citation-js/plugin-csl')
+
+
+Cite
+  .async('10.1111/icad.12730')
+  .then(cite => {
+    const refe=cite.format('biblatex')
+    const bibliography = cite.format('bibliography', {
+      format: 'html',
+      template: 'apa',
+      lang: 'en-US'
+    })
+
+    console.log(refe);
+    console.log(bibliography);
+    
+    
+  
+  })
