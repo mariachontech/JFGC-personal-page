@@ -93,7 +93,7 @@ export function MenuSheet() {
               }`}
               onClick={() => handlePushUrl('/students')}
             >
-              Strudents
+              Students
             </button>
           </SheetClose>
           <SheetClose>
