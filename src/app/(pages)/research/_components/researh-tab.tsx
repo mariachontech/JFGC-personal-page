@@ -23,7 +23,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from '@/components/ui/accordion'
 
 type Props = {
   researchData: ScientificInterest[]
@@ -47,26 +47,24 @@ export const ResearhTab = ({
     setPage(page || searchParams.get('q') || '')
   }, [searchParams, page, setPage])
 
-
-  const validTypes = ['article', 'journal', 'book', 'inproceedings'];
+  const validTypes = ['article', 'journal', 'book', 'inproceedings']
 
   const groupedReferences = bibJSON.reduce((groups, reference) => {
-    const type = reference.type?.toLowerCase() || 'other';
+    const type = reference.type?.toLowerCase() || 'other'
 
     // Solo crear grupos para los tipos válidos
-    const groupType = validTypes.includes(type) ? type : 'other';
+    const groupType = validTypes.includes(type) ? type : 'other'
 
     if (!groups[groupType]) {
-      groups[groupType] = [];
+      groups[groupType] = []
     }
 
-    groups[groupType].push(reference);
+    groups[groupType].push(reference)
 
-    return groups;
-  }, {});
+    return groups
+  }, {})
 
-  console.log("grupos: ", groupedReferences);
-
+  //console.log("grupos: ", groupedReferences);
 
   return (
     <Tabs value={page} className="w-full ">
@@ -136,22 +134,38 @@ export const ResearhTab = ({
             <AccordionTrigger>Journals</AccordionTrigger>
             <AccordionContent>
               <ul className="mt-4">
-                {groupedReferences?.article?.map((bib: { id: React.Key | null | undefined; title: string | undefined; author: any; publisher: string | undefined; journal: string | undefined; pages: string | undefined; volume: string | undefined; number: string | number | undefined; doi: string | undefined; raw: string | undefined }, ind: number) => (
-                  <PaperPublicated
-                    key={bib.id}
-                    index={ind}
-                    title={bib.title}
-                    author={bib.author || ''}
-                    publisher={bib.publisher}
-                    journal={bib.journal}
-                    pages={bib.pages}
-                    volume={bib.volume}
-                    number={bib.number}
-                    doi={bib.doi}
-                    raw={bib.raw}
-                    lengthArray={bibJSON.length}
-                  />
-                ))}
+                {groupedReferences?.article?.map(
+                  (
+                    bib: {
+                      id: React.Key | null | undefined
+                      title: string | undefined
+                      author: any
+                      publisher: string | undefined
+                      journal: string | undefined
+                      pages: string | undefined
+                      volume: string | undefined
+                      number: string | number | undefined
+                      doi: string | undefined
+                      raw: string | undefined
+                    },
+                    ind: number,
+                  ) => (
+                    <PaperPublicated
+                      key={bib.id}
+                      index={ind}
+                      title={bib.title}
+                      author={bib.author || ''}
+                      publisher={bib.publisher}
+                      journal={bib.journal}
+                      pages={bib.pages}
+                      volume={bib.volume}
+                      number={bib.number}
+                      doi={bib.doi}
+                      raw={bib.raw}
+                      lengthArray={bibJSON.length}
+                    />
+                  ),
+                )}
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -159,22 +173,38 @@ export const ResearhTab = ({
             <AccordionTrigger>Conferences</AccordionTrigger>
             <AccordionContent>
               <ul className="mt-4">
-                {groupedReferences?.inproceedings?.map((bib: { id: React.Key | null | undefined; title: string | undefined; author: any; publisher: string | undefined; journal: string | undefined; pages: string | undefined; volume: string | undefined; number: string | number | undefined; doi: string | undefined; raw: string | undefined }, ind: number) => (
-                  <PaperPublicated
-                    key={bib.id}
-                    index={ind}
-                    title={bib.title}
-                    author={bib.author || ''}
-                    publisher={bib.publisher}
-                    journal={bib.journal}
-                    pages={bib.pages}
-                    volume={bib.volume}
-                    number={bib.number}
-                    doi={bib.doi}
-                    raw={bib.raw}
-                    lengthArray={bibJSON.length}
-                  />
-                ))}
+                {groupedReferences?.inproceedings?.map(
+                  (
+                    bib: {
+                      id: React.Key | null | undefined
+                      title: string | undefined
+                      author: any
+                      publisher: string | undefined
+                      journal: string | undefined
+                      pages: string | undefined
+                      volume: string | undefined
+                      number: string | number | undefined
+                      doi: string | undefined
+                      raw: string | undefined
+                    },
+                    ind: number,
+                  ) => (
+                    <PaperPublicated
+                      key={bib.id}
+                      index={ind}
+                      title={bib.title}
+                      author={bib.author || ''}
+                      publisher={bib.publisher}
+                      journal={bib.journal}
+                      pages={bib.pages}
+                      volume={bib.volume}
+                      number={bib.number}
+                      doi={bib.doi}
+                      raw={bib.raw}
+                      lengthArray={bibJSON.length}
+                    />
+                  ),
+                )}
               </ul>
               {/* <Accordion type="single" collapsible className="px-10">
                 <AccordionItem value="item-1">
@@ -197,7 +227,8 @@ export const ResearhTab = ({
           <AccordionItem value="item-3">
             <AccordionTrigger>Book chapters</AccordionTrigger>
             <AccordionContent>
-              Yes. It's animated by default, but you can disable it if you prefer.
+              Yes. It's animated by default, but you can disable it if you
+              prefer.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

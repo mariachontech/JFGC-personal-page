@@ -102,10 +102,11 @@ export function MenuSheet() {
                 pathname === '/teaching'
                   ? 'border-b-2 border-foreground pb-2'
                   : ''
-              }`}
+              }`}  
               onClick={() => handlePushUrl('/teaching')}
             >
               Teaching
+              
             </button>
           </SheetClose>
           <SheetClose>
