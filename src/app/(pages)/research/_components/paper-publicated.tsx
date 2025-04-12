@@ -44,6 +44,16 @@ const PaperPublicated = ({
       ),
     })
   }
+
+  const journalOrPublisher = () => {
+    if (journal === undefined) {
+      return null
+    } else if (journal) {
+      return journal
+    } else {
+      return publisher + ','
+    }
+  }
   return (
     <li className="w-full flex flex-col   gap-2">
       <div className="flex justify-between  gap-2">
@@ -51,7 +61,7 @@ const PaperPublicated = ({
         <p className="leadig-relaxed">
           {author}
           <span> &quot;{title}&quot;</span>,{' '}
-          <span className="italic">{journal ? journal : publisher + ','}</span>{' '}
+          <span className="italic">{journalOrPublisher()}</span>{' '}
           {volume && volume}
           {number && `(${number}), `} {pages && pages}.{' '}
           {doi && <span className="italic">{`https://doi.org/${doi}`}</span>}

@@ -162,7 +162,7 @@ export const ResearhTab = ({
                       number={bib.number}
                       doi={bib.doi}
                       raw={bib.raw}
-                      lengthArray={bibJSON.length}
+                      lengthArray={groupedReferences?.article?.length}
                     />
                   ),
                 )}
@@ -172,7 +172,7 @@ export const ResearhTab = ({
           <AccordionItem value="item-2">
             <AccordionTrigger>Conferences</AccordionTrigger>
             <AccordionContent>
-              <ul className="mt-4">
+              <ul className="mt-4" id="conferences">
                 {groupedReferences?.inproceedings?.map(
                   (
                     bib: {
@@ -201,7 +201,7 @@ export const ResearhTab = ({
                       number={bib.number}
                       doi={bib.doi}
                       raw={bib.raw}
-                      lengthArray={bibJSON.length}
+                      lengthArray={groupedReferences?.inproceedings.length}
                     />
                   ),
                 )}
@@ -227,8 +227,40 @@ export const ResearhTab = ({
           <AccordionItem value="item-3">
             <AccordionTrigger>Book chapters</AccordionTrigger>
             <AccordionContent>
-              Yes. It's animated by default, but you can disable it if you
-              prefer.
+              <ul className="mt-4">
+                {groupedReferences?.book?.map(
+                  (
+                    bib: {
+                      id: React.Key | null | undefined
+                      title: string | undefined
+                      author: any
+                      publisher: string | undefined
+                      journal: string | undefined
+                      pages: string | undefined
+                      volume: string | undefined
+                      number: string | number | undefined
+                      doi: string | undefined
+                      raw: string | undefined
+                    },
+                    ind: number,
+                  ) => (
+                    <PaperPublicated
+                      key={bib.id}
+                      index={ind}
+                      title={bib.title}
+                      author={bib.author || ''}
+                      publisher={bib.publisher}
+                      journal={bib.journal}
+                      pages={bib.pages}
+                      volume={bib.volume}
+                      number={bib.number}
+                      doi={bib.doi}
+                      raw={bib.raw}
+                      lengthArray={groupedReferences?.book?.length}
+                    />
+                  ),
+                )}
+              </ul>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
