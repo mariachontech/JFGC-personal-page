@@ -18,13 +18,6 @@ import { FeaturedProject } from './featured-project'
 import { Server } from 'lucide-react'
 import { SearchByDoi } from './search-by-doi'
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
-
 type Props = {
   researchData: ScientificInterest[]
   dataResearchGroup: GroupType[]
@@ -46,27 +39,6 @@ export const ResearhTab = ({
   useEffect(() => {
     setPage(page || searchParams.get('q') || '')
   }, [searchParams, page, setPage])
-
-
-  const validTypes = ['article', 'journal', 'book', 'inproceedings'];
-
-  const groupedReferences = bibJSON.reduce((groups, reference) => {
-    const type = reference.type?.toLowerCase() || 'other';
-
-    // Solo crear grupos para los tipos válidos
-    const groupType = validTypes.includes(type) ? type : 'other';
-
-    if (!groups[groupType]) {
-      groups[groupType] = [];
-    }
-
-    groups[groupType].push(reference);
-
-    return groups;
-  }, {});
-
-  console.log("grupos: ", groupedReferences);
-
 
   return (
     <Tabs value={page} className="w-full ">
@@ -130,78 +102,7 @@ export const ResearhTab = ({
 
           <SearchByDoi />
         </div>
-
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1">
-            <AccordionTrigger>Journals</AccordionTrigger>
-            <AccordionContent>
-              <ul className="mt-4">
-                {groupedReferences?.article?.map((bib: { id: React.Key | null | undefined; title: string | undefined; author: any; publisher: string | undefined; journal: string | undefined; pages: string | undefined; volume: string | undefined; number: string | number | undefined; doi: string | undefined; raw: string | undefined }, ind: number) => (
-                  <PaperPublicated
-                    key={bib.id}
-                    index={ind}
-                    title={bib.title}
-                    author={bib.author || ''}
-                    publisher={bib.publisher}
-                    journal={bib.journal}
-                    pages={bib.pages}
-                    volume={bib.volume}
-                    number={bib.number}
-                    doi={bib.doi}
-                    raw={bib.raw}
-                    lengthArray={bibJSON.length}
-                  />
-                ))}
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>Conferences</AccordionTrigger>
-            <AccordionContent>
-              <ul className="mt-4">
-                {groupedReferences?.inproceedings?.map((bib: { id: React.Key | null | undefined; title: string | undefined; author: any; publisher: string | undefined; journal: string | undefined; pages: string | undefined; volume: string | undefined; number: string | number | undefined; doi: string | undefined; raw: string | undefined }, ind: number) => (
-                  <PaperPublicated
-                    key={bib.id}
-                    index={ind}
-                    title={bib.title}
-                    author={bib.author || ''}
-                    publisher={bib.publisher}
-                    journal={bib.journal}
-                    pages={bib.pages}
-                    volume={bib.volume}
-                    number={bib.number}
-                    doi={bib.doi}
-                    raw={bib.raw}
-                    lengthArray={bibJSON.length}
-                  />
-                ))}
-              </ul>
-              {/* <Accordion type="single" collapsible className="px-10">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>International</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
-                  </AccordionContent>
-                </AccordionItem>
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>National</AccordionTrigger>
-                  <AccordionContent>
-                    Yes. It comes with default styles that matches the other
-                    components&apos; aesthetic.
-                  </AccordionContent>
-                </AccordionItem>
-
-              </Accordion> */}
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger>Book chapters</AccordionTrigger>
-            <AccordionContent>
-              Yes. It's animated by default, but you can disable it if you prefer.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        {/* <ul className="mt-4">
+        <ul className="mt-4">
           {bibJSON.map((bib, ind) => (
             <PaperPublicated
               key={bib.id}
@@ -218,7 +119,7 @@ export const ResearhTab = ({
               lengthArray={bibJSON.length}
             />
           ))}
-        </ul> */}
+        </ul>
       </TabsContent>
       <TabsContent value="projects">
         <AnimatedText
