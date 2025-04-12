@@ -36,7 +36,6 @@ const PaperPublicated = ({
     navigator.clipboard.writeText(raw || '')
 
     toast({
-      variant: 'default',
       title: 'bibTex was been copied',
       description: (
         <p>
