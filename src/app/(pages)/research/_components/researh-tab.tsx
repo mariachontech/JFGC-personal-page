@@ -47,7 +47,16 @@ export const ResearhTab = ({
     setPage(page || searchParams.get('q') || '')
   }, [searchParams, page, setPage])
 
-  const validTypes = ['article', 'journal', 'book', 'inproceedings']
+  const validTypes = [
+    'article',
+    'journal',
+    'book',
+    'inproceedings',
+    'InCollection',
+    'InBook',
+    'incollection',
+    'inbook',
+  ]
 
   const groupedReferences = bibJSON.reduce((groups, reference) => {
     const type = reference.type?.toLowerCase() || 'other'
@@ -64,7 +73,7 @@ export const ResearhTab = ({
     return groups
   }, {})
 
-  //console.log("grupos: ", groupedReferences);
+  console.log("grupos: ", groupedReferences);
 
   return (
     <Tabs value={page} className="w-full ">
@@ -162,7 +171,7 @@ export const ResearhTab = ({
                       number={bib.number}
                       doi={bib.doi}
                       raw={bib.raw}
-                      lengthArray={bibJSON.length}
+                      lengthArray={groupedReferences?.article?.length}
                     />
                   ),
                 )}
@@ -201,7 +210,7 @@ export const ResearhTab = ({
                       number={bib.number}
                       doi={bib.doi}
                       raw={bib.raw}
-                      lengthArray={bibJSON.length}
+                      lengthArray={groupedReferences?.inproceedings?.length}
                     />
                   ),
                 )}
