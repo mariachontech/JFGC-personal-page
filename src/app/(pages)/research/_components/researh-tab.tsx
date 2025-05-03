@@ -15,7 +15,6 @@ import {
   ScientificInterest,
 } from '../../../../../types'
 import { FeaturedProject } from './featured-project'
-import { Server } from 'lucide-react'
 import { SearchByDoi } from './search-by-doi'
 
 import {
@@ -42,6 +41,7 @@ export const ResearhTab = ({
   projects,
   industrialPart,
 }: Props) => {
+
   const [page, setPage] = useState('')
   const searchParams = useSearchParams()
 
@@ -308,24 +308,7 @@ export const ResearhTab = ({
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-        {/* <ul className="mt-4">
-          {bibJSON.map((bib, ind) => (
-            <PaperPublicated
-              key={bib.id}
-              index={ind}
-              title={bib.title}
-              author={bib.author || ''}
-              publisher={bib.publisher}
-              journal={bib.journal}
-              pages={bib.pages}
-              volume={bib.volume}
-              number={bib.number}
-              doi={bib.doi}
-              raw={bib.raw}
-              lengthArray={bibJSON.length}
-            />
-          ))}
-        </ul> */}
+     
       </TabsContent>
       <TabsContent value="projects">
         <AnimatedText

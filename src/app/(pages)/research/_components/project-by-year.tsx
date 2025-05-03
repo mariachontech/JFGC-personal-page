@@ -1,5 +1,3 @@
-'use client'
-
 import { ProjectType } from '../../../../../types'
 
 type Props = {
@@ -12,7 +10,6 @@ export const ProjectByYear = ({ projects }: Props) => {
     ({ year }: { year: string }) => year,
   )
 
-  console.log('projects', reagroupProjects)
   var years = []
   for (var key in reagroupProjects) {
     years.unshift(key)

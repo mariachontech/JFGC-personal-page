@@ -1,27 +1,14 @@
-import { AnimatedText } from '@/components/AnimatedText'
 import MaxWidthWrapper from '@/components/max-width-wrapper'
 import { Metadata } from 'next'
 import React from 'react'
-import { FeaturedProject } from './_components/featured-project'
 import { TransitionEffect } from '@/components/transition-effect'
-import { Separator } from '@/components/ui/separator'
-
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-
-import { ProjectByYear } from './_components/project-by-year'
-import { ResearchGroup } from './_components/research-group'
-
-import { FeaturedArticles } from './_components/featured-articles'
-
-import fs, { promises as ps } from 'fs'
 
 import { BibtexParser } from 'bibtex-js-parser'
 
-import PaperPublicated from './_components/paper-publicated'
 import { ResearhTab } from './_components/researh-tab'
 import { SanityDocument } from 'next-sanity'
 import { sanityFetch } from '../../../../sanity/lib/fetch'
-import { RESEARCH_QUERY, BIOGRAPHY_QUERY } from '../../../../sanity/lib/queries'
+import { RESEARCH_QUERY } from '../../../../sanity/lib/queries'
 
 // import Cite from 'citation-js'
 
