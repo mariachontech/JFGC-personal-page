@@ -24,6 +24,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import ConferencePublicated from './conference-publicated'
+import BookPublicated from './book-publicated'
 
 type Props = {
   researchData: ScientificInterest[]
@@ -86,6 +88,8 @@ export const ResearhTab = ({
       ? []
       : groupedReferences?.inbook),
   ]
+
+  console.log(groupedReferences)
 
   return (
     <Tabs value={page} className="w-full ">
@@ -207,8 +211,9 @@ export const ResearhTab = ({
                         id: React.Key | null | undefined
                         title: string | undefined
                         author: any
-                        publisher: string | undefined
+                        booktitle: string | undefined
                         journal: string | undefined
+                        year: string | undefined
                         pages: string | undefined
                         volume: string | undefined
                         number: string | number | undefined
@@ -217,13 +222,13 @@ export const ResearhTab = ({
                       },
                       ind: number,
                     ) => (
-                      <PaperPublicated
+                      <ConferencePublicated
                         key={bib.id}
                         index={ind}
                         title={bib.title}
                         author={bib.author || ''}
-                        publisher={bib.publisher}
-                        journal={bib.journal}
+                        booktitle={bib.booktitle}
+                        year={bib.year}
                         pages={bib.pages}
                         volume={bib.volume}
                         number={bib.number}
@@ -260,22 +265,44 @@ export const ResearhTab = ({
                 {bookArray.length === 0 ? (
                   <div className="text-center">No publications found</div>
                 ) : (
-                  bookArray.map((bib, ind) => (
-                    <PaperPublicated
-                      key={bib.id}
-                      index={ind}
-                      title={bib.title}
-                      author={bib.author || ''}
-                      publisher={bib.publisher}
-                      journal={bib.journal}
-                      pages={bib.pages}
-                      volume={bib.volume}
-                      number={bib.number}
-                      doi={bib.doi}
-                      raw={bib.raw}
-                      lengthArray={bookArray.length}
-                    />
-                  ))
+                  bookArray.map(
+                    (
+                      bib: {
+                        id: React.Key | null | undefined
+                        title: string | undefined
+                        author: any
+                        booktitle: string | undefined
+                        publisher: string | undefined
+                        address: string | undefined
+                        chapter: string | undefined
+                        year: string | undefined
+                        pages: string | undefined
+                        volume: string | undefined
+                        number: string | number | undefined
+                        doi: string | undefined
+                        raw: string | undefined
+                      },
+                      ind,
+                    ) => (
+                      <BookPublicated
+                        key={bib.id}
+                        index={ind}
+                        title={bib.title}
+                        author={bib.author || ''}
+                        booktitle={bib.booktitle}
+                        publisher={bib.publisher}
+                        address={bib.address}
+                        chapter={bib.chapter}
+                        year={bib.year}
+                        pages={bib.pages}
+                        volume={bib.volume}
+                        number={bib.number}
+                        doi={bib.doi}
+                        raw={bib.raw}
+                        lengthArray={bookArray.length}
+                      />
+                    ),
+                  )
                 )}
               </ul>
             </AccordionContent>

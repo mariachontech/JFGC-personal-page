@@ -2,32 +2,36 @@
 
 import { Icons } from '@/components/icons'
 import { toast } from '@/components/ui/use-toast'
-import { Volume } from 'lucide-react'
 import React from 'react'
 
 type Props = {
   index: number
   title: string | undefined
   author: string | undefined
-  publisher: string | undefined
-  journal: string | undefined
-  pages: string | undefined
-  volume: string | undefined
-  number: string | number | undefined
+  booktitle: string | undefined
+  publisher?: string | undefined
+  address?: string | undefined
+  year?: string | undefined
+  pages?: string | undefined
+  volume?: string | undefined
+  number?: string | number | undefined
+  chapter?: string | undefined
   doi: string | undefined
   raw: string | undefined
   lengthArray: number
 }
 
-const PaperPublicated = ({
+const BookPublicated = ({
   index,
   title,
   author,
+  booktitle,
   publisher,
-  journal,
+  address,
+  year,
   pages,
   volume,
-  number,
+  chapter,
   doi,
   raw,
   lengthArray,
@@ -45,25 +49,27 @@ const PaperPublicated = ({
     })
   }
 
-  const journalOrPublisher = () => {
-    if (journal === undefined) {
-      return null
-    } else if (journal) {
-      return journal
-    } else {
-      return publisher + ','
-    }
-  }
+  // const journalOrPublisher = () => {
+  //   if (booktitle === undefined) {
+  //     return null
+  //   } else if (booktitle) {
+  //     return booktitle
+  //   } else {
+  //     return booktitle + ','
+  //   }
+  // }
   return (
     <li className="w-full flex flex-col   gap-2">
       <div className="flex justify-between  gap-2">
         [{lengthArray - index}]
         <p className="leadig-relaxed">
           {author}
-          <span> &quot;{title}&quot;, </span>
-          <span className="italic">{journalOrPublisher()}, </span>
-          {volume && `${volume}, `}
-          {number && `${number}, `} {pages && `pp. ${pages}, `}
+          <span> &quot;{title}&quot;</span>,{' '}
+          <span className="italic">{booktitle}, </span>
+          {volume && `${volume}, `},{year && `${year}, `}
+          {publisher && `${publisher}, `}
+          {address && `${address}, `}
+          {chapter && `Chap. ${chapter}, `} {pages && `pp. ${pages}, `}
           {doi && <span className="italic">{`https://doi.org/${doi}`}</span>}
         </p>
       </div>
@@ -76,4 +82,4 @@ const PaperPublicated = ({
   )
 }
 
-export default PaperPublicated
+export default BookPublicated
