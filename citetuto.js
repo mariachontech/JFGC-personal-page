@@ -28,8 +28,8 @@ Cite
       lang: 'en-US'
     })
 
-    console.log(refe);
-    console.log(bibliography);
+    //console.log(refe);
+    //console.log(bibliography);
     
     
   
