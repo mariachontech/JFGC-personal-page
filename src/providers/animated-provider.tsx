@@ -11,7 +11,7 @@ type Props = {
 export const AnimatedProvider = ({ children }: Props) => {
   const pathName = usePathname()
 
-  console.log('path:', pathName)
+  //('path:', pathName)
 
   return (
     <AnimatePresence mode={'wait'}>

@@ -13,7 +13,7 @@ type Props = {
 }
 
 export const HeaderLab = ({ headerLab }: Props) => {
-  console.log('data', headerLab)
+  //console.log('data', headerLab)
 
   return (
     <div className=" flex flex-col md:flex-row items-center  justify-center md:justify-between  w-full h-fit md:h-full md:gap-10 gap-0 ">

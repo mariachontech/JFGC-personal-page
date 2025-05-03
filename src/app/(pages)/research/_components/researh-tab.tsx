@@ -89,7 +89,7 @@ export const ResearhTab = ({
       : groupedReferences?.inbook),
   ]
 
-  console.log(groupedReferences)
+  //console.log(groupedReferences)
 
   return (
     <Tabs value={page} className="w-full ">

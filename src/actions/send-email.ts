@@ -19,7 +19,6 @@ export const sendEmail = async (formData: FormData) => {
     message,
   }
 
-  console.log(data)
 
   try {
     const { data, error } = await resend.emails.send({

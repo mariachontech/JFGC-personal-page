@@ -23,7 +23,7 @@ export function MenuSheet() {
   const handlePushUrl = (url: string) => {
     setTimeout(() => {
       router.push(url)
-      console.log('entro', url)
+     // console.log('entro', url)
     }, 100)
   }
 

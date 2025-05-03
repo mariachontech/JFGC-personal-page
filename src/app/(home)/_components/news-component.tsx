@@ -27,7 +27,7 @@ const month = [
 ]
 
 export const NewsComponent = ({ news }: Props) => {
-  console.log('message', news)
+ // console.log('message', news)
 
   return (
     <div className="w-[90%] md:max-w-screen-xl  mx-auto py-10">

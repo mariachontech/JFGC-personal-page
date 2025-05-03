@@ -15,7 +15,7 @@ import {
 export function ModeToggle() {
   const { setTheme, theme } = useTheme()
 
-  console.log('theme:  ', theme)
+  //console.log('theme:  ', theme)
 
   const handleTheme = () => {
     if (theme == 'light') {
