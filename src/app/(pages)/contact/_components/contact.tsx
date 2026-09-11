@@ -17,20 +17,15 @@ export const ContactForm = (props: Props) => {
   const { toast } = useToast()
 
   const sendEmailAction = async (formData: FormData) => {
-
     setIsLoading(true)
 
     try {
-      const product = await sendEmail(formData)
-      if (product) {
+      const result = await sendEmail(formData)
+      if (result?.success) {
         toast({
           description: 'Your message has been sent.',
         })
-
-        setIsLoading(false)
       } else {
-        setIsLoading(false)
-
         toast({
           variant: 'destructive',
           title: 'Uh oh! Something went wrong.',
@@ -38,7 +33,19 @@ export const ContactForm = (props: Props) => {
           action: <ToastAction altText="Try again"> Try again!</ToastAction>,
         })
       }
-    } catch (error) {}
+    } catch (error) {
+      toast({
+        variant: 'destructive',
+        title: 'Uh oh! Something went wrong.',
+        description:
+          error instanceof Error
+            ? error.message
+            : 'There was a problem with your request.',
+        action: <ToastAction altText="Try again"> Try again!</ToastAction>,
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -51,7 +58,7 @@ export const ContactForm = (props: Props) => {
             <p className="font-semibold">
               Prof. José Fermi Guerrero Castellanos
             </p>
-            <p className="flex justify-startr items-center gap-5">
+            <div className="flex justify-start items-center gap-5">
               <MapPin />
               <div className="flex flex-col">
                 <TooltipCom message="Facultad de ciencias de la electrónica">
@@ -65,7 +72,7 @@ export const ContactForm = (props: Props) => {
                 <span>Puebla México, C.P. 72450</span>
                 <span>Oficina: FCE-307</span>
               </div>
-            </p>
+            </div>
             {/* <p className="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +84,7 @@ export const ContactForm = (props: Props) => {
               </svg>
               <span>123456789</span>
             </p> */}
-            <p className="flex justify-startr items-center gap-5">
+            <p className="flex justify-start items-center gap-5">
               <Mail />
 
               <span>fermi.guerrero@correo.buap.mx</span>
@@ -94,6 +101,8 @@ export const ContactForm = (props: Props) => {
             <input
               type="text"
               name="name"
+              required
+              maxLength={100}
               placeholder="José Fermi Guerrero Castellanos"
               className="block w-full rounded-md bg-foreground/10 shadow-sm focus:ring focus:ri focus:ri p-2"
             />
@@ -112,6 +121,8 @@ export const ContactForm = (props: Props) => {
             <input
               type="email"
               name="email"
+              required
+              maxLength={254}
               placeholder="fermi@gmail.com"
               className="block w-full rounded-md bg-foreground/10 shadow-sm focus:ring focus:ri focus:ri p-2"
             />
@@ -120,6 +131,8 @@ export const ContactForm = (props: Props) => {
             <span className="mb-2">Message</span>
             <textarea
               name="message"
+              required
+              maxLength={5000}
               rows={3}
               className="block w-full rounded-md bg-foreground/10 focus:ring focus:ri focus:ri p-2"
             ></textarea>

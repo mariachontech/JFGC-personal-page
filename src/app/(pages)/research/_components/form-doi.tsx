@@ -20,10 +20,18 @@ import { useState } from 'react'
 import { CitationPub } from './citation-pub'
 import { Separator } from '@/components/ui/separator'
 
+const DOI_REGEX = /^10\.\d{4,9}\/[-._;()/:A-Z0-9]+$/i
+
 const formSchema = z.object({
-  doi: z.string().min(3, {
-    message: 'Doi must be at least 10 characters.',
-  }),
+  doi: z
+    .string()
+    .trim()
+    .min(7, {
+      message: 'DOI must be at least 7 characters.',
+    })
+    .regex(DOI_REGEX, {
+      message: 'Enter a valid DOI, e.g. 10.1109/ACCESS.2020.3002845',
+    }),
 })
 
 export function DoiForm() {
@@ -62,10 +70,27 @@ export function DoiForm() {
               </FormItem>
             )}
           />
-          {doi.doi === '' && (
+          {doi.doi === '' ? (
             <Button type="submit" className="w-full sm:w-auto">
               Buscar
             </Button>
+          ) : (
+            <div className="flex gap-2">
+              <Button type="submit" className="w-full sm:w-auto">
+                Buscar
+              </Button>
+              <Button
+                type="button"
+                variant="secondary"
+                className="w-full sm:w-auto"
+                onClick={() => {
+                  setDoi({ doi: '' })
+                  form.reset()
+                }}
+              >
+                Limpiar
+              </Button>
+            </div>
           )}
         </form>
       </Form>

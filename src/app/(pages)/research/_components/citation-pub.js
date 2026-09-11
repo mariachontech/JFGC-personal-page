@@ -10,29 +10,44 @@ import  {Cite}   from '@citation-js/core'
 require('@citation-js/plugin-bibtex')
 require('@citation-js/plugin-ris')
 
+import DOMPurify from 'isomorphic-dompurify'
+
 import { getCitation, getCitationAsync } from '../../../../utils/citation-server'
 import { Copy, Loader2 } from 'lucide-react'
 
 
 
-export function CitationPub( doi ) {
-  const [reference, setreference] = useState({});
+export function CitationPub({ doi }) {
+  const [reference, setreference] = useState({ bibliography_iee: '', bibtex2: '' });
   const [loading, setloading] = useState(true)
+  const [error, setError] = useState('')
   const { toast } = useToast()
 
-  
-  const bibliographyData = doi.doi
-  
+  const bibliographyData = doi
+
   useEffect(() => {
-    
-   getCitationAsync(bibliographyData).then((data)=>{
-    setreference(data)
-   }).catch((error)=>{
-    console.log(error);
-   }).finally(()=>{
-    setloading(false)
-   })
-    
+    let cancelled = false
+    if (!bibliographyData) {
+      setloading(false)
+      return
+    }
+    setloading(true)
+    setError('')
+
+    getCitationAsync(bibliographyData).then((data)=>{
+      if (cancelled) return
+      setreference(data)
+    }).catch(()=>{
+      if (cancelled) return
+      setError('Could not resolve this DOI.')
+    }).finally(()=>{
+      if (cancelled) return
+      setloading(false)
+    })
+
+    return () => {
+      cancelled = true
+    }
   }, [bibliographyData])
 
 
@@ -56,23 +71,29 @@ export function CitationPub( doi ) {
  
 
 
-  const onCopy = () => {
-    navigator.clipboard.writeText(reference.bibtex2)
-
-    toast({
-      variant: 'default',
-      title: 'bibTex was been copied',
-      description: (
-        <p
-         
-        >
-          <code>
-            {reference.bibtex2}
-          </code>
-        </p>
-      ),
-    })
+  const onCopy = async () => {
+    if (!reference.bibtex2) return
+    try {
+      await navigator.clipboard.writeText(reference.bibtex2)
+      toast({
+        variant: 'default',
+        title: 'BibTeX copied',
+        description: (
+          <p>
+            <code>{reference.bibtex2}</code>
+          </p>
+        ),
+      })
+    } catch {
+      toast({
+        variant: 'destructive',
+        title: 'Copy failed',
+        description: 'Clipboard is not available in this context.',
+      })
+    }
   }
+
+  const safeHtml = DOMPurify.sanitize(reference.bibliography_iee || '')
 
   return (
     <div className='p-4'>
@@ -82,14 +103,16 @@ export function CitationPub( doi ) {
       <Loader2 className="animate-spin" />
     </div>
      }
+     {!loading && error && (
+       <p className="text-sm text-destructive">{error}</p>
+     )}
     <li className="text-foreground flex flex-col  justify-start gap-5 ">
       <div className='w-[90%]'>
-        <p dangerouslySetInnerHTML={{ __html: reference.bibliography_iee }} /> 
-        
-        </div> 
+        <p dangerouslySetInnerHTML={{ __html: safeHtml }} />
+
+        </div>
       <div className=" w-full flex justify-end items-center">
         <div className=" w-24 h-10 cursor-pointer " onClick={() => onCopy()}>
-          {/* <Icons.bibTexIcon className="fill-foreground hover:fill-foreground/50 font-bold border-foreground py-2   " /> */}
           <Copy className="h-4 w-4" />
         </div>
       </div>

@@ -26,28 +26,64 @@ import {
 import ConferencePublicated from './conference-publicated'
 import BookPublicated from './book-publicated'
 
+export type BibEntry = {
+  id?: string
+  type?: string
+  title?: string
+  author?: string | string[]
+  publisher?: string
+  journal?: string
+  booktitle?: string
+  address?: string
+  chapter?: string
+  year?: string
+  pages?: string
+  volume?: string
+  number?: string | number
+  doi?: string
+  raw?: string
+}
+
 type Props = {
   researchData: ScientificInterest[]
   dataResearchGroup: GroupType[]
-  bibJSON: any[]
+  bibJSON: BibEntry[]
   projects: ProjectType[]
   industrialPart: IndustrialPartner[]
 }
 
-export const ResearhTab = ({
-  researchData,
-  dataResearchGroup,
-  bibJSON,
-  projects,
-  industrialPart,
-}: Props) => {
+const VALID_TABS = [
+  'interest',
+  'publications',
+  'projects',
+  'research-group',
+  'industrial-partners',
+] as const
 
-  const [page, setPage] = useState('')
+const formatAuthor = (author: BibEntry['author']): string =>
+  Array.isArray(author) ? author.join(', ') : (author ?? '')
+
+export const ResearhTab = ({
+  researchData = [],
+  dataResearchGroup = [],
+  bibJSON = [],
+  projects = [],
+  industrialPart = [],
+}: Props) => {
   const searchParams = useSearchParams()
+  const initialTab = searchParams.get('q')
+  const [page, setPage] = useState<string>(
+    initialTab && (VALID_TABS as readonly string[]).includes(initialTab)
+      ? initialTab
+      : 'interest',
+  )
 
   useEffect(() => {
-    setPage(page || searchParams.get('q') || '')
-  }, [searchParams, page, setPage])
+    const q = searchParams.get('q')
+    if (q && (VALID_TABS as readonly string[]).includes(q)) {
+      setPage(q)
+    }
+  }, [searchParams])
 
   const validTypes = [
     'article',
@@ -58,7 +94,9 @@ export const ResearhTab = ({
     'inbook',
   ]
 
-  const groupedReferences = bibJSON.reduce((groups, reference) => {
+  const groupedReferences = (bibJSON ?? []).reduce<
+    Record<string, BibEntry[]>
+  >((groups, reference) => {
     const type = reference.type?.toLowerCase() || 'other'
 
     // Solo crear grupos para los tipos válidos
@@ -92,32 +130,15 @@ export const ResearhTab = ({
   //console.log(groupedReferences)
 
   return (
-    <Tabs value={page} className="w-full ">
+    <Tabs value={page} onValueChange={setPage} className="w-full ">
       <Separator className="" />
 
       <TabsList className="w-[100%] md:w-full flex flex-wrap justify-start md:justify-evenly items-center mb-24 md:mb-0 bg-background ">
-        <TabsTrigger value="interest" onClick={() => setPage('interest')}>
-          Scientific interest
-        </TabsTrigger>
-        <TabsTrigger
-          value="publications"
-          onClick={() => setPage('publications')}
-        >
-          Publications
-        </TabsTrigger>
-        <TabsTrigger value="projects" onClick={() => setPage('projects')}>
-          Projects
-        </TabsTrigger>
-        <TabsTrigger
-          value="research-group"
-          onClick={() => setPage('research-group')}
-        >
-          Research group
-        </TabsTrigger>
-        <TabsTrigger
-          value="industrial-partners"
-          onClick={() => setPage('industrial-partners')}
-        >
+        <TabsTrigger value="interest">Scientific interest</TabsTrigger>
+        <TabsTrigger value="publications">Publications</TabsTrigger>
+        <TabsTrigger value="projects">Projects</TabsTrigger>
+        <TabsTrigger value="research-group">Research group</TabsTrigger>
+        <TabsTrigger value="industrial-partners">
           Industrial partners
         </TabsTrigger>
       </TabsList>
@@ -163,26 +184,12 @@ export const ResearhTab = ({
                   <div className="text-center">No publications found</div>
                 ) : (
                   groupedReferences?.article?.map(
-                    (
-                      bib: {
-                        id: React.Key | null | undefined
-                        title: string | undefined
-                        author: any
-                        publisher: string | undefined
-                        journal: string | undefined
-                        pages: string | undefined
-                        volume: string | undefined
-                        number: string | number | undefined
-                        doi: string | undefined
-                        raw: string | undefined
-                      },
-                      ind: number,
-                    ) => (
+                    (bib: BibEntry, ind: number) => (
                       <PaperPublicated
                         key={bib.id}
                         index={ind}
                         title={bib.title}
-                        author={bib.author || ''}
+                        author={formatAuthor(bib.author)}
                         publisher={bib.publisher}
                         journal={bib.journal}
                         pages={bib.pages}
@@ -206,27 +213,12 @@ export const ResearhTab = ({
                   <div className="text-center">No publications found</div>
                 ) : (
                   conferencesArray?.map(
-                    (
-                      bib: {
-                        id: React.Key | null | undefined
-                        title: string | undefined
-                        author: any
-                        booktitle: string | undefined
-                        journal: string | undefined
-                        year: string | undefined
-                        pages: string | undefined
-                        volume: string | undefined
-                        number: string | number | undefined
-                        doi: string | undefined
-                        raw: string | undefined
-                      },
-                      ind: number,
-                    ) => (
+                    (bib: BibEntry, ind: number) => (
                       <ConferencePublicated
                         key={bib.id}
                         index={ind}
                         title={bib.title}
-                        author={bib.author || ''}
+                        author={formatAuthor(bib.author)}
                         booktitle={bib.booktitle}
                         year={bib.year}
                         pages={bib.pages}
@@ -266,29 +258,12 @@ export const ResearhTab = ({
                   <div className="text-center">No publications found</div>
                 ) : (
                   bookArray.map(
-                    (
-                      bib: {
-                        id: React.Key | null | undefined
-                        title: string | undefined
-                        author: any
-                        booktitle: string | undefined
-                        publisher: string | undefined
-                        address: string | undefined
-                        chapter: string | undefined
-                        year: string | undefined
-                        pages: string | undefined
-                        volume: string | undefined
-                        number: string | number | undefined
-                        doi: string | undefined
-                        raw: string | undefined
-                      },
-                      ind,
-                    ) => (
+                    (bib: BibEntry, ind: number) => (
                       <BookPublicated
                         key={bib.id}
                         index={ind}
                         title={bib.title}
-                        author={bib.author || ''}
+                        author={formatAuthor(bib.author)}
                         booktitle={bib.booktitle}
                         publisher={bib.publisher}
                         address={bib.address}

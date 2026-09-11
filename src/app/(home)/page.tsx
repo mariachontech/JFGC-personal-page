@@ -23,9 +23,16 @@ export default async function Home() {
     query: HOME_QUERY,
   })
 
-
   const { mainImage, message, cta, principal, galleries, galleryCite } =
-    homeData
+    homeData ?? {}
+
+  if (!homeData || !mainImage) {
+    return (
+      <main className="flex flex-col justify-between items-center py-16">
+        <p>Content is temporarily unavailable. Please try again later.</p>
+      </main>
+    )
+  }
 
   return (
     <main className="flex flex-col   justify-between items-center">
@@ -36,14 +43,14 @@ export default async function Home() {
           <div className="relative flex justify-center items-center  w-full md:w-1/2 h-[70vh] md:h-full  ">
             <Image
               src={urlForImage(mainImage)}
-              alt={mainImage.alt}
+              alt={mainImage?.alt ?? 'Profile image'}
               fill
               className="object-contain "
             />
           </div>
           <div className="md:w-1/2 h-auto flex flex-col items-start  justify-between self-center  lg:text-center md:gap-24 gap-1 px-2 md:px-0">
             <AnimatedText
-              text={message}
+              text={message ?? ''}
               className="text-xl text-left lg:text-center  md:text-3xl"
             />
 

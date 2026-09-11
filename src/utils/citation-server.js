@@ -8,7 +8,7 @@ export const getCitation = (doi)=>{
   const data = new Cite([doi]);
 
       return {
-        bibliography_iee: data.format('bibliography', {template: "harvard1", formaat:'html'}),
+        bibliography_iee: data.format('bibliography', {template: "harvard1", format:'html'}),
         bibtex2: data.format('bibtex', {
           format: 'text',
         }),
@@ -16,33 +16,20 @@ export const getCitation = (doi)=>{
    
 }
 
-export const getCitationAsync = async(doi)=>{
-  return new Promise((resolve, reject) => {
+export const getCitationAsync = async (doi) => {
+  const cite = await Cite.async(doi)
+  const bibliography = cite.format('bibliography', {
+    format: 'html',
+    template: 'apa',
+    lang: 'en-US',
+  })
 
-    try {
-      
-      Cite
-      .async(doi)
-      .then(cite => {
-        const bibliography = cite.format('bibliography', {
-          format: 'html',
-          template: 'apa',
-          lang: 'en-US'
-        })
-       
-        resolve({
-          bibliography_iee: bibliography,
-          bibtex2: cite.format('bibtex', {
-            format: 'text',
-          }),
-        })
-      })
-    } catch (error) {
-      reject(error)
-    }
-    
-  });
-
+  return {
+    bibliography_iee: bibliography,
+    bibtex2: cite.format('bibtex', {
+      format: 'text',
+    }),
+  }
 }
 
 //     const refs2 = {

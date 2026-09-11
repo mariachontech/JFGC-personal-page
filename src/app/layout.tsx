@@ -18,7 +18,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: 'José Fermi Guerrero Castellanos',
-  description: "Fermi`'`s Page",
+  description: "Fermi's Page",
   metadataBase: new URL('https://fermiguerrero.com/'),
   keywords: ['Control', 'research', 'Navigation', 'PhD', 'BUAP', 'GIPSA-Lab'],
   openGraph: {
@@ -53,7 +53,7 @@ export default async function RootLayout({
     query: HOME_QUERY_LIGHT,
   })
 
-  const { principal } = homeData
+  const principal = homeData?.principal ?? null
 
   return (
     <html lang="es">

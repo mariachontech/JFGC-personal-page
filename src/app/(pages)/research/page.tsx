@@ -1,11 +1,11 @@
 import MaxWidthWrapper from '@/components/max-width-wrapper'
 import { Metadata } from 'next'
-import React from 'react'
+import React, { Suspense } from 'react'
 import { TransitionEffect } from '@/components/transition-effect'
 
 import { BibtexParser } from 'bibtex-js-parser'
 
-import { ResearhTab } from './_components/researh-tab'
+import { ResearhTab, type BibEntry } from './_components/researh-tab'
 import { SanityDocument } from 'next-sanity'
 import { sanityFetch } from '../../../../sanity/lib/fetch'
 import { RESEARCH_QUERY } from '../../../../sanity/lib/queries'
@@ -197,12 +197,16 @@ const ResearchPage = async (props: Props) => {
   })
 
   const bibArrayJson = () => {
-    let bibTextGetted: any[] = []
-    researchDatas.publications.map((pub: { bibText: string }) => {
-      const bibText = BibtexParser.parseToJSON(pub.bibText)
-      //console.log('bibText', bibText[0])
-
-      bibTextGetted.push(bibText[0])
+    const publications = researchDatas?.publications ?? []
+    let bibTextGetted: BibEntry[] = []
+    publications.forEach((pub: { bibText?: string }) => {
+      if (!pub?.bibText) return
+      try {
+        const bibText = BibtexParser.parseToJSON(pub.bibText) as BibEntry[]
+        if (bibText?.[0]) bibTextGetted.push(bibText[0])
+      } catch {
+        // Skip malformed bibText so one bad entry doesn't 500 the page
+      }
     })
 
     return bibTextGetted
@@ -212,20 +216,22 @@ const ResearchPage = async (props: Props) => {
   const bibJSON = bibJSON1.reverse() //BibtexParser.parseToJSON(bibArrayJson())
 
   //const bibJSONOne = BibtexParser.parseToJS
-  const project = researchDatas.projects
+  const project = researchDatas?.projects ?? []
 
   return (
     <main className="w-full mb-16 flex flex-col items-center justify-center">
       <TransitionEffect />
 
       <MaxWidthWrapper className="pt-4 sm:pt-8 md:pt-16 px-4 sm:px-6 lg:px-8">
-        <ResearhTab
-          bibJSON={bibJSON}
-          dataResearchGroup={researchDatas.groups}
-          researchData={researchDatas.scientificInterest}
-          projects={researchDatas.projects}
-          industrialPart={researchDatas.industrialPartners}
-        />
+        <Suspense fallback={<div className="py-10 text-center">Loading…</div>}>
+          <ResearhTab
+            bibJSON={bibJSON}
+            dataResearchGroup={researchDatas?.groups ?? []}
+            researchData={researchDatas?.scientificInterest ?? []}
+            projects={researchDatas?.projects ?? []}
+            industrialPart={researchDatas?.industrialPartners ?? []}
+          />
+        </Suspense>
       </MaxWidthWrapper>
     </main>
   )

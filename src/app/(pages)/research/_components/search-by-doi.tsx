@@ -14,13 +14,10 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Copy, Server } from 'lucide-react'
-import { useState } from 'react'
 import { DoiForm } from './form-doi'
 type Props = {}
 
 export const SearchByDoi = (props: Props) => {
-  const [doi, setDoi] = useState<string>('')
-
   return (
     <Dialog>
       <DialogTrigger asChild>
