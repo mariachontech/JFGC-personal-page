@@ -29,7 +29,6 @@ export const GALLERY_QUERY = groq`*[_type == "home"][0]{
    },
      }`
 
-
 export const HOME_QUERY_LIGHT = groq`*[_type == "home"][0]{
 
   principal->{
@@ -64,6 +63,9 @@ export const BIOGRAPHY_QUERY = groq`
 export const RESEARCH_QUERY = groq`*[_type == "researchPage"][0] {
   ...,
   publications[]->{
+    bibText
+  },
+  patents[]->{
     bibText
   },
    scientificInterest[]->{

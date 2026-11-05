@@ -12,4 +12,3 @@ export const urlForImage = (source?: SanityImageSource | null) => {
   if (!source) return ''
   return imageBuilder?.image(source).auto('format').fit('max').url() ?? ''
 }
-

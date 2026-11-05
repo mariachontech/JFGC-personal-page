@@ -12,7 +12,6 @@ const GalleryPage = async (props: Props) => {
     query: GALLERY_QUERY,
   })
 
-
   return (
     <MaxWidthWrapper>
       <GalleryPics galleryData={GalleryData.galleries} />

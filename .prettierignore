@@ -1,0 +1,11 @@
+.next
+out
+build
+coverage
+.next
+.vercel
+.wrangler
+node_modules
+package-lock.json
+public/
+*.bib

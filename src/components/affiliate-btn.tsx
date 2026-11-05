@@ -12,7 +12,7 @@ export const AffiliateBtn = ({ className }: Props) => {
     <div
       className={cn(
         'fixed top-0 right-0 lg:right-auto lg:top-auto lg:left-4 lg:bottom-4 flex items-center justify-center overflow-hidden',
-        className
+        className,
       )}
     >
       <div className="w-28 lg:w-40 h-auto flex items-center justify-center relative ">
@@ -34,7 +34,7 @@ export const AffiliateBtn = ({ className }: Props) => {
             <textPath
               className={cn(
                 'text-[10px] font-thin fill-dark dark:fill-light ',
-                roboto.className
+                roboto.className,
               )}
               href="#circlePath"
             >
@@ -45,7 +45,7 @@ export const AffiliateBtn = ({ className }: Props) => {
         <button
           className={cn(
             'flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-foreground text-light dark:text-primary shadow-md border border-solid border-foreground  w-16 h-16 rounded-full text-sm font-semibold',
-            roboto.className
+            roboto.className,
           )}
         >
           Affiliate

@@ -30,6 +30,17 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'patents',
+      title: 'Patents',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: { type: 'patentScheme' },
+        }),
+      ],
+    }),
+    defineField({
       name: 'scientificInterest',
       title: 'Scientific interest',
       type: 'array',

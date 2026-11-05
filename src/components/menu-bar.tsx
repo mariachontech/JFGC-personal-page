@@ -116,79 +116,69 @@ export function MenuBar({ className }: { className?: string }) {
     <NavigationMenu className={className}>
       <NavigationMenuList className="space-x-5">
         <NavigationMenuItem className="relative cursor-cell">
-          <Link href={'/biography'}>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Biography
-            </NavigationMenuLink>
-            <span
-              className={cn(
-                'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-0.5  transition-[width] ease duration-300',
-                pathname === '/biography' ? 'w-full' : 'w-0',
-              )}
-            >
-              &nbsp;
-            </span>
-          </Link>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href={'/biography'}>Biography</Link>
+          </NavigationMenuLink>
+          <span
+            className={cn(
+              'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-0.5  transition-[width] ease duration-300',
+              pathname === '/biography' ? 'w-full' : 'w-0',
+            )}
+          >
+            &nbsp;
+          </span>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href={'/research?q=publications'} className="relative">
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Research
-            </NavigationMenuLink>
-            <span
-              className={cn(
-                'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-3  transition-[width] ease duration-300',
-                pathname === '/research' ? 'w-full' : 'w-0',
-              )}
-            >
-              &nbsp;
-            </span>{' '}
-          </Link>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href={'/research?q=publications'}>Research</Link>
+          </NavigationMenuLink>
+          <span
+            className={cn(
+              'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-3  transition-[width] ease duration-300',
+              pathname === '/research' ? 'w-full' : 'w-0',
+            )}
+          >
+            &nbsp;
+          </span>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href={'/students'} className="relative">
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Students
-            </NavigationMenuLink>
-            <span
-              className={cn(
-                'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-3  transition-[width] ease duration-300',
-                pathname === '/students' ? 'w-full' : 'w-0',
-              )}
-            >
-              &nbsp;
-            </span>
-          </Link>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href={'/students'}>Students</Link>
+          </NavigationMenuLink>
+          <span
+            className={cn(
+              'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-3  transition-[width] ease duration-300',
+              pathname === '/students' ? 'w-full' : 'w-0',
+            )}
+          >
+            &nbsp;
+          </span>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href={'/teaching'} className="relative">
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Teaching
-            </NavigationMenuLink>
-            <span
-              className={cn(
-                'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-3  transition-[width] ease duration-300',
-                pathname === '/teaching' ? 'w-full' : 'w-0',
-              )}
-            >
-              &nbsp;
-            </span>
-          </Link>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href={'/teaching'}>Teaching</Link>
+          </NavigationMenuLink>
+          <span
+            className={cn(
+              'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-3  transition-[width] ease duration-300',
+              pathname === '/teaching' ? 'w-full' : 'w-0',
+            )}
+          >
+            &nbsp;
+          </span>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href={'/lab'} className="relative">
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Lab
-            </NavigationMenuLink>
-            <span
-              className={cn(
-                'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-3  transition-[width] ease duration-300',
-                pathname === '/lab' ? 'w-full' : 'w-0',
-              )}
-            >
-              &nbsp;
-            </span>
-          </Link>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href={'/lab'}>Lab</Link>
+          </NavigationMenuLink>
+          <span
+            className={cn(
+              'h-[2px] inline-block bg-primary dark:bg-primary absolute left-0 -bottom-3  transition-[width] ease duration-300',
+              pathname === '/lab' ? 'w-full' : 'w-0',
+            )}
+          >
+            &nbsp;
+          </span>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

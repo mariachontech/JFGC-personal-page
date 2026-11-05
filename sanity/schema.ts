@@ -14,6 +14,7 @@ import biography from './schemaTypes/biography/biography'
 import experienceScheme from './schemaTypes/common/experience-schema'
 import researchPage from './schemaTypes/researchPage/researchPage'
 import publicationScheme from './schemaTypes/common/publicationScheme'
+import patentScheme from './schemaTypes/common/patentScheme'
 import scientificInterest from './schemaTypes/common/scientific-interest'
 import projectScheme from './schemaTypes/common/projectScheme'
 import researchGroup from './schemaTypes/common/research-group'
@@ -42,6 +43,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     labPage,
     // gallery,
     publicationScheme,
+    patentScheme,
     scientificInterest,
     projectScheme,
     researchGroup,

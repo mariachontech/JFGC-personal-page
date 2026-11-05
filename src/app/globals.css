@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
 
 @layer base {
   :root {
@@ -28,7 +27,7 @@
   }
 
   .dark {
-    --background: 244, 100%, 9%; 
+    --background: 244, 100%, 9%;
     --foreground: 210 40% 98%;
     --card: 244, 100%, 9%;
     --card-foreground: 210 40% 98%;
@@ -50,7 +49,6 @@
   }
 }
 
- 
 @layer base {
   * {
     @apply border-border;
@@ -61,7 +59,6 @@
 }
 
 .toastp {
-  background-color: beige !important; 
+  background-color: beige !important;
   color: black !important;
 }
-

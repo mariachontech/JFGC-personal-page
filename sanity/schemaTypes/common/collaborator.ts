@@ -4,12 +4,11 @@ export default defineType({
   type: 'document',
   name: 'collaborator',
   fields: [
-   defineField({
+    defineField({
       title: 'Collaborator',
       name: 'collaboratorName',
       type: 'reference',
-      to: [{type: 'user'}]
+      to: [{ type: 'user' }],
     }),
- 
   ],
 })

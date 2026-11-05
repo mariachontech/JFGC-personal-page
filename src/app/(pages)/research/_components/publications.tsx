@@ -4,8 +4,6 @@ import React from 'react'
 
 import { CitationPub } from './citation-pub'
 
-
-
 type Props = {}
 
 const papersData = [
@@ -116,9 +114,6 @@ const papersData = [
 const publicationsData = ``
 
 export const Publications = ({}: Props) => {
-
-
-
   return (
     <li className="ps-5 mt-2 space-y-1 list-decimal list-inside">
       {/* {papersData.map((doi, ind) => (

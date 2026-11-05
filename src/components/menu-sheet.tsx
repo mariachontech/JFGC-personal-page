@@ -23,7 +23,7 @@ export function MenuSheet() {
   const handlePushUrl = (url: string) => {
     setTimeout(() => {
       router.push(url)
-     // console.log('entro', url)
+      // console.log('entro', url)
     }, 100)
   }
 
@@ -102,11 +102,10 @@ export function MenuSheet() {
                 pathname === '/teaching'
                   ? 'border-b-2 border-foreground pb-2'
                   : ''
-              }`}  
+              }`}
               onClick={() => handlePushUrl('/teaching')}
             >
               Teaching
-              
             </button>
           </SheetClose>
           <SheetClose>

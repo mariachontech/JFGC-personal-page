@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/badge'
+import Image from 'next/image'
 import { urlForImage } from '../../../../../sanity/lib/image'
 import { month } from '@/lib/utils'
 import { PhdType } from '../../../../../types'
@@ -60,9 +61,12 @@ export const PhdStudentsList = ({ studentData }: Props) => {
     <li className="py-5 flex items-start justify-between">
       <div className="flex gap-3">
         {studentData.student.image.asset ? (
-          <img
+          <Image
             src={urlForImage(studentData.student.image.asset as any)}
+            alt={studentData.student.name}
             className="flex-none w-12 h-12 rounded-full"
+            width={48}
+            height={48}
           />
         ) : (
           <Avatar>

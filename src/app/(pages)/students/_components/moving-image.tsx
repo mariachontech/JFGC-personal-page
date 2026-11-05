@@ -22,7 +22,7 @@ export const MovingImage = ({ title, img, link }: Props) => {
     setvisible(true)
     x.set(event.pageX * 1)
     y.set(-10 * 1)
-   // console.log('Entra:', event.pageX)
+    // console.log('Entra:', event.pageX)
   }
 
   const handleMouseLeave = (event: MouseEvent) => {
@@ -30,7 +30,7 @@ export const MovingImage = ({ title, img, link }: Props) => {
     setvisible(false)
   }
   useEffect(() => {
-   // console.log('estado', visible)
+    // console.log('estado', visible)
   }, [visible])
 
   return (
@@ -52,7 +52,7 @@ export const MovingImage = ({ title, img, link }: Props) => {
           alt={title}
           className={cn(
             ' hidden  ',
-            visible === true && 'md:inline-block z-80 hidden '
+            visible === true && 'md:inline-block z-80 hidden ',
           )}
           width={384}
           height={384}

@@ -25,6 +25,7 @@ import {
 } from '@/components/ui/accordion'
 import ConferencePublicated from './conference-publicated'
 import BookPublicated from './book-publicated'
+import PatentPublicated from './patent-publicated'
 
 export type BibEntry = {
   id?: string
@@ -36,6 +37,10 @@ export type BibEntry = {
   booktitle?: string
   address?: string
   chapter?: string
+  assignee?: string
+  nationality?: string
+  howpublished?: string
+  note?: string
   year?: string
   pages?: string
   volume?: string
@@ -48,6 +53,7 @@ type Props = {
   researchData: ScientificInterest[]
   dataResearchGroup: GroupType[]
   bibJSON: BibEntry[]
+  patents?: BibEntry[]
   projects: ProjectType[]
   industrialPart: IndustrialPartner[]
 }
@@ -67,6 +73,7 @@ export const ResearhTab = ({
   researchData = [],
   dataResearchGroup = [],
   bibJSON = [],
+  patents = [],
   projects = [],
   industrialPart = [],
 }: Props) => {
@@ -92,24 +99,26 @@ export const ResearhTab = ({
     'inproceedings',
     'incollection',
     'inbook',
+    'patent',
   ]
 
-  const groupedReferences = (bibJSON ?? []).reduce<
-    Record<string, BibEntry[]>
-  >((groups, reference) => {
-    const type = reference.type?.toLowerCase() || 'other'
+  const groupedReferences = (bibJSON ?? []).reduce<Record<string, BibEntry[]>>(
+    (groups, reference) => {
+      const type = reference.type?.toLowerCase() || 'other'
 
-    // Solo crear grupos para los tipos válidos
-    const groupType = validTypes.includes(type) ? type : 'other'
+      // Solo crear grupos para los tipos válidos
+      const groupType = validTypes.includes(type) ? type : 'other'
 
-    if (!groups[groupType]) {
-      groups[groupType] = []
-    }
+      if (!groups[groupType]) {
+        groups[groupType] = []
+      }
 
-    groups[groupType].push(reference)
+      groups[groupType].push(reference)
 
-    return groups
-  }, {})
+      return groups
+    },
+    {},
+  )
 
   const conferencesArray = [
     ...(groupedReferences?.inproceedings === undefined
@@ -125,6 +134,13 @@ export const ResearhTab = ({
     ...(groupedReferences?.inbook === undefined
       ? []
       : groupedReferences?.inbook),
+  ]
+
+  const patentsArray = [
+    ...(groupedReferences?.patent === undefined
+      ? []
+      : groupedReferences?.patent),
+    ...patents,
   ]
 
   //console.log(groupedReferences)
@@ -212,24 +228,22 @@ export const ResearhTab = ({
                 {conferencesArray.length === 0 ? (
                   <div className="text-center">No publications found</div>
                 ) : (
-                  conferencesArray?.map(
-                    (bib: BibEntry, ind: number) => (
-                      <ConferencePublicated
-                        key={bib.id}
-                        index={ind}
-                        title={bib.title}
-                        author={formatAuthor(bib.author)}
-                        booktitle={bib.booktitle}
-                        year={bib.year}
-                        pages={bib.pages}
-                        volume={bib.volume}
-                        number={bib.number}
-                        doi={bib.doi}
-                        raw={bib.raw}
-                        lengthArray={conferencesArray.length}
-                      />
-                    ),
-                  )
+                  conferencesArray?.map((bib: BibEntry, ind: number) => (
+                    <ConferencePublicated
+                      key={bib.id}
+                      index={ind}
+                      title={bib.title}
+                      author={formatAuthor(bib.author)}
+                      booktitle={bib.booktitle}
+                      year={bib.year}
+                      pages={bib.pages}
+                      volume={bib.volume}
+                      number={bib.number}
+                      doi={bib.doi}
+                      raw={bib.raw}
+                      lengthArray={conferencesArray.length}
+                    />
+                  ))
                 )}
               </ul>
               {/* <Accordion type="single" collapsible className="px-10">
@@ -257,33 +271,59 @@ export const ResearhTab = ({
                 {bookArray.length === 0 ? (
                   <div className="text-center">No publications found</div>
                 ) : (
-                  bookArray.map(
-                    (bib: BibEntry, ind: number) => (
-                      <BookPublicated
-                        key={bib.id}
-                        index={ind}
-                        title={bib.title}
-                        author={formatAuthor(bib.author)}
-                        booktitle={bib.booktitle}
-                        publisher={bib.publisher}
-                        address={bib.address}
-                        chapter={bib.chapter}
-                        year={bib.year}
-                        pages={bib.pages}
-                        volume={bib.volume}
-                        number={bib.number}
-                        doi={bib.doi}
-                        raw={bib.raw}
-                        lengthArray={bookArray.length}
-                      />
-                    ),
-                  )
+                  bookArray.map((bib: BibEntry, ind: number) => (
+                    <BookPublicated
+                      key={bib.id}
+                      index={ind}
+                      title={bib.title}
+                      author={formatAuthor(bib.author)}
+                      booktitle={bib.booktitle}
+                      publisher={bib.publisher}
+                      address={bib.address}
+                      chapter={bib.chapter}
+                      year={bib.year}
+                      pages={bib.pages}
+                      volume={bib.volume}
+                      number={bib.number}
+                      doi={bib.doi}
+                      raw={bib.raw}
+                      lengthArray={bookArray.length}
+                    />
+                  ))
+                )}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-4">
+            <AccordionTrigger>Patents</AccordionTrigger>
+            <AccordionContent>
+              <ul className="mt-4">
+                {patentsArray.length === 0 ? (
+                  <div className="text-center">No patents found</div>
+                ) : (
+                  patentsArray.map((bib: BibEntry, ind: number) => (
+                    <PatentPublicated
+                      key={bib.id}
+                      index={ind}
+                      title={bib.title}
+                      author={formatAuthor(bib.author)}
+                      assignee={bib.assignee}
+                      address={bib.address}
+                      nationality={bib.nationality}
+                      howpublished={bib.howpublished}
+                      note={bib.note}
+                      year={bib.year}
+                      number={bib.number}
+                      doi={bib.doi}
+                      raw={bib.raw}
+                      lengthArray={patentsArray.length}
+                    />
+                  ))
                 )}
               </ul>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-     
       </TabsContent>
       <TabsContent value="projects">
         <AnimatedText

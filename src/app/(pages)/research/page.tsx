@@ -191,6 +191,32 @@ export const metadata: Metadata = {
 // ]
 type Props = {}
 
+// bibtex-js-parser no soporta secuencias de escape LaTeX y exige coma al final
+// de cada campo; se reparan estos errores comunes de autoría antes del parse
+// para que una entrada mal formateada no se descarte silenciosamente.
+const normalizeBibText = (raw: string) => {
+  const lines = raw.replace(/\\([&#%$*_{}]|\+)/g, '$1').split(/\r?\n/)
+  return lines
+    .map((line, idx) => {
+      const next = lines[idx + 1] ?? ''
+      const startsNextField = /^\s*(?:[A-Za-z][A-Za-z0-9_-]*\s*=|\})/.test(next)
+      const isFieldLine = /^\s*[A-Za-z][A-Za-z0-9_-]*\s*=/.test(line)
+      if (isFieldLine && startsNextField && !/,\s*$/.test(line)) {
+        return `${line.trimEnd()},`
+      }
+      return line
+    })
+    .join('\n')
+}
+
+const parseBibEntry = (bibText: string): BibEntry[] => {
+  try {
+    return BibtexParser.parseToJSON(normalizeBibText(bibText)) as BibEntry[]
+  } catch {
+    return []
+  }
+}
+
 const ResearchPage = async (props: Props) => {
   const researchDatas = await sanityFetch<SanityDocument>({
     query: RESEARCH_QUERY,
@@ -201,12 +227,8 @@ const ResearchPage = async (props: Props) => {
     let bibTextGetted: BibEntry[] = []
     publications.forEach((pub: { bibText?: string }) => {
       if (!pub?.bibText) return
-      try {
-        const bibText = BibtexParser.parseToJSON(pub.bibText) as BibEntry[]
-        if (bibText?.[0]) bibTextGetted.push(bibText[0])
-      } catch {
-        // Skip malformed bibText so one bad entry doesn't 500 the page
-      }
+      const bibText = parseBibEntry(pub.bibText)
+      if (bibText?.[0]) bibTextGetted.push(bibText[0])
     })
 
     return bibTextGetted
@@ -214,6 +236,36 @@ const ResearchPage = async (props: Props) => {
 
   const bibJSON1 = bibArrayJson()
   const bibJSON = bibJSON1.reverse() //BibtexParser.parseToJSON(bibArrayJson())
+
+  const bibPatentsJson = () => {
+    const patents = researchDatas?.patents ?? []
+    let bibTextPatents: BibEntry[] = []
+    patents.forEach((patent: { bibText?: string }) => {
+      if (!patent?.bibText) return
+      const bibPatent = parseBibEntry(patent.bibText)
+      if (bibPatent?.[0])
+        bibTextPatents.push({ ...bibPatent[0], type: 'patent' })
+    })
+
+    // DEMO patente de prueba: se muestra mientras no existan patentes en Sanity.
+    // Quitar este fallback después de registrar las patentes reales en Studio.
+    if (bibTextPatents.length === 0) {
+      const demoPatent = `@misc{inventorTraction2025patent,
+  author       = {JUAN MANUEL JIMÉNEZ RODRÍGUEZ, JOSÉ FERMI GUERRERO CASTELLANOS, JESÚS MANUEL MUÑOZ PACHECO, LUIS ÁNGEL MARTÍNEZ RAMÍREZ},
+  title        = {DISEÑO DE UN SISTEMA DE TRACCIÓN PARA AUTOMÓVILES ELÉCTRICOS DESTINADOS A LA MOVILIDAD COMPARTIDA URBANA},
+  howpublished = {MX. Patent No. MX/a/2023/014730},
+  year         = {2025},
+  note         = {Filed Dec. 08, 2023, and issued Nov 27, 2025}
+}`
+      const demoParsed = parseBibEntry(demoPatent)
+      if (demoParsed?.[0])
+        bibTextPatents.push({ ...demoParsed[0], type: 'patent' })
+    }
+
+    return bibTextPatents
+  }
+
+  const patentsBibJSON = bibPatentsJson().reverse()
 
   //const bibJSONOne = BibtexParser.parseToJS
   const project = researchDatas?.projects ?? []
@@ -226,6 +278,7 @@ const ResearchPage = async (props: Props) => {
         <Suspense fallback={<div className="py-10 text-center">Loading…</div>}>
           <ResearhTab
             bibJSON={bibJSON}
+            patents={patentsBibJSON}
             dataResearchGroup={researchDatas?.groups ?? []}
             researchData={researchDatas?.scientificInterest ?? []}
             projects={researchDatas?.projects ?? []}

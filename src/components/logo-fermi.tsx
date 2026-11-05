@@ -70,7 +70,7 @@ export const LogoFermiIcon = (props: Props) => {
       href={'/'}
       className={cn(
         'relative flex items-center justify-center  md:mt-2 ',
-        roboto.className
+        roboto.className,
       )}
       whileHover={{ scale: 1.1 }}
     >
@@ -108,7 +108,7 @@ export const LogoFermiIconText = ({ className }: Props) => {
     <div
       className={cn(
         'flex flex-col justify-start items-end w-[180px] pb-1 pr-10',
-        className
+        className,
       )}
     >
       <h5 className="font-light text-2xl text-foreground">José Fermi</h5>

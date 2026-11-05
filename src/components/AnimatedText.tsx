@@ -42,7 +42,7 @@ export const AnimatedText = ({
       <motion.h1
         className={cn(
           'inline-block w-full text-primary font-bold  text-6xl',
-          className
+          className,
         )}
         variants={quote}
         initial="initial"

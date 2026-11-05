@@ -1,5 +1,6 @@
 'use client'
 import { CalendarCheck2, CalendarDays, Handshake } from 'lucide-react'
+import Image from 'next/image'
 import React from 'react'
 
 type Props = {
@@ -23,7 +24,7 @@ const PhdStudents = ({
     <ul>
       <li>
         <div className="w-full   max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
-          <img src={image} alt="avatar" />
+          <Image src={image} alt={name} width={200} height={200} />
 
           <div className="flex items-center px-6 py-3 bg-gray-900">
             <svg

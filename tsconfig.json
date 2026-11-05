@@ -22,6 +22,13 @@
     },
     "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(pages)/research/_components/citation-pub.js", "src/components/citation.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/(pages)/research/_components/citation-pub.js",
+    "src/components/citation.js"
+  ],
   "exclude": ["node_modules"]
 }

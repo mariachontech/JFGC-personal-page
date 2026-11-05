@@ -34,13 +34,12 @@ const BiographyPage = async (props: Props) => {
 
   const {
     title,
- 
+
     pdfURL,
     mainImage,
     secondImage,
     citeAuthor,
   } = await biographyData
-
 
   return (
     <main className="flex w-full  flex-col items-center justify-center">

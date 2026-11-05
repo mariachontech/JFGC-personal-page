@@ -11,7 +11,7 @@ const MaxWidthWrapper = ({ children, className }: Props) => {
     <div
       className={cn(
         'mx-auto w-full inline-block z-0   px-2.5 md:px-20 pt-0 ',
-        className
+        className,
       )}
     >
       {children}

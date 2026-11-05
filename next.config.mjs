@@ -5,7 +5,7 @@ import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev'
 //       only need to use the function during development
 if (process.env.NODE_ENV === 'development') {
   await setupDevPlatform({
-    persist: true
+    persist: true,
   })
 }
 const nextConfig = {
@@ -15,20 +15,22 @@ const nextConfig = {
     remotePatterns: [
       {
         hostname: 'source.unsplash.com',
-   
       },
       {
         hostname: 'www.fguerrero.ece.buap.mx',
       },
       {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
       },
     ],
   },
   experimental: {
     taint: true,
+    // isomorphic-dompurify/jsdom read asset files via __dirname at import
+    // time; bundling them breaks the path, so keep them external at runtime.
+    serverComponentsExternalPackages: ['isomorphic-dompurify', 'jsdom'],
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig
